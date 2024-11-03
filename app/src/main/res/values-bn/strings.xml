@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">সারভ ক্যালকুলেটর</string>
+    <string name="title_about">এবাউট</string>
+    <string name="title_settings">সেটিংস</string>
+    <string name="calculatorIds">ক্যালকুলেটর</string>
+
+    <string name="speed">Speed</string>
+    <string name="area">এরিয়া</string>
+    <string name="length">Length</string>
+    <string name="temperature">Temperature</string>
+    <string name="frequency">Frequency</string>
+    <string name="mass">Mass</string>
+    <string name="unit_converter">Unit Converter</string>
+    <string name="enter_units_to_convert">Enter Units to convert</string>
+    <string name="from">From</string>
+    <string name="convert_from">Convert From</string>
+    <string name="convert_to">Convert To</string>
+    <string name="convergion_racio">Convergion Racio</string>
+    <string name="convert">CONVERT</string>
+    <string name="settings">Setting</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="title_activity_basicalculator">সাারন ক্যালকুলেটর</string>
+</resources>
