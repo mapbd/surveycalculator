@@ -26,7 +26,7 @@ class SettingActivity : AppCompatActivity() {
 
         binding.toolbar.title = "Setting"
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+       // supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Restore the switch state from SharedPreferences
         val preferences = getSharedPreferences("Settings", MODE_PRIVATE)
@@ -63,6 +63,8 @@ class SettingActivity : AppCompatActivity() {
             R.id.aboutId -> {
                 val about = Intent(this,AboutActivity::class.java);
                 startActivity(about)
+                onBackPressed()
+                return true
             }
             R.id.settingId -> {
                 Toast.makeText(this,"Settings", Toast.LENGTH_LONG).show()
@@ -71,6 +73,8 @@ class SettingActivity : AppCompatActivity() {
             R.id.basicCal ->{
                 val calculator = Intent(this,BasicalculatorActivity::class.java);
                 startActivity(calculator)
+                onBackPressed()
+                return true
             }
         }
         return true

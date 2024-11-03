@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.databinding.ActivityAboutBinding
 import org.map_bd.surveycalculator.databinding.ActivitySettingBinding
 
+@Suppress("DEPRECATION")
 class AboutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAboutBinding
 
@@ -23,7 +24,7 @@ class AboutActivity : AppCompatActivity() {
 
         binding.toolbar.title = "About"
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+     //   supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -38,10 +39,14 @@ class AboutActivity : AppCompatActivity() {
             R.id.settingId -> {
                 val settings = Intent(this,SettingActivity::class.java);
                 startActivity(settings)
+                onBackPressed()
+                return true
             }
             R.id.basicCal ->{
                 val calculator = Intent(this,BasicalculatorActivity::class.java);
                 startActivity(calculator)
+                onBackPressed()
+                return true
             }
         }
         return true

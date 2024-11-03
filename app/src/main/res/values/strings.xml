@@ -4,22 +4,36 @@
     <string name="title_settings">Settings</string>
     <string name="calculatorIds">Calculator</string>
 
-    <string name="speed">Speed</string>
-    <string name="area">Area</string>
-    <string name="length">Length</string>
-    <string name="temperature">Temperature</string>
-    <string name="frequency">Frequency</string>
-    <string name="mass">Mass</string>
-    <string name="unit_converter">Unit Converter</string>
-    <string name="enter_units_to_convert">Enter Units to convert</string>
-    <string name="from">From</string>
-    <string name="convert_from">Convert From</string>
-    <string name="convert_to">Convert To</string>
-    <string name="convergion_racio">Convergion Racio</string>
-    <string name="convert">CONVERT</string>
+
     <string name="settings">Setting</string>
     <string name="change_language">Change Language</string>
     <string name="change_theme">Change Theme</string>
     <string name="title_activity_basicalculator">Basic Calculator</string>
+
+
+    <string name="title_land">Land Calculation</string>
+    <string name="title_gold">Gold Calculation</string>
+    <string name="title_timber">Timber Calculation</string>
+    <string name="title_rod">Rod Calculation</string>
+    <string name="title_soil">Soil Calculation</string>
+    <string name="title_genarel">Genarel</string>
+
+
+    <string name="oblong">Oblong</string>
+    <string name="square">Square</string>
+    <string name="parellelogram">Parellelogram</string>
+    <string name="trapezium">Trapezium</string>
+    <string name="cosine">Cosine Rule</string>
+    <string name="heron">Heron"'"s Rule</string>
+    <string name="rtriangle">Right triangle</string>
+    <string name="parabola">Parabola</string>
+    <string name="ccircle">Circle</string>
+    <string name="circle">Circle</string>
+    <string name="ellipse">Ellipse</string>
+    <string name="ldistribution">Land Distribution</string>
+    <string name="kcalculator">Khatian Calculator</string>
+    <string name="uchange">Unit Change</string>
+    <string name="mtriangles">Multiple Triangles</string>
+    <string name="alcalculation">Accurate Land Calculation</string>
 
 </resources>
