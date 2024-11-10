@@ -45,6 +45,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/oblongId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -75,6 +76,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/squareId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -315,6 +317,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/circleId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"

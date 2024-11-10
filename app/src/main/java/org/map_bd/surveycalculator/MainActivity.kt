@@ -78,6 +78,10 @@ class MainActivity : AppCompatActivity() {
                     val calculator = Intent(this,BasicalculatorActivity::class.java);
                     startActivity(calculator)
                 }
+            R.id.compassId ->{
+                val compass = Intent(this,CompassActivity::class.java);
+                startActivity(compass)
+            }
         }
         return true
     }
