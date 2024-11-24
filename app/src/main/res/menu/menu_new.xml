@@ -2,8 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/aboutId"
-        android:title="@string/title_about"/>
     <item android:title="compass"
         android:id="@+id/compassId"
         android:icon="@drawable/baseline_assistant_navigation_24"

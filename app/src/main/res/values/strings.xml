@@ -58,6 +58,11 @@
     <string name="square_rules">Area of square = length x length</string>
 
 
+    <string name="parellelogram_Input">Area of parallelogram = area x height</string>
+    <string name="parellelogram_land">area</string>
+    <string name="parellelogram_hight">height</string>
+
+
     <string name="compass">Compass</string>
 
     <string name="sensor_status">Sensor status</string>

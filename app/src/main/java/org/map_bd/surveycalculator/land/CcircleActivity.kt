@@ -1,34 +1,36 @@
-package org.map_bd.surveycalculator
+package org.map_bd.surveycalculator.land
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
-import org.map_bd.surveycalculator.databinding.ActivityRodBinding
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import org.map_bd.surveycalculator.BasicalculatorActivity
+import org.map_bd.surveycalculator.CompassActivity
+import org.map_bd.surveycalculator.R
+import org.map_bd.surveycalculator.databinding.ActivityAccurateLandCalculationBinding
+import org.map_bd.surveycalculator.databinding.ActivityCcircleBinding
 
+class CcircleActivity : AppCompatActivity() {
 
-class RodActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityRodBinding
+    private lateinit var binding: ActivityCcircleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRodBinding.inflate(layoutInflater)
+
+        binding = ActivityCcircleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_new, menu)
         return true
     }
 
@@ -38,21 +40,16 @@ class RodActivity : AppCompatActivity() {
                 finish()
                 return true
             }
-            R.id.aboutId -> {
-                val about = Intent(this,AboutActivity::class.java);
-                startActivity(about)
-            }
             R.id.basicCal ->{
-                val calculator = Intent(this,BasicalculatorActivity::class.java);
+                val calculator = Intent(this, BasicalculatorActivity::class.java);
                 startActivity(calculator)
             }
             R.id.compassId ->{
-                val compass = Intent(this,CompassActivity::class.java);
+                val compass = Intent(this, CompassActivity::class.java);
                 startActivity(compass)
             }
         }
         return true
     }
-
 
 }

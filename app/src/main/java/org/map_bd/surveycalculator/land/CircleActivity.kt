@@ -1,6 +1,9 @@
 package org.map_bd.surveycalculator.land
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -8,15 +11,12 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import org.map_bd.surveycalculator.BasicalculatorActivity
+import org.map_bd.surveycalculator.CompassActivity
 import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.databinding.ActivityCircleBinding
-import org.map_bd.surveycalculator.databinding.ActivityOblongBinding
 
-@Suppress("DEPRECATION")
 class CircleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCircleBinding
 
@@ -94,11 +94,26 @@ class CircleActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_new, menu)
+        return true
+    }
 
-
-    override fun onSupportNavigateUp(): Boolean {
-        //finish()
-        onBackPressed()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home ->{
+                finish()
+                return true
+            }
+            R.id.basicCal ->{
+                val calculator = Intent(this,BasicalculatorActivity::class.java);
+                startActivity(calculator)
+            }
+            R.id.compassId ->{
+                val compass = Intent(this,CompassActivity::class.java);
+                startActivity(compass)
+            }
+        }
         return true
     }
 }

@@ -5,9 +5,9 @@
     <string name="calculatorIds">ক্যালকুলেটর</string>
 
 
-    <string name="settings">Setting</string>
-    <string name="change_language">Change Language</string>
-    <string name="change_theme">Change Theme</string>
+    <string name="settings">সেটিংস</string>
+    <string name="change_language">ভাষা পরিবর্তন</string>
+    <string name="change_theme">থিম পরিবর্তন</string>
     <string name="title_activity_basicalculator">সাারন ক্যালকুলেটর</string>
 
 
@@ -58,10 +58,15 @@
     <string name="square_rules">বর্গক্ষেত্রের ক্ষেত্রফল = দৈর্ঘ্য  x দৈর্ঘ্য</string>
 
 
+    <string name="parellelogram_Input">সামান্তরিকের ক্ষেত্রফল =  ভূমি x উচ্চতা</string>
+    <string name="parellelogram_land">ভূমি</string>
+    <string name="parellelogram_hight">উচ্চতা</string>
 
 
 
-    <string name="compass">Compass</string>
+
+
+    <string name="compass">কম্পাস</string>
 
     <string name="sensor_status">Sensor status</string>
     <string name="lock_screen_rotation">Lock screen rotation</string>
@@ -69,14 +74,14 @@
     <string name="compass_rose_image_description">Compass rose showing to north</string>
     <string name="device_heading_indicator_image_description">Indicates in which direction the device is pointing</string>
 
-    <string name="cardinal_direction_north">North</string>
-    <string name="cardinal_direction_northeast">Northeast</string>
-    <string name="cardinal_direction_east">East</string>
-    <string name="cardinal_direction_southeast">Southeast</string>
-    <string name="cardinal_direction_south">South</string>
-    <string name="cardinal_direction_southwest">Southwest</string>
-    <string name="cardinal_direction_west">West</string>
-    <string name="cardinal_direction_northwest">Northwest</string>
+    <string name="cardinal_direction_north">উত্তর</string>
+    <string name="cardinal_direction_northeast">উত্তর-পূর্ব</string>
+    <string name="cardinal_direction_east">পূর্ব</string>
+    <string name="cardinal_direction_southeast">দক্ষিণ-পূর্ব</string>
+    <string name="cardinal_direction_south">দক্ষিণ</string>
+    <string name="cardinal_direction_southwest">দক্ষিণ-পশ্চিম</string>
+    <string name="cardinal_direction_west">পশ্চিম</string>
+    <string name="cardinal_direction_northwest">উত্তর-পশ্চিম</string>
 
     <string name="cardinal_direction_north_abbreviation">N</string>
     <string name="cardinal_direction_east_abbreviation">E</string>
@@ -101,9 +106,9 @@
 
 <!--    <string name="settings">Settings</string>-->
 
-    <string name="true_north">True North</string>
+    <string name="true_north">সত্য উত্তর</string>
     <string name="true_north_summary">Correct the magnetic declination and show to true north. Requires access to your location.</string>
-    <string name="magnetic_north">Magnetic North</string>
+    <string name="magnetic_north">চৌম্বক উত্তর</string>
 
     <string name="haptic_feedback">Haptic feedback</string>
     <string name="haptic_feedback_summary">The compass vibrates when the direction changes.</string>
@@ -132,20 +137,20 @@
     <string name="license_name" translatable="false">GNU GPLv3</string>
     <string name="author_name" translatable="false">Philipp Bobek</string>
 
-    <string name="zero_degrees" translatable="false">0°</string>
+    <string name="zero_degrees" translatable="false">০°</string>
     <string name="degrees" translatable="false">%1$d°</string>
 
-    <string name="degree_0_text" translatable="false">0</string>
-    <string name="degree_30_text" translatable="false">30</string>
-    <string name="degree_60_text" translatable="false">60</string>
-    <string name="degree_90_text" translatable="false">90</string>
-    <string name="degree_120_text" translatable="false">120</string>
-    <string name="degree_150_text" translatable="false">150</string>
-    <string name="degree_180_text" translatable="false">180</string>
-    <string name="degree_210_text" translatable="false">210</string>
-    <string name="degree_240_text" translatable="false">240</string>
-    <string name="degree_270_text" translatable="false">270</string>
-    <string name="degree_300_text" translatable="false">300</string>
-    <string name="degree_330_text" translatable="false">330</string>
+    <string name="degree_0_text" translatable="false">০</string>
+    <string name="degree_30_text" translatable="false">৩০</string>
+    <string name="degree_60_text" translatable="false">৬০</string>
+    <string name="degree_90_text" translatable="false">৯০</string>
+    <string name="degree_120_text" translatable="false">১২০</string>
+    <string name="degree_150_text" translatable="false">১৫০</string>
+    <string name="degree_180_text" translatable="false">১৮০</string>
+    <string name="degree_210_text" translatable="false">২১০</string>
+    <string name="degree_240_text" translatable="false">২৪০</string>
+    <string name="degree_270_text" translatable="false">২৭০</string>
+    <string name="degree_300_text" translatable="false">৩০০</string>
+    <string name="degree_330_text" translatable="false">৩৩০</string>
 
 </resources>

@@ -1,6 +1,5 @@
 package org.map_bd.surveycalculator.land
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -13,35 +12,28 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import org.map_bd.surveycalculator.AboutActivity
 import org.map_bd.surveycalculator.BasicalculatorActivity
 import org.map_bd.surveycalculator.CompassActivity
 import org.map_bd.surveycalculator.R
-import org.map_bd.surveycalculator.databinding.ActivityOblongBinding
+import org.map_bd.surveycalculator.databinding.ActivityParellelogramBinding
 
 
-
-class OblongActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityOblongBinding
-
-
+class ParellelogramActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityParellelogramBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOblongBinding.inflate(layoutInflater)
+
+        binding = ActivityParellelogramBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //binding.toolbar.title = "Land"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
-
-
         var leanth1 =findViewById<EditText>(R.id.length1Id)
         var leanth2 =findViewById<EditText>(R.id.length2Id)
-        var width1 =findViewById<EditText>(R.id.width1Id)
-        var width2 =findViewById<EditText>(R.id.width2Id)
 
         var decemol = findViewById<TextView>(R.id.decemalId)
         var sqrfeet = findViewById<TextView>(R.id.squareId)
@@ -53,23 +45,19 @@ class OblongActivity : AppCompatActivity() {
 
         var result = findViewById<LinearLayout>(R.id.resultId)
 
-
         binding.calculateId.setOnClickListener {
 
-            if (leanth1.text.isEmpty() || leanth2.text.isEmpty() || width1.text.isEmpty() || width2.text.isEmpty()) {
-                Toast.makeText(this, "Please Fill the all field", Toast.LENGTH_SHORT).show()
+            if (leanth1.text.isEmpty()) {
+                Toast.makeText(this, "Please Fill the field", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             var num1 = leanth1.text.toString().toDoubleOrNull()
             var num2 = leanth2.text.toString().toDoubleOrNull()
-            var num3 = width1.text.toString().toDoubleOrNull()
-            var num4 = width2.text.toString().toDoubleOrNull()
 
-            if (num1 != null && num2 != null && num3 != null && num4 != null) {
-                var suml = (num1 + num2) / 2
-                var sumw = (num3 + num4) / 2
-                var sum = (suml * sumw)
+            if (num1 != null &&  num2 != null) {
+
+                var sum = (num1 * num2)
                 var dec = (sum / 435.6)
                 var kat = (sum / 720)
                 var lnk = (sum * 2.30)
@@ -89,6 +77,7 @@ class OblongActivity : AppCompatActivity() {
 
         }
 
+
         reset.setOnClickListener {
             sqrfeet.setText("")
             decemol.setText("")
@@ -96,23 +85,11 @@ class OblongActivity : AppCompatActivity() {
             sqrlink.setText("")
             leanth1.setText("")
             leanth2.setText("")
-            width1.setText("")
-            width2.setText("")
             reset.visibility = View.INVISIBLE
             result.visibility = View.GONE
         }
 
-//        binding.printId.setOnClickListener {
-//            createPdf()
-//        }
-
-
     }
-
-
-
-
-
 
     // hide keyboard
     private fun closeKeyBoard() {
@@ -134,20 +111,19 @@ class OblongActivity : AppCompatActivity() {
                 finish()
                 return true
             }
+            R.id.aboutId -> {
+                val about = Intent(this,AboutActivity::class.java);
+                startActivity(about)
+            }
             R.id.basicCal ->{
-                val calculator = Intent(this, BasicalculatorActivity::class.java);
+                val calculator = Intent(this,BasicalculatorActivity::class.java);
                 startActivity(calculator)
             }
             R.id.compassId ->{
-                val compass = Intent(this, CompassActivity::class.java);
+                val compass = Intent(this,CompassActivity::class.java);
                 startActivity(compass)
             }
         }
         return true
     }
-
 }
-
-
-
-

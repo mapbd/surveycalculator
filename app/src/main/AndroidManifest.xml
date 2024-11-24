@@ -28,16 +28,135 @@
         android:theme="@style/Theme.SotMAsia2024"
         tools:targetApi="31">
         <activity
+            android:name=".land.ParabolaActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.AccurateLandCalculationActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.MultipleTrianglesActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.UnitChangeActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.KhatianCalculatorActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.DistributionoflandActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.EllipseActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.CcircleActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.RighttriangleActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.HeronsRuleActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.CosineRuleActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.TrapeziumActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
+            android:name=".land.ParellelogramActivity"
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
+        <activity
             android:name=".land.SquareActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
         <activity
             android:name=".land.CircleActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LandActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
         <activity
             android:name=".land.OblongActivity"
             android:exported="false"
+            android:parentActivityName=".LandActivity"
             android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandActivity"/>
+        </activity>
         <activity
             android:name=".CompassActivity"
             android:exported="false"
@@ -46,23 +165,48 @@
         <activity
             android:name=".GenarelActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".SoilActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".RodActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".TimberActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".GoldActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -76,20 +220,36 @@
         <activity
             android:name=".LandActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
         <activity
             android:name=".BasicalculatorActivity"
             android:exported="false"
             android:label="@string/title_activity_basicalculator"
-            android:theme="@style/Theme.SotMAsia2024" />
+            android:theme="@style/Theme.SotMAsia2024"/>
         <activity
             android:name=".AboutActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".SettingActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar" />
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false"

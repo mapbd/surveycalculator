@@ -24,29 +24,27 @@ class AboutActivity : AppCompatActivity() {
 
         binding.toolbar.title = "About"
         setSupportActionBar(binding.toolbar)
-     //   supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_new, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.aboutId -> {
-                Toast.makeText(this,"About",Toast.LENGTH_LONG).show()
-            }
-            R.id.settingId -> {
-                val settings = Intent(this,SettingActivity::class.java);
-                startActivity(settings)
-                onBackPressed()
+            android.R.id.home ->{
+                finish()
                 return true
             }
             R.id.basicCal ->{
                 val calculator = Intent(this,BasicalculatorActivity::class.java);
                 startActivity(calculator)
-                onBackPressed()
-                return true
+            }
+            R.id.compassId ->{
+                val compass = Intent(this,CompassActivity::class.java);
+                startActivity(compass)
             }
         }
         return true

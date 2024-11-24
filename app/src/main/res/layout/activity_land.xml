@@ -107,6 +107,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/parellogramId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -137,6 +138,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/trapeziumId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -167,6 +169,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/cosineId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -197,6 +200,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/heronsId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -227,6 +231,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/righttriangleId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -257,6 +262,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/porabelaId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -287,6 +293,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/ccircleId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -348,6 +355,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/ellipseId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -378,6 +386,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/landdisId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -408,6 +417,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/khatianId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -438,6 +448,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/unitId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -468,6 +479,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
+                        android:id="@+id/multipletriId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -498,6 +510,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
+                        android:id="@+id/accurateId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"

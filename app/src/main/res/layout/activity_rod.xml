@@ -7,5 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".RodActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/white"
+        app:title="@string/title_rod"
+        android:background="@color/myperple"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
