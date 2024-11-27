@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" -->
+    <!-- android:maxSdkVersion="32" -->
+    <!-- tools:ignore="ScopedStorage" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" -->
+    <!-- android:maxSdkVersion="32" /> -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -17,6 +23,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -28,12 +37,20 @@
         android:theme="@style/Theme.SotMAsia2024"
         tools:targetApi="31">
         <activity
+            android:theme="@style/Theme.AudioRecorder"
+            android:name=".AudioActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" />
+        <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
+        <activity
             android:name=".land.ParabolaActivity"
             android:exported="false"
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.AccurateLandCalculationActivity"
@@ -41,7 +58,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.MultipleTrianglesActivity"
@@ -49,7 +66,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.UnitChangeActivity"
@@ -57,7 +74,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.KhatianCalculatorActivity"
@@ -65,7 +82,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.DistributionoflandActivity"
@@ -73,7 +90,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.EllipseActivity"
@@ -81,7 +98,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.CcircleActivity"
@@ -89,7 +106,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.RighttriangleActivity"
@@ -97,7 +114,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.HeronsRuleActivity"
@@ -105,7 +122,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.CosineRuleActivity"
@@ -113,7 +130,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.TrapeziumActivity"
@@ -121,7 +138,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.ParellelogramActivity"
@@ -129,7 +146,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.SquareActivity"
@@ -137,7 +154,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.CircleActivity"
@@ -145,7 +162,7 @@
             android:parentActivityName=".LandActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".land.OblongActivity"
@@ -155,7 +172,7 @@
             android:windowSoftInputMode="stateAlwaysHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandActivity"/>
+                android:value=".LandActivity" />
         </activity>
         <activity
             android:name=".CompassActivity"
@@ -165,47 +182,47 @@
         <activity
             android:name=".GenarelActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".SoilActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".RodActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".TimberActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".GoldActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".SplashActivity"
@@ -220,35 +237,34 @@
         <activity
             android:name=".LandActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".BasicalculatorActivity"
             android:exported="false"
             android:label="@string/title_activity_basicalculator"
-            android:theme="@style/Theme.SotMAsia2024"/>
+            android:theme="@style/Theme.SotMAsia2024" />
         <activity
             android:name=".AboutActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".SettingActivity"
             android:exported="false"
-            android:theme="@style/Theme.SotMAsia2024.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"
@@ -258,6 +274,16 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

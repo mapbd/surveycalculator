@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.android.gms.oss-licenses-plugin")
     id("kotlin-kapt")
+
 }
 
 kotlin {
@@ -125,6 +126,11 @@ dependencies {
     //implementation("com.itextpdf:itextg:5.5.10")
 
     //implementation ("com.uttampanchasara.pdfgenerator:pdfgenerator:1.3")
+
+    implementation("com.github.dangiashish:GeoTagImage:1.1.4")
+    implementation ("com.google.android.gms:play-services-location:21.3.0")
+
+
 
 
 

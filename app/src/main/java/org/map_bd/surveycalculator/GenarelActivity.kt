@@ -25,6 +25,16 @@ class GenarelActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
+        binding.cameraId.setOnClickListener{
+            val camera = Intent(this,CameraActivity::class.java);
+            startActivity(camera)
+        }
+        binding.audioId.setOnClickListener{
+            val audio = Intent(this,AudioActivity::class.java);
+            startActivity(audio)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -153,4 +153,8 @@
     <string name="degree_300_text" translatable="false">৩০০</string>
     <string name="degree_330_text" translatable="false">৩৩০</string>
 
+
+
+    <string name="camera">ক্যামেরা</string>
+
 </resources>

@@ -150,4 +150,7 @@
     <string name="degree_300_text" translatable="false">300</string>
     <string name="degree_330_text" translatable="false">330</string>
 
+
+    <string name="camera">Camera</string>
+
 </resources>
