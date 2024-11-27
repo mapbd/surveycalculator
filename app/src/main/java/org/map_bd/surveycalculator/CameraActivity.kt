@@ -190,7 +190,7 @@ class CameraActivity : AppCompatActivity(), PermissionCallback {
             binding.progressBar.visibility = View.VISIBLE
             binding.ivCamera.visibility = View.GONE
 
-            // TODO : START THE MAIN FUNCTIONALITY
+//             TODO  START THE MAIN FUNCTIONALITY
 
 
             // now call the function createImage() and pass the uri object (line no. 100-110)
