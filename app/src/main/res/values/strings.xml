@@ -153,4 +153,7 @@
 
     <string name="camera">Camera</string>
 
+    <string name="about1">This application is created and designed for easily Land calculations and others important things.This is Beta Version. Mathematical formulas are collect from internet.  Lot of issues and problem will solve next update version.</string>
+    <string name="about2">And this is under developing..</string>
+
 </resources>

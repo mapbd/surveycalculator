@@ -16,11 +16,110 @@
         android:background="@color/myperple"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:gravity="center"
-        android:textSize="30sp"
+    <ScrollView
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_about"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/icon"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:textSize="20sp"
+                    android:padding="20dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/myperple"
+                    android:text="@string/app_name" />
+
+                <TextView
+                    android:textSize="20sp"
+                    android:id="@+id/versionText"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/myperple"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+
+
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/about" />
+
+
+            <TextView
+                android:layout_margin="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/about1" />
+
+
+
+
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/about2" />
+
+
+
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Developed By:" />
+
+            <ImageView
+                android:id="@+id/mapbdId"
+                android:layout_marginTop="10dp"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:src="@drawable/mapbd"
+                android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

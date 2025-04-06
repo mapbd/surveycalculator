@@ -2,12 +2,16 @@ package org.map_bd.surveycalculator
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.databinding.ActivityAboutBinding
@@ -25,6 +29,12 @@ class AboutActivity : AppCompatActivity() {
         binding.toolbar.title = "About"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.versionText.text = getCurrentVersion(packageManager, packageName)
+
+        binding.mapbdId.setOnClickListener{
+            openUrl("https://map-bd.org/")
+        }
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -50,6 +60,25 @@ class AboutActivity : AppCompatActivity() {
         return true
     }
 
+    private fun getCurrentVersion(packageManager: PackageManager, packageName: String, flags: Int = 0): String{
+        return try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(flags.toLong())).versionName
+            }else{
+                packageManager.getPackageInfo(packageName, flags).versionName
+            }
+
+        }catch (ex: Exception){
+            return ""
+        }
+    }
+
+    private fun openUrl(link: String) {
+        val uri = Uri.parse(link)
+        val inte = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(inte)
+    }
 
 
 }
+
