@@ -2,4 +2,9 @@
 
 
 GeoTagImage (GTI)
+
 https://github.com/dangiashish/GeoTagImage
+
+Simple and beautiful compass for Android
+
+https://github.com/Kr0oked/Compass
