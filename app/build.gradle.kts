@@ -88,6 +88,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.material)
     implementation("com.google.android.gms:play-services-oss-licenses:17.1.0")
     implementation(libs.androidx.activity)
@@ -127,7 +128,7 @@ dependencies {
 
     //implementation ("com.uttampanchasara.pdfgenerator:pdfgenerator:1.3")
 
-    implementation("com.github.dangiashish:GeoTagImage:1.1.4")
+    //implementation("com.github.dangiashish:GeoTagImage:1.1.4")
     implementation ("com.google.android.gms:play-services-location:21.3.0")
 
 
