@@ -16,7 +16,7 @@
     <string name="title_timber">কাঠের হিসাব</string>
     <string name="title_rod">রডের হিসাব</string>
     <string name="title_soil">মাটির হিসাব</string>
-    <string name="title_genarel">সাধারন</string>
+    <string name="title_genarel">সার্ভে</string>
 
     <string name="oblong">আয়তাকার</string>
     <string name="square">বর্গাকার</string>
@@ -83,10 +83,10 @@
     <string name="cardinal_direction_west">পশ্চিম</string>
     <string name="cardinal_direction_northwest">উত্তর-পশ্চিম</string>
 
-    <string name="cardinal_direction_north_abbreviation">N</string>
-    <string name="cardinal_direction_east_abbreviation">E</string>
-    <string name="cardinal_direction_south_abbreviation">S</string>
-    <string name="cardinal_direction_west_abbreviation">W</string>
+    <string name="cardinal_direction_north_abbreviation">উ</string>
+    <string name="cardinal_direction_east_abbreviation">পূ</string>
+    <string name="cardinal_direction_south_abbreviation">দ</string>
+    <string name="cardinal_direction_west_abbreviation">প</string>
 
     <string name="sensor_accuracy_no_contact">Sensor not available</string>
     <string name="sensor_accuracy_unreliable">Sensor values are unreliable</string>
