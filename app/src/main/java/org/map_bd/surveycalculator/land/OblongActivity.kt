@@ -331,7 +331,7 @@ class OblongActivity : AppCompatActivity() {
         pdfDocument.finishPage(page)
 
 
-        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Oblong")
+        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/land/Oblong")
         if (folder.exists()) {
             d("folder", "exists")
         } else {

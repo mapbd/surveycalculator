@@ -54,7 +54,7 @@
 
     <string name="side_Input">Give the Side</string>
     <string name="side">Side</string>
-    <string name="circle_rules">Area of circle = 𝝅r^2</string>
+    <string name="circle_rules">Area of Circle = 𝝅r^2</string>
     <string name="square_rules">Area of square = length x length</string>
 
 
@@ -132,7 +132,7 @@
 
     <string name="source_code_name" translatable="false">GitHub</string>
     <string name="license_name" translatable="false">GNU GPLv3</string>
-    <string name="author_name" translatable="false">Philipp Bobek</string>
+    <string name="author_name" translatable="false">Atikur Rahman</string>
 
     <string name="zero_degrees" translatable="false">0°</string>
     <string name="degrees" translatable="false">%1$d°</string>

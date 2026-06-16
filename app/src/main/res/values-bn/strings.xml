@@ -135,7 +135,7 @@
 
     <string name="source_code_name" translatable="false">GitHub</string>
     <string name="license_name" translatable="false">GNU GPLv3</string>
-    <string name="author_name" translatable="false">Philipp Bobek</string>
+    <string name="author_name" translatable="false">আতিকুর রহমান</string>
 
     <string name="zero_degrees" translatable="false">০°</string>
     <string name="degrees" translatable="false">%1$d°</string>
