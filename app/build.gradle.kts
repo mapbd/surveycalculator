@@ -131,6 +131,18 @@ dependencies {
     implementation ("com.google.android.gms:play-services-location:21.3.0")
 
 
+    // Access old API
+    implementation("androidx.appcompat:appcompat:1.6.1")
+// System UI bars
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
+// Material icons
+    implementation("androidx.compose.material:material-icons-extended:1.3.1")
+// Navigation
+    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.25.1")
+// Permission
+    implementation("com.google.accompanist:accompanist-permissions:0.28.0")
+
 
 
 
