@@ -239,9 +239,9 @@ class CircleActivity : AppCompatActivity() {
 
 
         // vertical lines
-        canvas.drawLine(150f, 350f, 150f, 550f, line)
-        canvas.drawLine(350f, 350f, 350f, 550f, line)
-        canvas.drawLine(550f, 350f, 550f, 550f, line)
+        canvas.drawLine(150f, 350f, 150f, 400f, line)
+        canvas.drawLine(350f, 350f, 350f, 400f, line)
+        canvas.drawLine(550f, 350f, 550f, 400f, line)
 
         paint.textAlign = Paint.Align.LEFT
         paint.color = resources.getColor(R.color.grapeColor,null)
