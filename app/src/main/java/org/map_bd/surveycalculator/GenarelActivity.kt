@@ -35,6 +35,11 @@ class GenarelActivity : AppCompatActivity() {
             startActivity(audio)
         }
 
+        binding.stopwatchId.setOnClickListener {
+            val stopwatch = Intent(this, StopwatchActivity::class.java);
+            startActivity(stopwatch)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

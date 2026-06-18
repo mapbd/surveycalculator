@@ -44,6 +44,15 @@
         <activity
             android:name=".CameraActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".StopwatchActivity"
+            android:exported="false"
+            android:parentActivityName=".GenarelActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
+        </activity>
         <activity
             android:name=".land.ParabolaActivity"
             android:exported="false"
