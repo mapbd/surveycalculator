@@ -119,7 +119,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/parellelogram"
+                            android:text="@string/recorder"
                             android:textSize="15sp"
                             android:textColor="@color/black"
                             android:gravity="center"

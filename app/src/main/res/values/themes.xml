@@ -101,4 +101,7 @@
         <item name="endIconMode">clear_text</item>
         <item name="startIconDrawable">@drawable/ic_search</item>
     </style>
+
+
+    <style name="Theme.Recorder" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
