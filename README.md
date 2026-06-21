@@ -13,3 +13,8 @@ https://github.com/Kr0oked/Compass
 Recorder
 
 https://github.com/ndenicolais/Recorder/tree/master
+
+
+Counter
+
+https://github.com/lukebroccoli/counter-app-android

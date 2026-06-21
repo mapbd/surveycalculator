@@ -163,5 +163,6 @@
 
     <string name="stopwatch">বিরামঘড়ি</string>
     <string name="recorder">রেকর্ডার</string>
+    <string name="counter">গণনা</string>
 
 </resources>

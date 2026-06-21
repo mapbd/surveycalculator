@@ -40,6 +40,12 @@ class GenarelActivity : AppCompatActivity() {
             startActivity(stopwatch)
         }
 
+        binding.counterId.setOnClickListener {
+
+            val counter = Intent(this, CounterActivity::class.java);
+            startActivity(counter)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

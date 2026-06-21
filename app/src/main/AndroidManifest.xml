@@ -8,7 +8,7 @@
     <!-- android:maxSdkVersion="32" /> -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -63,6 +63,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GenarelActivity" />
         </activity>
+        <activity
+            android:name=".CounterActivity"
+            android:exported="false"
+            android:parentActivityName=".GenarelActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
+        </activity>
+
+
         <activity
             android:name=".land.ParabolaActivity"
             android:exported="false"
