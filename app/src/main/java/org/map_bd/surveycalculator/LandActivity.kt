@@ -169,15 +169,6 @@ class LandActivity : AppCompatActivity() {
         return true
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        //finish()
-//        onBackPressed()
-//        return true
-//    }
 
-//    override fun finish() {
-//        super.finish()
-//        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
-//    }
 
 }
