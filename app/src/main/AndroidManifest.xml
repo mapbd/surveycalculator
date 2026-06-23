@@ -45,11 +45,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GenarelActivity" />
-<!--        <intent-filter>-->
-<!--            <action android:name="android.intent.action.MAIN" />-->
-
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
         </activity>
         <activity
             android:name=".CameraActivity"
@@ -63,6 +58,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GenarelActivity" />
         </activity>
+
+        <activity
+            android:name=".UconverterActivity"
+            android:exported="true"
+            android:parentActivityName=".GenarelActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
+        </activity>
+
+
+
         <activity
             android:name=".CounterActivity"
             android:exported="false"
@@ -71,6 +78,74 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GenarelActivity" />
         </activity>
+
+
+        <activity
+            android:name=".AreaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+
+
+        <activity
+            android:name=".DataStorageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+        <activity
+            android:name=".LengthActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+        <activity
+            android:name=".MassActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+        <activity
+            android:name=".SpeedActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+        <activity
+            android:name=".TemperatureActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+        <activity
+            android:name=".TimeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
+        <activity
+            android:name=".VolumeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UconverterActivity" />
+        </activity>
+
 
 
         <activity

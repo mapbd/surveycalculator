@@ -162,4 +162,15 @@
 
     <string name="counter">Counter</string>
 
+    <string name="uconverter">Unit Converter</string>
+
+    <string name="area">Area</string>
+    <string name="datastor">Data Storage</string>
+    <string name="length">Length</string>
+    <string name="mass">Mass</string>
+    <string name="speed">Speed</string>
+    <string name="temperature">Temperature</string>
+    <string name="time">Time</string>
+    <string name="volume">Volume</string>
+
 </resources>

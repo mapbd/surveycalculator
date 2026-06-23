@@ -165,4 +165,15 @@
     <string name="recorder">রেকর্ডার</string>
     <string name="counter">গণনা</string>
 
+    <string name="uconverter">একক পরিবর্তন</string>
+
+    <string name="area">ক্ষেত্র</string>
+    <string name="datastor">ডেটা স্টোরেজ</string>
+    <string name="length">দৈর্ঘ্য</string>
+    <string name="mass">ভর</string>
+    <string name="speed">গতি</string>
+    <string name="temperature">তাপমাত্রা</string>
+    <string name="time">সময়</string>
+    <string name="volume">আয়তন</string>
+
 </resources>

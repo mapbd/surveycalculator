@@ -1,6 +1,5 @@
 package org.map_bd.surveycalculator
 
-
 import LanguageManager
 import android.content.Intent
 import android.os.Bundle
@@ -14,7 +13,7 @@ import org.map_bd.surveycalculator.R.*
 import org.map_bd.surveycalculator.databinding.ActivityMainBinding
 
 
-@Suppress("DEPRECATION")
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

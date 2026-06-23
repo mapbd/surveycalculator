@@ -40,8 +40,12 @@ class GenarelActivity : AppCompatActivity() {
             startActivity(stopwatch)
         }
 
-        binding.counterId.setOnClickListener {
+        binding.uconverterId.setOnClickListener {
+            val uconverter = Intent(this, UconverterActivity::class.java);
+            startActivity(uconverter)
+        }
 
+        binding.counterId.setOnClickListener {
             val counter = Intent(this, CounterActivity::class.java);
             startActivity(counter)
         }

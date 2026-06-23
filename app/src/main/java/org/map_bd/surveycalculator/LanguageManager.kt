@@ -1,9 +1,8 @@
-
 import android.content.Context
 import android.content.SharedPreferences
 import java.util.Locale
 
-@Suppress("DEPRECATION")
+
 class LanguageManager(private val context: Context) {
     private val sharedPrefs: SharedPreferences =
         context.getSharedPreferences("LanguagePrefs", Context.MODE_PRIVATE)
@@ -23,6 +22,7 @@ class LanguageManager(private val context: Context) {
 
         val configuration = context.resources.configuration
         configuration.setLocale(locale)
+        @Suppress("DEPRECATION")
         context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
     }
 }
