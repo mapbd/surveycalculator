@@ -119,4 +119,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Base.Theme.SotMAsiabd" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your light theme here. -->
+
+        <item name="colorPrimary">@color/myperple</item>
+        <item name="colorPrimaryVariant">@color/myperple</item>
+        <item name="android:statusBarColor">@color/myperple</item>
+    </style>
+
+    <style name="Theme.SotMAsiabd" parent="Base.Theme.SotMAsiabd" />
 </resources>

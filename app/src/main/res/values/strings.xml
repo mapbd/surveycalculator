@@ -16,7 +16,7 @@
     <string name="title_timber">Timber Calculation</string>
     <string name="title_rod">Rod Calculation</string>
     <string name="title_soil">Soil Calculation</string>
-    <string name="title_genarel">Survey</string>
+    <string name="title_genarel">Survey Tools</string>
 
 
     <string name="oblong">Oblong</string>
@@ -172,5 +172,7 @@
     <string name="temperature">Temperature</string>
     <string name="time">Time</string>
     <string name="volume">Volume</string>
+
+    <string name="note">Note Book</string>
 
 </resources>

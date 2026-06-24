@@ -168,7 +168,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
-                        android:id="@+id/cosineId"
+                        android:id="@+id/noteId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -181,7 +181,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/cosine"
+                            android:text="@string/note"
                             android:textSize="15sp"
                             android:textColor="@color/black"
                             android:gravity="center"

@@ -16,7 +16,7 @@
     <string name="title_timber">কাঠের হিসাব</string>
     <string name="title_rod">রডের হিসাব</string>
     <string name="title_soil">মাটির হিসাব</string>
-    <string name="title_genarel">সার্ভে</string>
+    <string name="title_genarel">জরিপ যন্ত্র</string>
 
     <string name="oblong">আয়তাকার</string>
     <string name="square">বর্গাকার</string>
@@ -175,5 +175,7 @@
     <string name="temperature">তাপমাত্রা</string>
     <string name="time">সময়</string>
     <string name="volume">আয়তন</string>
+
+    <string name="note">নোটবই</string>
 
 </resources>

@@ -40,6 +40,11 @@ class GenarelActivity : AppCompatActivity() {
             startActivity(stopwatch)
         }
 
+        binding.noteId.setOnClickListener {
+            val note = Intent(this, NoteActivity::class.java);
+            startActivity(note)
+        }
+
         binding.uconverterId.setOnClickListener {
             val uconverter = Intent(this, UconverterActivity::class.java);
             startActivity(uconverter)

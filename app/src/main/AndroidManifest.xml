@@ -60,6 +60,15 @@
         </activity>
 
         <activity
+            android:name=".NoteActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SotMAsiabd">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=".GenarelActivity" />
+        </activity>
+
+        <activity
             android:name=".UconverterActivity"
             android:exported="true"
             android:parentActivityName=".GenarelActivity">

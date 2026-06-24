@@ -19,15 +19,22 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
+//    id ("com.android.application") version "8.6.1" apply false
+    id ("com.android.library") version "7.3.1" apply false
+//    id ("org.jetbrains.kotlin.android") version "1.9.0" apply false
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13" apply false
 }
 
 buildscript {
-    repositories {
 
+    repositories {
         google()  // maven { url("https://maven.google.com") } for Gradle <= 3
+        mavenCentral()
     }
     dependencies {
-
         classpath("com.google.android.gms:oss-licenses-plugin:0.10.6")
+
+        val navVersion = "2.7.5"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
     }
 }
