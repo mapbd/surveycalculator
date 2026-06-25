@@ -26,6 +26,12 @@ class GenarelActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
+        binding.mapId.setOnClickListener{
+            val map = Intent(this,MapActivity::class.java);
+            startActivity(map)
+        }
+
+
         binding.cameraId.setOnClickListener{
             val camera = Intent(this,CameraActivity::class.java);
             startActivity(camera)
@@ -53,6 +59,16 @@ class GenarelActivity : AppCompatActivity() {
         binding.counterId.setOnClickListener {
             val counter = Intent(this, CounterActivity::class.java);
             startActivity(counter)
+        }
+
+        binding.paintId.setOnClickListener {
+            val paint = Intent(this, PaintActivity::class.java);
+            startActivity(paint)
+        }
+
+        binding.formId.setOnClickListener {
+            val form = Intent(this, FormActivity::class.java);
+            startActivity(form)
         }
 
     }

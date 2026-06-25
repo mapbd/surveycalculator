@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"  />
+
+
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -38,6 +42,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SotMAsia2024"
         tools:targetApi="31">
+
+        <activity
+            android:name=".MapActivity"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".AudioActivity"
             android:exported="true"
@@ -81,6 +90,36 @@
 
         <activity
             android:name=".CounterActivity"
+            android:exported="false"
+            android:parentActivityName=".GenarelActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
+        </activity>
+
+        <activity
+            android:name=".PaintActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DrawingApp"
+            android:parentActivityName=".GenarelActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
+        </activity>
+        <provider
+            android:authorities="org.map_bd.surveycalculator.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/path"
+            >
+        </meta-data>
+        </provider>
+
+        <activity
+            android:name=".FormActivity"
             android:exported="false"
             android:parentActivityName=".GenarelActivity">
             <meta-data

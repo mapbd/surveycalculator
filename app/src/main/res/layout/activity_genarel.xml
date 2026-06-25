@@ -44,7 +44,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
-                        android:id="@+id/oblongId"
+                        android:id="@+id/mapId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -57,7 +57,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/oblong"
+                            android:text="@string/map"
                             android:textSize="15sp"
                             android:textColor="@color/black"
                             android:gravity="center"
@@ -252,67 +252,67 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_height="150dp"-->
-<!--                    android:layout_width="150dp"-->
-<!--                    app:cardCornerRadius="15dp"-->
-<!--                    app:cardElevation="5dp"-->
-<!--                    app:cardBackgroundColor="@color/denimColor"-->
-<!--                    android:layout_margin="10dp"-->
-<!--                    android:layout_marginRight="30dp">-->
-<!--                    <LinearLayout-->
-<!--                        android:id="@+id/porabelaId"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="100dp"-->
-<!--                            android:layout_height="100dp"-->
-<!--                            android:src="@drawable/parabola"-->
-<!--                            android:layout_gravity="center_horizontal"/>-->
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="@string/parabola"-->
-<!--                            android:textSize="15sp"-->
-<!--                            android:textColor="@color/white"-->
-<!--                            android:gravity="center"-->
-<!--                            />-->
+                <androidx.cardview.widget.CardView
+                    android:layout_height="150dp"
+                    android:layout_width="150dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="5dp"
+                    app:cardBackgroundColor="@color/siennaColor"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="30dp">
+                    <LinearLayout
+                        android:id="@+id/paintId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/paint"
+                            android:layout_gravity="center_horizontal"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/paint"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            />
 
-<!--                    </LinearLayout>-->
-<!--                </androidx.cardview.widget.CardView>-->
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_height="150dp"-->
-<!--                    android:layout_width="150dp"-->
-<!--                    app:cardCornerRadius="15dp"-->
-<!--                    app:cardElevation="5dp"-->
-<!--                    app:cardBackgroundColor="@color/denimColor"-->
-<!--                    android:layout_margin="10dp"-->
-<!--                    android:layout_marginLeft="30dp">-->
-<!--                    <LinearLayout-->
-<!--                        android:id="@+id/ccircleId"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="100dp"-->
-<!--                            android:layout_height="100dp"-->
-<!--                            android:src="@drawable/ccircle"-->
-<!--                            android:layout_gravity="center_horizontal"/>-->
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="@string/ccircle"-->
-<!--                            android:textSize="15sp"-->
-<!--                            android:textColor="@color/white"-->
-<!--                            android:gravity="center"-->
-<!--                            />-->
+                <androidx.cardview.widget.CardView
+                    android:layout_height="150dp"
+                    android:layout_width="150dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="5dp"
+                    app:cardBackgroundColor="@color/siennaColor"
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="30dp">
+                    <LinearLayout
+                        android:id="@+id/formId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/form"
+                            android:layout_gravity="center_horizontal"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/form"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            />
 
-<!--                    </LinearLayout>-->
-<!--                </androidx.cardview.widget.CardView>-->
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
 <!--                <androidx.cardview.widget.CardView-->
 <!--                    android:layout_height="150dp"-->

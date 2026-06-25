@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:title="Map"
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/Theme.SotMAsia2024.PopupOverlay"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coordinatorLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/streetMapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tvLatLng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lat long"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/direction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <Button
+            android:id="@+id/direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="@+id/streetMapView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.97" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -19,6 +19,7 @@
     <string name="title_genarel">Survey Tools</string>
 
 
+
     <string name="oblong">Oblong</string>
     <string name="square">Square</string>
     <string name="parellelogram">Parellelogram</string>
@@ -161,6 +162,9 @@
     <string name="recorder">Recorder</string>
 
     <string name="counter">Counter</string>
+    <string name="paint">Paint</string>
+    <string name="form">Form</string>
+    <string name="map">Map</string>
 
     <string name="uconverter">Unit Converter</string>
 
