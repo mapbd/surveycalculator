@@ -190,4 +190,13 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
 
+    // camera not working
+    implementation ("com.github.Drjacky:ImagePicker:2.3.22")
+
+    //user permission
+    implementation ("com.karumi:dexter:6.2.2")
+    //coil
+    implementation("io.coil-kt:coil:1.1.1")
+
+
 }

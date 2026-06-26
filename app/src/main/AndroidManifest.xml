@@ -23,6 +23,9 @@
     <uses-feature
         android:name="android.hardware.sensor.gyroscope"
         android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -31,6 +34,8 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
 
     <application
         android:allowBackup="true"
@@ -118,14 +123,23 @@
         </meta-data>
         </provider>
 
+
+
+
         <activity
             android:name=".FormActivity"
-            android:exported="false"
-            android:parentActivityName=".GenarelActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GenarelActivity" />
+            android:exported="false">
         </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.map_bd.surveycalculator.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths">
+            </meta-data>
+        </provider>
 
 
         <activity

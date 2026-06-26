@@ -37,6 +37,7 @@
                     android:layout_height="wrap_content"
                     android:text="Name:"/>
                 <EditText
+                    android:id="@+id/titleId"
                     android:hint="Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -47,6 +48,7 @@
                     android:text="Mouza:"/>
 
                 <EditText
+                    android:id="@+id/mouzaId"
                     android:hint="Mouza name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -57,6 +59,7 @@
                     android:text="Plot Number:"/>
 
                 <EditText
+                    android:id="@+id/plotId"
                     android:hint="Plot number"
                     android:textSize="15sp"
                     android:layout_width="match_parent"
@@ -68,14 +71,26 @@
                     android:text="Survey/Record Name:"/>
 
                 <EditText
+                    android:id="@+id/surveyId"
                     android:hint="Survey name or Record name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Details:"/>
+
+                <EditText
+                    android:id="@+id/detailsId"
+                    android:hint="details of survey."
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"/>
+
                 <LinearLayout
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
@@ -91,17 +106,40 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Photo"
-                    android:layout_gravity="center"/>
 
                 <ImageView
+                    android:id="@+id/imageId"
                     android:src="@drawable/baseline_insert_photo_24"
                     android:layout_width="140dp"
                     android:layout_height="200dp"
                     android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/photobtnId"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="Select"/>
+                    <Button
+                        android:id="@+id/capbtnId"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="Capture"/>
+
+                </LinearLayout>
 
 
 
@@ -112,7 +150,8 @@
 
 
             <LinearLayout
-                android:gravity="center"
+                android:layout_marginRight="20dp"
+                android:gravity="right"
                 android:layout_marginTop="10dp"
                 android:id="@+id/button_container"
                 android:layout_width="match_parent"
@@ -121,7 +160,7 @@
 
                 <Button
                     android:id="@+id/printId"
-                    android:text="Print"
+                    android:text="Create Pdf"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"/>
 
