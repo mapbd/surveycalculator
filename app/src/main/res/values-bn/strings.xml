@@ -181,4 +181,7 @@
 
     <string name="note">নোটবই</string>
 
+    <string name="ana_roti">ভরি আনা রতি পদ্ধতি</string>
+    <string name="gram">গ্রাম পদ্ধতি</string>
+
 </resources>

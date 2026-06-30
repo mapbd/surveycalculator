@@ -44,7 +44,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginLeft="30dp">
                     <LinearLayout
-                        android:id="@+id/oblongId"
+                        android:id="@+id/anaId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -57,7 +57,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/oblong"
+                            android:text="@string/ana_roti"
                             android:textSize="15sp"
                             android:textColor="@color/black"
                             android:gravity="center"
@@ -75,7 +75,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginRight="30dp">
                     <LinearLayout
-                        android:id="@+id/squareId"
+                        android:id="@+id/grmId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -88,7 +88,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/square"
+                            android:text="@string/gram"
                             android:textSize="15sp"
                             android:textColor="@color/black"
                             android:gravity="center"

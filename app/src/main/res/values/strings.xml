@@ -179,4 +179,7 @@
 
     <string name="note">Note Book</string>
 
+    <string name="ana_roti">Vori Ana Roti Type</string>
+    <string name="gram">Gram Type</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package org.map_bd.surveycalculator
+package org.map_bd.surveycalculator.gold
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,39 +8,22 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.map_bd.surveycalculator.databinding.ActivityAnarotiBinding
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
 import org.map_bd.surveycalculator.databinding.ActivityGoldBinding
-import org.map_bd.surveycalculator.gold.AnarotiActivity
-import org.map_bd.surveycalculator.gold.GramActivity
-import org.map_bd.surveycalculator.land.OblongActivity
 
-class GoldActivity : AppCompatActivity() {
+class AnarotiActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityGoldBinding
+    private lateinit var binding: ActivityAnarotiBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGoldBinding.inflate(layoutInflater)
+        binding = ActivityAnarotiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-        binding.anaId.setOnClickListener {
-            val anaroti = Intent(this, AnarotiActivity ::class.java);
-            startActivity(anaroti)
-        }
-
-        binding.grmId.setOnClickListener {
-            val gram = Intent(this, GramActivity ::class.java);
-            startActivity(gram)
-        }
-
-
-
-
 
     }
 
@@ -48,13 +31,7 @@ class GoldActivity : AppCompatActivity() {
 //        menuInflater.inflate(R.menu.menu, menu)
 //        return true
 //    }
-
-
-
-
-
-
-
+//
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        when(item.itemId){
 //            android.R.id.home ->{

@@ -392,6 +392,24 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".gold.AnarotiActivity"
+            android:exported="false"
+            android:parentActivityName=".GoldActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GoldActivity" />
+        </activity>
+        <activity
+            android:name=".gold.GramActivity"
+            android:exported="false"
+            android:parentActivityName=".GoldActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GoldActivity" />
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.SotMAsia2024">
