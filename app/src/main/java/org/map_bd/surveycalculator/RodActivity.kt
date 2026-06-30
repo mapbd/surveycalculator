@@ -27,32 +27,32 @@ class RodActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu, menu)
+//        return true
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
-                finish()
-                return true
-            }
-            R.id.aboutId -> {
-                val about = Intent(this,AboutActivity::class.java);
-                startActivity(about)
-            }
-            R.id.basicCal ->{
-                val calculator = Intent(this,BasicalculatorActivity::class.java);
-                startActivity(calculator)
-            }
-            R.id.compassId ->{
-                val compass = Intent(this,CompassActivity::class.java);
-                startActivity(compass)
-            }
-        }
-        return true
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when(item.itemId){
+//            android.R.id.home ->{
+//                finish()
+//                return true
+//            }
+//            R.id.aboutId -> {
+//                val about = Intent(this,AboutActivity::class.java);
+//                startActivity(about)
+//            }
+//            R.id.basicCal ->{
+//                val calculator = Intent(this,BasicalculatorActivity::class.java);
+//                startActivity(calculator)
+//            }
+//            R.id.compassId ->{
+//                val compass = Intent(this,CompassActivity::class.java);
+//                startActivity(compass)
+//            }
+//        }
+//        return true
+//    }
 
 
 }

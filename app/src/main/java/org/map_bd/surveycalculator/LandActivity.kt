@@ -153,10 +153,10 @@ class LandActivity : AppCompatActivity() {
                 finish()
                 return true
             }
-            R.id.aboutId -> {
-                val about = Intent(this,AboutActivity::class.java);
-                startActivity(about)
-            }
+//            R.id.aboutId -> {
+//                val about = Intent(this,AboutActivity::class.java);
+//                startActivity(about)
+//            }
             R.id.basicCal ->{
                 val calculator = Intent(this,BasicalculatorActivity::class.java);
                 startActivity(calculator)

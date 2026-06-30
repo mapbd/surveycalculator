@@ -1,4 +1,4 @@
-package org.map_bd.surveycalculator
+package org.map_bd.surveycalculator.timber
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,35 +8,23 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.map_bd.surveycalculator.databinding.ActivityAnarotiBinding
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
-import org.map_bd.surveycalculator.databinding.ActivityTimberBinding
-import org.map_bd.surveycalculator.gold.AnarotiActivity
-import org.map_bd.surveycalculator.gold.GramActivity
-import org.map_bd.surveycalculator.timber.RoundActivity
-import org.map_bd.surveycalculator.timber.SizedActivity
+import org.map_bd.surveycalculator.databinding.ActivityGoldBinding
+import org.map_bd.surveycalculator.databinding.ActivitySizedBinding
 
-class TimberActivity : AppCompatActivity() {
+class SizedActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTimberBinding
+    private lateinit var binding: ActivitySizedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTimberBinding.inflate(layoutInflater)
+        binding = ActivitySizedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.sizedId.setOnClickListener {
-            val sized = Intent(this, SizedActivity ::class.java);
-            startActivity(sized)
-        }
-
-        binding.rundId.setOnClickListener {
-            val round = Intent(this, RoundActivity ::class.java);
-            startActivity(round)
-        }
 
     }
 

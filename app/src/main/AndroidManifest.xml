@@ -374,6 +374,24 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".timber.SizedActivity"
+            android:exported="false"
+            android:parentActivityName=".TimberActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimberActivity" />
+        </activity>
+        <activity
+            android:name=".timber.RoundActivity"
+            android:exported="false"
+            android:parentActivityName=".TimberActivity"
+            android:theme="@style/Theme.SotMAsia2024.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimberActivity" />
+        </activity>
+        <activity
             android:name=".TimberActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"

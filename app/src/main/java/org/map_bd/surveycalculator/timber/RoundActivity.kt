@@ -1,42 +1,31 @@
-package org.map_bd.surveycalculator
+package org.map_bd.surveycalculator.timber
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.R
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
-import org.map_bd.surveycalculator.databinding.ActivityTimberBinding
-import org.map_bd.surveycalculator.gold.AnarotiActivity
-import org.map_bd.surveycalculator.gold.GramActivity
-import org.map_bd.surveycalculator.timber.RoundActivity
-import org.map_bd.surveycalculator.timber.SizedActivity
+import org.map_bd.surveycalculator.databinding.ActivityGoldBinding
+import org.map_bd.surveycalculator.databinding.ActivityGramBinding
+import org.map_bd.surveycalculator.databinding.ActivityRoundBinding
 
-class TimberActivity : AppCompatActivity() {
+class RoundActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTimberBinding
+    private lateinit var binding: ActivityRoundBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTimberBinding.inflate(layoutInflater)
+        binding = ActivityRoundBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.sizedId.setOnClickListener {
-            val sized = Intent(this, SizedActivity ::class.java);
-            startActivity(sized)
-        }
-
-        binding.rundId.setOnClickListener {
-            val round = Intent(this, RoundActivity ::class.java);
-            startActivity(round)
-        }
 
     }
 
@@ -44,7 +33,7 @@ class TimberActivity : AppCompatActivity() {
 //        menuInflater.inflate(R.menu.menu, menu)
 //        return true
 //    }
-//
+
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        when(item.itemId){
 //            android.R.id.home ->{
