@@ -38,6 +38,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaScannerConnection
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.ImageButton
@@ -274,6 +275,12 @@ class PaintActivity : AppCompatActivity() {
 //Cache Storage : Geçici dosyaların tutulduğu alandır.
 // Uygulama kaldırıldığında bu kısımda bulunan dosyalar da silinir.
 // Kısıtlı bir alan olduğundan buradaki dosyaları işimiz bitince silmeliyiz.
+
+
+//                     changed location
+//                    val f = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Paint" + File.separator + "DrawingApp_"+ System.currentTimeMillis() /1000 + ".png")
+
+//                         orginal location
                     val f = File(externalCacheDir?.absoluteFile.toString() + File.separator + "DrawingApp_"+ System.currentTimeMillis() /1000 + ".png")
                     val fo = FileOutputStream(f)
                     fo.write(bytes.toByteArray())

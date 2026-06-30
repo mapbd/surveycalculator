@@ -7,17 +7,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import org.map_bd.surveycalculator.AudioActivity
 import org.map_bd.surveycalculator.screens.*
+import org.map_bd.surveycalculatorr.screens.HomePage
 
 @Composable
 fun NavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavScreens.IntroPage.route
+//        startDestination = NavScreens.IntroPage.route
+        startDestination = NavScreens.HomePage.route
     )
     {
-        composable(route = NavScreens.IntroPage.route) {
-            IntroPage(navController)
-        }
+//        composable(route = NavScreens.IntroPage.route) {
+//            IntroPage(navController)
+//        }
         composable(route = NavScreens.HomePage.route) {
             HomePage(navController)
         }

@@ -79,13 +79,24 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Upazila:"/>
+
+                <EditText
+                    android:id="@+id/upazilaId"
+                    android:hint="Upazila Name."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Details:"/>
 
                 <EditText
                     android:id="@+id/detailsId"
                     android:hint="details of survey."
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"/>
+                    android:layout_height="90dp"/>
 
                 <LinearLayout
                     android:gravity="center"
@@ -98,11 +109,11 @@
                         android:text="Location:"/>
                     <TextView
                         android:id="@+id/locationid"
+                        android:textColor="@color/myperple"
                         android:layout_marginLeft="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:hint="lat,long"/>
+                        android:hint="Lat , Long"/>
 
                 </LinearLayout>
 
@@ -129,15 +140,15 @@
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
                         android:text="Select"/>
-                    <Button
-                        android:id="@+id/capbtnId"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:layout_marginLeft="50dp"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:text="Capture"/>
+<!--                    <Button-->
+<!--                        android:id="@+id/capbtnId"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:gravity="center"-->
+<!--                        android:layout_marginLeft="50dp"-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="15sp"-->
+<!--                        android:text="Capture"/>-->
 
                 </LinearLayout>
 
@@ -159,6 +170,8 @@
                 android:orientation="vertical">
 
                 <Button
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
                     android:id="@+id/printId"
                     android:text="Create Pdf"
                     android:layout_width="150dp"

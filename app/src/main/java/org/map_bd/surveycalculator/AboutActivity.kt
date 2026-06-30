@@ -37,28 +37,28 @@ class AboutActivity : AppCompatActivity() {
         }
 
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_new, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
-                finish()
-                return true
-            }
-            R.id.basicCal ->{
-                val calculator = Intent(this,BasicalculatorActivity::class.java);
-                startActivity(calculator)
-            }
-            R.id.compassId ->{
-                val compass = Intent(this,CompassActivity::class.java);
-                startActivity(compass)
-            }
-        }
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_new, menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when(item.itemId){
+//            android.R.id.home ->{
+//                finish()
+//                return true
+//            }
+//            R.id.basicCal ->{
+//                val calculator = Intent(this,BasicalculatorActivity::class.java);
+//                startActivity(calculator)
+//            }
+//            R.id.compassId ->{
+//                val compass = Intent(this,CompassActivity::class.java);
+//                startActivity(compass)
+//            }
+//        }
+//        return true
+//    }
 
     private fun getCurrentVersion(packageManager: PackageManager, packageName: String, flags: Int = 0): String{
         return try {

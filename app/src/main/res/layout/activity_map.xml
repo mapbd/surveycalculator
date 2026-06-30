@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/container"
     tools:context=".MapActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -33,21 +34,12 @@
             android:layout_height="wrap_content"
             android:text="Lat long"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/direction"
+            app:layout_constraintBottom_toBottomOf="@+id/streetMapView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
-        <Button
-            android:id="@+id/direction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="@+id/streetMapView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.97" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

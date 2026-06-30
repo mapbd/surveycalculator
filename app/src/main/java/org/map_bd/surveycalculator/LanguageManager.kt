@@ -1,3 +1,5 @@
+package org.map_bd.surveycalculator
+
 import android.content.Context
 import android.content.SharedPreferences
 import java.util.Locale

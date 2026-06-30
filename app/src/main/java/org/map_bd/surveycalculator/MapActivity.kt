@@ -2,10 +2,8 @@ package org.map_bd.surveycalculator
 
 
 
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.MenuItem
@@ -13,25 +11,24 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.map_bd.surveycalculator.databinding.ActivityMapBinding
 import org.map_bd.surveycalculator.ui.MainMapViewModel
-import org.map_bd.surveycalculator.ui.MainViewModel
 import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
-import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.ScaleBarOverlay
 import org.osmdroid.views.overlay.compass.CompassOverlay
 import org.osmdroid.views.overlay.compass.InternalCompassOrientationProvider
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
-
+import java.io.File
 
 
 class MapActivity : AppCompatActivity() {
@@ -42,6 +39,8 @@ class MapActivity : AppCompatActivity() {
     private lateinit var mapController: IMapController
 
     private lateinit var viewModel: MainMapViewModel
+
+
 
 
 
@@ -66,6 +65,16 @@ class MapActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+
+
+
+
+
+
+        
+        
 
 
         mMap = binding.streetMapView
@@ -132,6 +141,11 @@ class MapActivity : AppCompatActivity() {
 
     }
 
+
+
+
+
+
     private fun initializeOSM() {
         Configuration.getInstance()
             .load(this, getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE))
@@ -192,6 +206,9 @@ class MapActivity : AppCompatActivity() {
         }
         return true
     }
+
+
+
 
 
 }

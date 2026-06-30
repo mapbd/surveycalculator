@@ -1,6 +1,8 @@
-package org.map_bd.surveycalculator.screens
+package org.map_bd.surveycalculatorr.screens
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -10,6 +12,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
@@ -21,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -30,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
+import org.map_bd.surveycalculator.GenarelActivity
 import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.navigation.NavScreens
 import org.map_bd.surveycalculator.ui.composables.BackPress
@@ -45,6 +50,10 @@ fun HomePage(navController: NavHostController) {
     var showInfoDialog by remember { mutableStateOf(false) }
 
     BackPress(onBackPressed = {})
+
+    val context = LocalContext.current
+
+
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -57,18 +66,39 @@ fun HomePage(navController: NavHostController) {
                         color = if (isSystemInDarkTheme()) DarkText else LightText
                     )
                 },
-                actions = {
+
+                modifier = Modifier.fillMaxWidth(),
+                navigationIcon = {
                     IconButton(
-                        onClick = { showInfoDialog = false }
+                        onClick = {
+
+                            val intent = Intent(context, GenarelActivity::class.java)
+
+                            // 3. Start the target activity
+                            context.startActivity(intent)
+
+                        }
                     ) {
                         Icon(
-                            imageVector = Icons.Filled.Info,
-                            contentDescription = "Info icon",
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = "Back",
                             tint = if (isSystemInDarkTheme()) DarkText else LightText
                         )
                     }
                 },
                 backgroundColor = if (isSystemInDarkTheme()) LightYellow else DarkGrey
+//                actions = {
+//                    IconButton(
+//                        onClick = { showInfoDialog = true }
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Info,
+//                            contentDescription = "Info icon",
+//                            tint = if (isSystemInDarkTheme()) DarkText else LightText
+//                        )
+//                    }
+//                },
+//                backgroundColor = if (isSystemInDarkTheme()) LightYellow else DarkGrey
             )
         }
         Box(modifier = Modifier.fillMaxSize()) {
@@ -241,7 +271,7 @@ fun HomePage(navController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Developed by DeNicks21",
+                        text = "Developed by MapBD",
                         color = if (isSystemInDarkTheme()) DarkText else LightText,
                         fontSize = 14.sp
                     )
