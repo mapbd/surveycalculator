@@ -184,7 +184,14 @@
     <string name="ana_roti">ভরি আনা রতি পদ্ধতি</string>
     <string name="gram">গ্রাম পদ্ধতি</string>
 
-    <string name="round">সাইজ কাঠ</string>
-    <string name="sized">গোল কাঠ</string>
+    <string name="round">গোল কাঠ</string>
+    <string name="sized">সাইজ কাঠ</string>
+
+    <string name="prize">প্রতি ঘনফুটের দামঃ </string>
+    <string name="height">উচ্চতা</string>
+    <string name="width">প্রস্থ</string>
+    <string name="price">দাম</string>
+    <string name="cft"> ঘনফুট : </string>
+    <string name="thickness">পুরুত্ব</string>
 
 </resources>

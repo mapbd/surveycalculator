@@ -185,4 +185,12 @@
     <string name="round">Round Timber</string>
     <string name="sized">Sized Timber</string>
 
+    <string name="prize">Prize Per CFT: </string>
+
+    <string name="height">Height</string>
+    <string name="width">Width</string>
+    <string name="price">Price</string>
+    <string name="cft">CFT : </string>
+    <string name="thickness">Thickness</string>
+
 </resources>
