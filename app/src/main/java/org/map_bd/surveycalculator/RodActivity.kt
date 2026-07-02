@@ -9,6 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import org.map_bd.surveycalculator.databinding.ActivityRodBinding
 
 
@@ -54,54 +56,86 @@ class RodActivity : AppCompatActivity() {
         var result = findViewById<LinearLayout>(R.id.resultId)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         binding.calculateId.setOnClickListener {
 
+            var m8 : Double = mm8.text.toString().toDouble()
 
-            var mm8 = mm8.text.toString().toDoubleOrNull()
-            var mm10 = mm10.text.toString().toDoubleOrNull()
-            var mm12 = mm12.text.toString().toDoubleOrNull()
-            var mm16 = mm16.text.toString().toDoubleOrNull()
-            var mm20 = mm20.text.toString().toDoubleOrNull()
-            var mm25 = mm25.text.toString().toDoubleOrNull()
+            mmp8.setText(""+ covertToKg(m8))
 
-            var mmp8 = mmp8.text.toString().toDoubleOrNull()
-            var mmp10 = mmp10.text.toString().toDoubleOrNull()
-            var mmp12 = mmp12.text.toString().toDoubleOrNull()
-            var mmp16 = mmp16.text.toString().toDoubleOrNull()
-            var mmp20 = mmp20.text.toString().toDoubleOrNull()
-            var mmp25 = mmp25.text.toString().toDoubleOrNull()
-
-
-
-
-
-
-            if (mm8 != null || mm10 != null || mm12 != null || mm16 != null || mm20 != null || mm25 != null ||
-                mmp8 != null || mmp10 != null || mmp12 != null || mmp16 != null || mmp20 != null || mmp25 != null) {
-
-
-                while (mmp8 != null) {
-                    mmp8 = mm8!! * 0.120
-                }
-
-
-
-
-            } else {
-                Toast.makeText(this, "Please add any number", Toast.LENGTH_SHORT).show()
-            }
             closeKeyBoard()
 
-            reset.visibility = View.VISIBLE
-            result.visibility = View.VISIBLE
 
 
+
+
+
+//            var mm8 = mm8.text.toString().toDoubleOrNull()
+//            var mm10 = mm10.text.toString().toDoubleOrNull()
+//            var mm12 = mm12.text.toString().toDoubleOrNull()
+//            var mm16 = mm16.text.toString().toDoubleOrNull()
+//            var mm20 = mm20.text.toString().toDoubleOrNull()
+//            var mm25 = mm25.text.toString().toDoubleOrNull()
+//
+//            var mmp8 = mmp8.text.toString().toDoubleOrNull()
+//            var mmp10 = mmp10.text.toString().toDoubleOrNull()
+//            var mmp12 = mmp12.text.toString().toDoubleOrNull()
+//            var mmp16 = mmp16.text.toString().toDoubleOrNull()
+//            var mmp20 = mmp20.text.toString().toDoubleOrNull()
+//            var mmp25 = mmp25.text.toString().toDoubleOrNull()
+
+
+
+
+//            mmp8 = mm8!! * 0.120
+
+
+//            if (mm8 != null || mm10 != null || mm12 != null || mm16 != null || mm20 != null || mm25 != null ||
+//                mmp8 != null || mmp10 != null || mmp12 != null || mmp16 != null || mmp20 != null || mmp25 != null) {
+//
+//
+//                while (mmp8 != null) {
+//                    mmp8 = mm8!! * 0.120
+//                }
+//
+//
+//
+//
+//            } else {
+//                Toast.makeText(this, "Please add any number", Toast.LENGTH_SHORT).show()
+//            }
+//            closeKeyBoard()
+//
+//            reset.visibility = View.VISIBLE
+//            result.visibility = View.VISIBLE
+//
+//
         }
 
 
 
 
     }
+
+    fun covertToKg(m8: Double): Double {
+        var kg = m8 / 4.73
+        return kg
+    }
+
 
     private fun closeKeyBoard() {
         val view = this.currentFocus
