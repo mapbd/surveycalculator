@@ -23,10 +23,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <org.osmdroid.views.MapView
             android:id="@+id/streetMapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+
 
         <TextView
             android:id="@+id/tvLatLng"
@@ -34,15 +38,29 @@
             android:layout_height="wrap_content"
             android:text="Lat long"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/streetMapView"
+            app:layout_constraintBottom_toTopOf="@+id/pdf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+
+        <Button
+            android:id="@+id/pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create PDF"
+            app:layout_constraintBottom_toBottomOf="@+id/streetMapView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.97" />
 
 
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 

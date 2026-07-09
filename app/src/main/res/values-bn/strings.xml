@@ -194,4 +194,27 @@
     <string name="cft"> ঘনফুট : </string>
     <string name="thickness">পুরুত্ব</string>
 
+    <string name="ppk">প্রতি কেজি রডের বাজার দর</string>
+
+
+    <string name="moat">মোট</string>
+    <string name="zero_zerotaka">০০ </string>
+    <string name="taka"> </string>
+    <string name="kg">কেজি</string>
+    <string name="_0piece">০ পিস</string>
+    <string name="_00">০০</string>
+    <string name="kilogram00">০০ কেজি</string>
+    <string name="piece00">০০ পিস</string>
+
+    <string name="quntity">পিস</string>
+    <string name="size">সাইজ</string>
+    <string name="weight">ওজন</string>
+
+    <string name="mm8">৮ মি.মি.</string>
+    <string name="mm10">১০ মি.মি.</string>
+    <string name="mm12">১২ মি.মি.</string>
+    <string name="mm16">১৬ মি.মি.</string>
+    <string name="mm20">২০ মি.মি.</string>
+    <string name="mm25">২৫ মি.মি.</string>
+
 </resources>

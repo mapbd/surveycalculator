@@ -31,6 +31,23 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import java.io.File
 
 
+import android.graphics.pdf.PdfDocument
+import android.graphics.pdf.PdfDocument.PageInfo
+import android.os.Build
+import android.os.Environment
+import android.util.Log.d
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.LinearLayout
+import androidx.core.view.isVisible
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import java.io.FileOutputStream
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.Date
+
+
+@Suppress("DEPRECATION")
 class MapActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMapBinding
 
@@ -67,19 +84,7 @@ class MapActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-
-
-
-
-
-
-        
-        
-
-
         mMap = binding.streetMapView
-
-
 
         initializeOSM()
 
@@ -89,6 +94,30 @@ class MapActivity : AppCompatActivity() {
 
         val rotationGestureOverlay = RotationGestureOverlay(mMap)
         rotationGestureOverlay.isEnabled
+
+        mMap.setTileSource(TileSourceFactory.MAPNIK)
+
+
+     /*   tring custom tileSource */
+
+//        mMap.setTileSource(
+//            /* aTileSource = */
+//            XYTileSource(
+//                /* aName = */ "mapbd",
+//                /* aZoomMinLevel = */
+//                0, /* aZoomMaxLevel = */
+//                19, /* aTileSizePixels = */
+//                256, /* aImageFilenameEnding = */
+//                " ",
+//                /* aBaseUrl = */
+//                 String[]{"https://mapbd.github.io/boimela/image/{z}/{x}/{y}.png"}, "© OpenStreetMap contributors"
+//            )
+//        )
+
+
+
+
+
         mMap.setMultiTouchControls(true)
         mMap.overlays.add(rotationGestureOverlay)
 
@@ -105,34 +134,20 @@ class MapActivity : AppCompatActivity() {
         compassOverlay.enableCompass()
         mMap.overlays.add(compassOverlay)
 
-//        val marker = Marker(mMap)
-//        val geoPoint = GeoPoint(21.425975, 91.973977)
-//        marker.position = geoPoint
-//        marker.icon = ContextCompat.getDrawable(this, R.drawable.location)
-//        marker.title = "Your Location"
-//        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
-//        mMap.overlays.add(marker)
         mMap.invalidate()
 
 
+        binding.pdf.setOnClickListener {
 
-//    binding.direction.setOnClickListener {
-//
-//        //var mylocation =binding.tvLatLng.text
-//
-//        val gmmIntentUri =
-//            Uri.parse("google.navigation:q=21.42607900785744,91.97393549532941&avoid=tf")
-//        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-//        mapIntent.setPackage("com.google.android.apps.maps")
-//        startActivity(mapIntent)
-//
-//        val model = Build.MODEL.toString()
-//        val brand = Build.BRAND.toString()
-//        val ids = Build.ID.toString()
-//        val lat = currentPoint?.latitude.toString()
-//        val long = currentPoint?.longitude.toString()
-//        viewModel.postData(model,brand,ids,lat,long)
-//    }
+            binding.toolbar.isVisible = false
+            it.isVisible = false
+
+            createViewPDF()
+        }
+
+
+
+
         viewModel.getStatus().observe(this,{
             Toast.makeText(this,it, Toast.LENGTH_SHORT).show()
         })
@@ -140,10 +155,6 @@ class MapActivity : AppCompatActivity() {
 
 
     }
-
-
-
-
 
 
     private fun initializeOSM() {
@@ -209,6 +220,61 @@ class MapActivity : AppCompatActivity() {
 
 
 
+    private fun createViewPDF() {
+        val screenWidth : Int
+        val screenHeight : Int
 
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+        val currentDateAndTime = sdf.format(Date()).toString()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            screenWidth = windowManager.currentWindowMetrics.bounds.width()
+            screenHeight = windowManager.currentWindowMetrics.bounds.height()
+        } else {
+            val displayMetrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(displayMetrics)
+            screenWidth = displayMetrics.widthPixels
+            screenHeight = displayMetrics.heightPixels
+        }
+
+        val view = LayoutInflater.from(this).inflate(R.layout.activity_map, null)
+
+        view.measure(
+            View.MeasureSpec.makeMeasureSpec(screenWidth, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(screenHeight, View.MeasureSpec.EXACTLY)
+        )
+
+        view.layout(0, 0, screenWidth, screenHeight)
+
+        val pdfDocument = PdfDocument()
+        val pageInfo =  PageInfo.Builder(screenWidth, screenHeight, 1).create()
+        val page = pdfDocument.startPage(pageInfo)
+
+        view.draw(page.canvas)
+        pdfDocument.finishPage(page)
+
+//        val file = File(Environment..getExternalStorageDirectory(), "MyViewPDF.pdf")
+//        pdfDocument.writeTo(FileOutputStream(file))
+
+        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Map")
+        if (folder.exists()) {
+            d("folder", "exists")
+        } else {
+            d("folder", "not exists")
+            folder.mkdirs()
+        }
+
+
+        val file = File(folder,
+            "/Map_pdf_$currentDateAndTime.pdf"
+        )
+        try {
+            pdfDocument.writeTo(FileOutputStream(file))
+            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        pdfDocument.close()
+    }
 
 }
