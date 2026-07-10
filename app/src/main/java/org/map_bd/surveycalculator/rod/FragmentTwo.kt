@@ -65,26 +65,15 @@ class FragmentTwo : Fragment() {
 
         binding.calculateId.setOnClickListener {
 
-            if (mm8.text.isEmpty()
-                || mm10.text.isEmpty()
-                || mm12.text.isEmpty()
-                || mm16.text.isEmpty()
-                || mm20.text.isEmpty()
-                || mm25.text.isEmpty()
-                || price.text.isEmpty()
-            ) {
-                Toast.makeText(requireContext(), "Please Fill the all field", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
 
-            val m8: Double = mm8.text.toString().toDouble()
-            val m10: Double = mm10.text.toString().toDouble()
-            val m12: Double = mm12.text.toString().toDouble()
-            val m16: Double = mm16.text.toString().toDouble()
-            val m20: Double = mm20.text.toString().toDouble()
-            val m25: Double = mm25.text.toString().toDouble()
+            val m8: Double = mm8.text.toString().toDoubleOrNull() ?: 0.0
+            val m10: Double = mm10.text.toString().toDoubleOrNull() ?: 0.0
+            val m12: Double = mm12.text.toString().toDoubleOrNull() ?: 0.0
+            val m16: Double = mm16.text.toString().toDoubleOrNull() ?: 0.0
+            val m20: Double = mm20.text.toString().toDoubleOrNull() ?: 0.0
+            val m25: Double = mm25.text.toString().toDoubleOrNull() ?: 0.0
 
-            val bdor: Double = price.text.toString().toDouble()
+            val bdor: Double = price.text.toString().toDoubleOrNull() ?: 0.0
 
 
             mmp8.text = String.format("%.2f" , covertToKg8(m8))

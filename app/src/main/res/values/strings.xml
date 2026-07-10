@@ -179,8 +179,8 @@
 
     <string name="note">Note Book</string>
 
-    <string name="ana_roti">Vori Ana Roti Type</string>
-    <string name="gram">Gram Type</string>
+    <string name="ana_roti">Vori Ana Rotti Calculation</string>
+    <string name="gramt">Gram Calculation</string>
 
     <string name="round">Round Timber</string>
     <string name="sized">Sized Timber</string>
@@ -219,6 +219,25 @@
     <string name="input">Please input all field.</string>
     <string name="kg2pic">Kg - Piece</string>
     <string name="pic2kg">Piece - Kg</string>
+
+    <string name="_0">0</string>
+
+    <string name="proti_borir_dam">Price Per Vori</string>
+    <string name="proti_gramer_dam">Price Per Gram</string>
+    <string name="proti_vhorir_mojuri">Making Charge of Vori</string>
+    <string name="goldwit">Gold Weight</string>
+    <string name="gram">Gram</string>
+    <string name="or">Or</string>
+
+    <string name="zero_vhori_ana_roti_point">0 Vori, 0 Ana, 0 Ratti, 0 Point</string>
+    <string name="moat_equal">Total =</string>
+    <string name="_0_0000vhori">0.0000 vori</string>
+    <string name="_0_00_gram">0.00 Gram</string>
+
+    <string name="point">Point</string>
+    <string name="roti">Rotti</string>
+    <string name="vhori">Vori</string>
+    <string name="ana">Ana</string>
 
 
 

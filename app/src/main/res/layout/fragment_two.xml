@@ -28,14 +28,7 @@
                     android:layout_height="120dp"
                     android:src="@drawable/rod"/>
 
-                <TextView
-                    android:layout_margin="10dp"
-                    android:textColor="#ffffff"
-                    android:gravity="center_horizontal"
-                    android:background="@color/red"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/input" />
+
 
             </LinearLayout>
             <LinearLayout

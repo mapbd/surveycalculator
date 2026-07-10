@@ -1,16 +1,15 @@
 package org.map_bd.surveycalculator.gold
 
-import android.content.Intent
+
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.activity.R
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
-import org.map_bd.surveycalculator.databinding.ActivityGoldBinding
+import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.databinding.ActivityGramBinding
 
 class GramActivity : AppCompatActivity() {
@@ -26,32 +25,42 @@ class GramActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val goldwt = findViewById<EditText>(R.id.et_shonar_ojon_sub)
+        val voridam = findViewById<EditText>(R.id.et_proti_vhorir_dam_sub)
+        val gramdam = findViewById<EditText>(R.id.et_proti_granmer_dam_sub)
+
+        val motvori = findViewById<TextView>(R.id.r_moat_vhori_sub)
+        val mottaka = findViewById<TextView>(R.id.r_moat_taka_sub)
+
+
+        var reset =findViewById<Button>(R.id.resetId)
+        var result = findViewById<LinearLayout>(R.id.resultId)
+
+        binding.calculateId.setOnClickListener {
+
+
+
+            closeKeyBoard()
+            reset.visibility = View.VISIBLE
+            result.visibility = View.VISIBLE
+
+        }
+
+        reset.setOnClickListener {
+
+            reset.visibility = View.INVISIBLE
+            result.visibility = View.GONE
+        }
+
+
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu, menu)
-//        return true
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when(item.itemId){
-//            android.R.id.home ->{
-//                finish()
-//                return true
-//            }
-//            R.id.aboutId -> {
-//                val about = Intent(this,AboutActivity::class.java);
-//                startActivity(about)
-//            }
-//            R.id.basicCal ->{
-//                val calculator = Intent(this,BasicalculatorActivity::class.java);
-//                startActivity(calculator)
-//            }
-//            R.id.compassId ->{
-//                val compass = Intent(this,CompassActivity::class.java);
-//                startActivity(compass)
-//            }
-//        }
-//        return true
-//    }
+    // hide keyboard
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
 }

@@ -182,7 +182,7 @@
     <string name="note">নোটবই</string>
 
     <string name="ana_roti">ভরি আনা রতি পদ্ধতি</string>
-    <string name="gram">গ্রাম পদ্ধতি</string>
+    <string name="gramt">গ্রাম পদ্ধতি</string>
 
     <string name="round">গোল কাঠ</string>
     <string name="sized">সাইজ কাঠ</string>
@@ -226,5 +226,24 @@
 
     <string name="kg2pic">কেজি - পিস</string>
     <string name="pic2kg">পিস - কেজি</string>
+
+    <string name="_0">০</string>
+
+    <string name="proti_borir_dam">প্রতি ভরির দাম</string>
+    <string name="proti_gramer_dam">প্রতি গ্রামের দাম</string>
+    <string name="proti_vhorir_mojuri">প্রতি ভরির মজুরি</string>
+    <string name="goldwit">সোনার ওজন</string>
+    <string name="gram">গ্রাম</string>
+    <string name="or">অথবা</string>
+
+    <string name="zero_vhori_ana_roti_point">০ ভরি, ০ আনা, ০ রতি, ০ পয়েন্ট</string>
+    <string name="moat_equal">মোট =</string>
+    <string name="_0_0000vhori">০.০০০০ ভরি</string>
+    <string name="_0_00_gram">০.০০ গ্রাম</string>
+
+    <string name="point">পয়েন্ট</string>
+    <string name="roti">রতি</string>
+    <string name="vhori">ভরি</string>
+    <string name="ana">আনা</string>
 
 </resources>
