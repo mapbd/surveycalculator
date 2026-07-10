@@ -194,7 +194,10 @@
     <string name="thickness">Thickness</string>
     <string name="ppk">Price of rod per kilogram</string>
 
-    <string name="moat">Total</string>
+    <string name="moato">Total Weight </string>
+    <string name="moatp">Total Quantity </string>
+    <string name="moatt">Total Price </string>
+
     <string name="zero_zerotaka">00</string>
     <string name="taka"> </string>
     <string name="kg">Kilogram</string>
@@ -213,5 +216,10 @@
     <string name="mm16">16 mm</string>
     <string name="mm20">20 mm</string>
     <string name="mm25">25 mm</string>
+    <string name="input">Please input all field.</string>
+    <string name="kg2pic">Kg - Piece</string>
+    <string name="pic2kg">Piece - Kg</string>
+
+
 
 </resources>

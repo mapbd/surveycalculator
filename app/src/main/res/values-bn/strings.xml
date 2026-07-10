@@ -197,7 +197,12 @@
     <string name="ppk">প্রতি কেজি রডের বাজার দর</string>
 
 
-    <string name="moat">মোট</string>
+
+
+    <string name="moato">মোট ওজন </string>
+    <string name="moatp">মোট পিস </string>
+    <string name="moatt">মোট মুল্য </string>
+
     <string name="zero_zerotaka">০০ </string>
     <string name="taka"> </string>
     <string name="kg">কেজি</string>
@@ -216,5 +221,10 @@
     <string name="mm16">১৬ মি.মি.</string>
     <string name="mm20">২০ মি.মি.</string>
     <string name="mm25">২৫ মি.মি.</string>
+
+    <string name="input">অনুগ্রহ করে সবকটি ঘর পূরণ করুন।</string>
+
+    <string name="kg2pic">কেজি - পিস</string>
+    <string name="pic2kg">পিস - কেজি</string>
 
 </resources>
