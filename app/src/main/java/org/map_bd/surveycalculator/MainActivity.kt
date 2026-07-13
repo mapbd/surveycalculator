@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -14,6 +15,7 @@ import org.map_bd.surveycalculator.databinding.ActivityMainBinding
 
 
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -31,6 +33,11 @@ class MainActivity : AppCompatActivity() {
 
         fragmentManager = supportFragmentManager
         languageManager = LanguageManager(this)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         binding.landId.setOnClickListener{
             val land = Intent(this,LandActivity::class.java);

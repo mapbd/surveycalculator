@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import org.map_bd.surveycalculator.databinding.ActivityLandBinding
@@ -41,6 +42,11 @@ class LandActivity : AppCompatActivity() {
         //binding.toolbar.title = "Land"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         fragmentManager = supportFragmentManager
         languageManager = LanguageManager(this)

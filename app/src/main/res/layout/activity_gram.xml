@@ -13,7 +13,7 @@
         android:id="@+id/toolbar"
         app:titleTextColor="@color/white"
         app:title="@string/gramt"
-        android:background="@color/myperple"
+        android:background="@color/goldColor"
         tools:ignore="MissingConstraints" />
 
     <ScrollView
@@ -183,6 +183,7 @@
                     android:id="@+id/calculateId"
                     android:textColor="@color/white"
                     android:gravity="center"
+                    android:backgroundTint="@color/goldColor"
                     android:layout_marginLeft="50dp"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -274,6 +275,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
+                    android:backgroundTint="@color/goldColor"
                     android:text="@string/reset"/>
 
             </LinearLayout>

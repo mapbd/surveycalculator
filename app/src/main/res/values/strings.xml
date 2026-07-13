@@ -229,13 +229,13 @@
     <string name="gram">Gram</string>
     <string name="or">Or</string>
 
-    <string name="zero_vhori_ana_roti_point">0 Vori, 0 Ana, 0 Ratti, 0 Point</string>
+    <string name="zero_vhori_ana_roti_point">0 Vori, 0 Ana, 0 Rati, 0 Point</string>
     <string name="moat_equal">Total =</string>
     <string name="_0_0000vhori">0.0000 vori</string>
     <string name="_0_00_gram">0.00 Gram</string>
 
     <string name="point">Point</string>
-    <string name="roti">Rotti</string>
+    <string name="roti">Roti</string>
     <string name="vhori">Vori</string>
     <string name="ana">Ana</string>
 

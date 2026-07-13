@@ -14,7 +14,7 @@
         android:id="@+id/toolbar"
         app:titleTextColor="@color/white"
         app:title="@string/sized"
-        android:background="@color/myperple"
+        android:background="@color/oliveDrabColor"
         tools:ignore="MissingConstraints" />
 
     <ScrollView
@@ -208,6 +208,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
+                        android:backgroundTint="@color/oliveDrabColor"
                         android:text="@string/calculate"/>
 
                 </LinearLayout>
@@ -294,6 +295,7 @@
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="15sp"
+                                android:backgroundTint="@color/oliveDrabColor"
                                 android:text="@string/reset"/>
 
                         </LinearLayout>

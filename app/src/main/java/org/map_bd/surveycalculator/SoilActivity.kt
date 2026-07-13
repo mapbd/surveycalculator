@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -18,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
 import org.map_bd.surveycalculator.databinding.ActivitySoilBinding
 
+@Suppress("DEPRECATION")
 class SoilActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySoilBinding
@@ -30,6 +32,11 @@ class SoilActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         var length = findViewById<EditText>(R.id.length4Id)
         var width = findViewById<EditText>(R.id.length5Id)

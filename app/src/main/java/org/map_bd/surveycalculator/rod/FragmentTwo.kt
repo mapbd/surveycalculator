@@ -99,7 +99,7 @@ class FragmentTwo : Fragment() {
 
             pic.text = String.format("%.2f Kg", tpic)
 
-            val tk = (tkg * bdor)
+            val tk = (tpic * bdor)
 
             priz.text = String.format("%.2f", tk)
 

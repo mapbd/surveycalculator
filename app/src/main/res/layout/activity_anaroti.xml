@@ -13,7 +13,7 @@
         android:id="@+id/toolbar"
         app:titleTextColor="@color/white"
         app:title="@string/ana_roti"
-        android:background="@color/myperple"
+        android:background="@color/goldColor"
         tools:ignore="MissingConstraints" />
 
     <ScrollView
@@ -223,11 +223,12 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
+                    android:backgroundTint="@color/goldColor"
                     android:text="@string/calculate"/>
 
             </LinearLayout>
         <LinearLayout
-
+            android:visibility="gone"
             android:id="@+id/resultId"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -351,6 +352,7 @@
                     android:gravity="center"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/goldColor"
                     android:textSize="15sp"
                     android:text="@string/reset"/>
 

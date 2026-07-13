@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
 import org.map_bd.surveycalculator.databinding.ActivityMainBinding
 
+@Suppress("DEPRECATION")
 class GenarelActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGenarelBinding
@@ -24,6 +26,11 @@ class GenarelActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
 
         binding.mapId.setOnClickListener{
@@ -83,6 +90,10 @@ class GenarelActivity : AppCompatActivity() {
             android.R.id.home ->{
                 finish()
                 return true
+            }
+            R.id.settingId -> {
+                val settings = Intent(this,SettingActivity::class.java);
+                startActivity(settings)
             }
             R.id.aboutId -> {
                 val about = Intent(this,AboutActivity::class.java);

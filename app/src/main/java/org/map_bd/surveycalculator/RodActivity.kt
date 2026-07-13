@@ -2,6 +2,7 @@ package org.map_bd.surveycalculator
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -11,6 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import org.map_bd.surveycalculator.databinding.ActivityRodBinding
 
 
+@Suppress("DEPRECATION")
 class RodActivity : AppCompatActivity() {
 
 
@@ -28,6 +30,11 @@ class RodActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         tabLayout = findViewById(R.id.tab_layout)
         viewpager = findViewById(R.id.view_pager)
