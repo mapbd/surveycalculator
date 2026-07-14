@@ -140,7 +140,7 @@ dependencies {
     //implementation ("com.uttampanchasara.pdfgenerator:pdfgenerator:1.3")
 
     //implementation("com.github.dangiashish:GeoTagImage:1.1.4")
-    implementation ("com.google.android.gms:play-services-location:21.3.0")
+    implementation ("com.google.android.gms:play-services-location:21.1.0")
 
 
     // Access old API
@@ -197,6 +197,16 @@ dependencies {
     implementation ("com.karumi:dexter:6.2.2")
     //coil
     implementation("io.coil-kt:coil:1.1.1")
+
+    // CameraX Core Lifecycle and View Engines
+    val cameraXVersion = "1.3.1"
+    implementation("androidx.camera:camera-core:$cameraXVersion")
+    implementation("androidx.camera:camera-camera2:$cameraXVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraXVersion")
+    implementation("androidx.camera:camera-view:$cameraXVersion")
+
+    // AndroidX Offline EXIF Metadata Editor
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
 
 
 }
