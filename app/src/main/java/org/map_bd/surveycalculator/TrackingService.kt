@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
 import android.content.pm.ServiceInfo
-import android.location.Location
 import android.os.Build
 import android.os.IBinder
 import android.os.Looper
@@ -20,9 +19,9 @@ class TrackingService : Service() {
 
     companion object {
         const val CHANNEL_ID = "GPS_Tracking_Channel"
-        const val NOTIFICATION_ID = 101
-        val pathPoints = mutableListOf<GeoPoint>()
-        var onLocationUpdated: ((List<GeoPoint>) -> Unit)? = null
+        const val NOTIFICATION_ID = 707
+        val trackingPathPoints = mutableListOf<GeoPoint>()
+        var onRoutePointsUpdated: ((List<GeoPoint>) -> Unit)? = null
     }
 
     override fun onCreate() {
@@ -31,54 +30,54 @@ class TrackingService : Service() {
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
-                for (location in locationResult.locations) {
-                    val geoPoint = GeoPoint(location.latitude, location.longitude)
-                    pathPoints.add(geoPoint)
-                    onLocationUpdated?.invoke(pathPoints)
+                for (loc in locationResult.locations) {
+                    val point = GeoPoint(loc.latitude, loc.longitude)
+                    trackingPathPoints.add(point)
+                    onRoutePointsUpdated?.invoke(trackingPathPoints)
                 }
             }
         }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        createNotificationChannel()
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("GPS Tracker Active")
-            .setContentText("Recording your journey...")
-            .setSmallIcon(android.R.drawable.ic_menu_mylocation)
+        createTrackingNotificationChannel()
+        val systemNotification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("GPS Tracker Running")
+            .setContentText("Recording track coordinates...")
+            .setSmallIcon(android.R.drawable.ic_menu_compass)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION)
+            startForeground(NOTIFICATION_ID, systemNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION)
         } else {
-            startForeground(NOTIFICATION_ID, notification)
+            startForeground(NOTIFICATION_ID, systemNotification)
         }
 
-        startLocationUpdates()
+        initializeHardwareLocationLoops()
         return START_STICKY
     }
 
     @SuppressLint("MissingPermission")
-    private fun startLocationUpdates() {
-        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
+    private fun initializeHardwareLocationLoops() {
+        val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 4000)
             .setMinUpdateIntervalMillis(2000)
             .build()
 
         fusedLocationClient.requestLocationUpdates(
-            locationRequest,
+            request,
             locationCallback,
             Looper.getMainLooper()
         )
     }
 
-    private fun createNotificationChannel() {
+    private fun createTrackingNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                CHANNEL_ID, "GPS Tracking", NotificationManager.IMPORTANCE_LOW
+            val channelItem = NotificationChannel(
+                CHANNEL_ID, "GPS Tracker Logs", NotificationManager.IMPORTANCE_LOW
             )
             val manager = getSystemService(NotificationManager::class.java)
-            manager.createNotificationChannel(channel)
+            manager.createNotificationChannel(channelItem)
         }
     }
 

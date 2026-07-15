@@ -18,7 +18,9 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.util.DisplayMetrics
 import android.util.Log.d
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -42,6 +44,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
+import kotlin.jvm.java
 
 
 class FormActivity : AppCompatActivity() {
@@ -51,16 +54,6 @@ class FormActivity : AppCompatActivity() {
     private lateinit var imgV: ImageView
 
     private lateinit var locationid: TextView
-
-
-
-//    lateinit var imageUri: Uri
-//
-//    private val tackPhoto = registerForActivityResult(ActivityResultContracts.TakePicture()){
-//        imgV.setImageURI(null)
-//        imgV.setImageURI(imageUri)
-//    }
-
 
 
     private val REQUESTCODE = 100
@@ -90,12 +83,6 @@ class FormActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
-
-
-
-
-
         var title =findViewById<EditText>(R.id.titleId)
         var mouza =findViewById<EditText>(R.id.mouzaId)
         var plot =findViewById<EditText>(R.id.plotId)
@@ -109,41 +96,10 @@ class FormActivity : AppCompatActivity() {
 
 
 
-
-//        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-//
-//        val locationListener = object : LocationListener {
-//            override fun onLocationChanged(location: Location) {
-//                val lat = location.latitude
-//                val lng = location.longitude
-//                // Convert coordinates to String
-//                val locationText = "Lat: $lat, Long: $lng"
-//                println(locationText) // Or update your TextView
-//            }
-//        }
-//
-//        // Request updates specifically from GPS_PROVIDER
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//            locationManager.requestLocationUpdates(
-//                LocationManager.GPS_PROVIDER, // Forces offline, raw GPS
-//                5000L, // 5 seconds
-//                10f,   // 10 meters
-//                locationListener
-//            )
-//        }
-
-
-        imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.header_image)
-        scaledImageBitmap = imageBitmap?.let { Bitmap.createScaledBitmap(it, 720, 257, false) }
-
-
-
         imgV = findViewById(R.id.imageId)
 
 
 
-//        val drawable = imgV.drawable as BitmapDrawable
-//        val imgBitmap = drawable.bitmap
 
 
         val pickmedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()){uri ->
@@ -160,12 +116,6 @@ class FormActivity : AppCompatActivity() {
 
 
 
-//        imageUri = createImageUri()
-//        binding.capbtnId.setOnClickListener {
-//            tackPhoto.launch(imageUri)
-//        }
-
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         getCurrentLocation()
@@ -179,58 +129,37 @@ class FormActivity : AppCompatActivity() {
 
         printId.setOnClickListener {
 
-            if (title.text.isEmpty() && mouza.text.isEmpty() && plot.text.isEmpty() && survey.text.isEmpty()) {
-                Toast.makeText(this, "Please Fill the impotent field", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            val title = title.text.toString().trim()
+            val mouza =mouza.text.toString().trim()
+            val plot = plot.text.toString().trim()
+            val survey = survey.text.toString().trim()
+            val upazila = upazila.text.toString().trim()
+            val details = details.text.toString().trim()
+            val locationid = locationid.text.toString().trim()
+
+
+            val intent = Intent(this, InvoiceActivity::class.java).apply {
+                putExtra("TITLE", title)
+                putExtra("MOUZA", mouza)
+                putExtra("PLOT", plot)
+                putExtra("SURVEY", survey)
+                putExtra("UPAZILA", upazila)
+                putExtra("DETAILS", details)
+                putExtra("LOCATION", locationid)
+
+            putExtra("EXTRA_IMAGE_URI", imgV?.toString())
+
+            // CRITICAL FOR SDK 34: Grants temporary read access if using content:// URIs
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+
             }
+            startActivity(intent)
 
-
-            var title = title.text.toString()
-            var mouza = mouza.text.toString()
-            var plot = plot.text.toString()
-            var survey = survey.text.toString()
-            var upazila = upazila.text.toString()
-            var dtls = details.text.toString()
-
-            var locs = locationid.text.toString()
-
-
-
-
-
-            val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
-            val currentDateAndTime = sdf.format(Date()).toString()
-
-
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (ContextCompat.checkSelfPermission(
-                        applicationContext,
-                        permission.READ_MEDIA_IMAGES
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    createPDF(currentDateAndTime, title, mouza, plot, survey,upazila, dtls,locs)
-                } else {
-                    requestAllPermission()
-                }
-            } else {
-                if (ContextCompat.checkSelfPermission(
-                        applicationContext,
-                        permission.READ_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(
-                        applicationContext,
-                        permission.WRITE_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    createPDF(currentDateAndTime,title, mouza, plot, survey,upazila, dtls,locs)
-                    printId.visibility = View.GONE
-
-                } else {
-                    requestAllPermission()
-                }
-            }
+            createViewPDF()
         }
+
+
 
 
 
@@ -246,14 +175,7 @@ class FormActivity : AppCompatActivity() {
 
     }
 
-//    fun createImageUri(): Uri{
-//
-//        val image = File(applicationContext.filesDir,
-//            "camera_photos.png")
-//        return FileProvider.getUriForFile(applicationContext,
-//            "org.map_bd.surveycalculator.FileProvider",
-//            image)
-//    }
+
 
 
 
@@ -332,9 +254,7 @@ class FormActivity : AppCompatActivity() {
 
     }
 
-//    companion object{
-//        private const val PERMISSION_REQUEST_ACCESS_LOCATION = 100
-//    }
+
 
     private fun checkPermissions() : Boolean
     {
@@ -371,157 +291,6 @@ class FormActivity : AppCompatActivity() {
     }
 
 
-
-    private fun createPDF(currentDateAndTime: String, title: String, mouza: String, plot: String, survey: String, upazila: String, dtls: String, locs: String) {
-        val pdfDocument = PdfDocument()
-        val paint = Paint()
-        val pageInfo = PageInfo.Builder(pageWidth, pageHeight, 1).create()
-        val page = pdfDocument.startPage(pageInfo)
-        val canvas = page.canvas
-        canvas.drawBitmap(scaledImageBitmap!!, 0f, 0f, paint)
-        paint.textAlign = Paint.Align.CENTER
-        paint.textSize = 40f
-        //paint.color = resources.getColor(android.R.color.holo_blue_bright, null)
-        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD))
-        canvas.drawText("Survey Form" , (pageWidth / 2).toFloat(),  295f, paint)
-
-        paint.textAlign = Paint.Align.CENTER
-        paint.textSize = 20f
-        canvas.drawText("Client Information",(pageWidth / 2).toFloat(),335f,paint)
-
-        val line = Paint()
-        line.strokeWidth = 2f
-
-        canvas.drawLine(150f,310f,550f,310f,line)
-
-        canvas.drawLine(150f,310f,150f,350f,line)
-        canvas.drawLine(550f,310f,550f,350f,line)
-
-        // horizontal lines
-        canvas.drawLine(150f, 350f, 550f, 350f, line)
-        canvas.drawLine(150f, 400f, 550f, 400f, line)
-        canvas.drawLine(150f, 450f, 550f, 450f, line)
-        canvas.drawLine(150f, 500f, 550f, 500f, line)
-        canvas.drawLine(150f, 550f, 550f, 550f, line)
-        canvas.drawLine(150f, 600f, 550f, 600f, line)
-
-
-        // vertical lines
-        canvas.drawLine(150f, 350f, 150f, 600f, line)
-        canvas.drawLine(350f, 350f, 350f, 600f, line)
-        canvas.drawLine(550f, 350f, 550f, 600f, line)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.grapeColor,null)
-        paint.textSize = 20f
-        canvas.drawText("Title: ",180f,380f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$title ",360f,380f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 20f
-        canvas.drawText("Mouza: ",180f,430f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$mouza ",360f,430f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.grapeColor,null)
-        paint.textSize = 20f
-        canvas.drawText("Plot: ",180f,480f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$plot ",360f,480f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 20f
-        canvas.drawText("Survey: ",180f,530f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$survey ",360f,530f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 20f
-        canvas.drawText("Upazila: ",180f,580f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$upazila ",360f,580f,paint)
-
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 20f
-        paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Location : $locs ",150f, 630f, paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 20f
-        paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Details  : $dtls ",10f, 680f, paint)
-
-//        paint.textAlign = Paint.Align.LEFT
-//        paint.textSize = 30f
-//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
-//        canvas.drawText("Decimal = $dece ",150f, 620f, paint)
-
-//        paint.textAlign = Paint.Align.LEFT
-//        paint.textSize = 30f
-//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
-//        canvas.drawText("Katha = $kata ",150f, 650f, paint)
-//
-//        paint.textAlign = Paint.Align.LEFT
-//        paint.textSize = 30f
-//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
-//        canvas.drawText("Square Link = $sqrlin ",150f, 680f, paint)
-
-
-        paint.textAlign = Paint.Align.CENTER
-        paint.textSize = 15f
-        paint.color = resources.getColor(R.color.brickRedColor, null)
-        canvas.drawText("Note: This is automatically generated from Survey Calculator.",(pageWidth / 2).toFloat(), 1000f, paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 10f
-        paint.color = resources.getColor(R.color.black, null)
-        canvas.drawText("Pdf Generating Time: $currentDateAndTime",40f,1150f,paint)
-
-        pdfDocument.finishPage(page)
-
-
-        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Form")
-        if (folder.exists()) {
-            d("folder", "exists")
-        } else {
-            d("folder", "not exists")
-            folder.mkdirs()
-        }
-
-
-        val file = File(folder,
-            "/Survey_form_$currentDateAndTime.pdf"
-        )
-        try {
-            pdfDocument.writeTo(FileOutputStream(file))
-            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        pdfDocument.close()
-
-
-
-
-    }
 
 
 
@@ -561,6 +330,63 @@ class FormActivity : AppCompatActivity() {
     }
 
 
+
+    private fun createViewPDF() {
+        val screenWidth : Int
+        val screenHeight : Int
+
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+        val currentDateAndTime = sdf.format(Date()).toString()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            screenWidth = windowManager.currentWindowMetrics.bounds.width()
+            screenHeight = windowManager.currentWindowMetrics.bounds.height()
+        } else {
+            val displayMetrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(displayMetrics)
+            screenWidth = displayMetrics.widthPixels
+            screenHeight = displayMetrics.heightPixels
+        }
+
+        val view = LayoutInflater.from(this).inflate(R.layout.invoice_activity, null)
+
+        view.measure(
+            View.MeasureSpec.makeMeasureSpec(screenWidth, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(screenHeight, View.MeasureSpec.EXACTLY)
+        )
+
+        view.layout(0, 0, screenWidth, screenHeight)
+
+        val pdfDocument = PdfDocument()
+        val pageInfo =  PageInfo.Builder(screenWidth, screenHeight, 1).create()
+        val page = pdfDocument.startPage(pageInfo)
+
+        view.draw(page.canvas)
+        pdfDocument.finishPage(page)
+
+//        val file = File(Environment..getExternalStorageDirectory(), "MyViewPDF.pdf")
+//        pdfDocument.writeTo(FileOutputStream(file))
+
+        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Form")
+        if (folder.exists()) {
+            d("folder", "exists")
+        } else {
+            d("folder", "not exists")
+            folder.mkdirs()
+        }
+
+
+        val file = File(folder,
+            "/Form_$currentDateAndTime.pdf"
+        )
+        try {
+            pdfDocument.writeTo(FileOutputStream(file))
+            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        pdfDocument.close()
+    }
 
 
 

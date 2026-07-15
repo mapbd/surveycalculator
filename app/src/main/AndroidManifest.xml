@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" -->
-    <!-- android:maxSdkVersion="32" -->
-    <!-- tools:ignore="ScopedStorage" /> -->
-    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" -->
-    <!-- android:maxSdkVersion="32" /> -->
+<!--     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" -->
+<!--     android:maxSdkVersion="32" -->
+<!--     tools:ignore="ScopedStorage" /> -->
+<!--     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" -->
+<!--     android:maxSdkVersion="32" /> -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
 
@@ -23,9 +23,9 @@
     <uses-feature
         android:name="android.hardware.sensor.gyroscope"
         android:required="true" />
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
+<!--    <uses-feature-->
+<!--        android:name="android.hardware.camera"-->
+<!--        android:required="false" />-->
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -36,6 +36,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <!-- Storage Permissions for MinSdk 24 compatibility -->
 
     <!-- Location Permissions -->
 
@@ -64,6 +67,9 @@
         <activity
             android:name=".MapActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
         </activity>
         <activity
             android:name=".AudioActivity"
@@ -76,6 +82,9 @@
         <activity
             android:name=".CameraActivity"
             android:exported="false" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
         <activity
             android:name=".StopwatchActivity"
             android:exported="false"
@@ -140,6 +149,10 @@
 
         <activity
             android:name=".FormActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".InvoiceActivity"
             android:exported="false">
         </activity>
         <provider

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InvoiceActivity"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/technopoints_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/technopoints_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/technopoints_logo"
+        app:layout_constraintBottom_toBottomOf="@id/technopoints_logo"
+        app:layout_constraintStart_toEndOf="@id/technopoints_logo"
+        android:text="Survey Calculator"
+        android:textSize="30sp"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_invoice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/technopoints_logo"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txt_cust_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_invoice"
+        android:text="Name: Mr."
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_cust_name"
+        android:text="Mouza"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/txt_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_date"
+        android:text="Plot Number"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/txt_datess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_dates"
+        android:text="Survey/Record Name"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/txt_datesss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_datess"
+        android:text="Upazila"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/txt_datessss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_datesss"
+        android:text="Details"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"/>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/baseline_insert_photo_24"
+        app:layout_constraintTop_toBottomOf="@id/txt_datessss"
+        android:layout_marginTop="5dp"/>
+
+
+
+    <TextView
+        android:id="@+id/sign_blanks"
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/img"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sign_blanks"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@id/sign_blanks"
+        android:text="Signature"
+        app:layout_constraintStart_toStartOf="@id/sign_blanks"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Thanks you for choice us."
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

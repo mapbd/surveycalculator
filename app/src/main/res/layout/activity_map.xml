@@ -24,12 +24,45 @@
         android:layout_height="match_parent">
 
 
-
-
         <org.osmdroid.views.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <!-- Layer Switcher Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabSwitchLayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@android:drawable/ic_dialog_map"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnZoomIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/outline_add_2_24"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fabSwitchLayer" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnZoomOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/outline_horizontal_rule_24"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnZoomIn" />
+
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,34 +71,27 @@
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
+
+
             <Button
-                android:id="@+id/btnToggleTracking"
+                android:id="@+id/btnToggleTracker"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Start Tracking"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginRight="8dp"/>
 
             <Button
-                android:id="@+id/btnExport"
+                android:id="@+id/btnExportGpxFile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Export GPX" />
+                android:text="Export Track" />
         </LinearLayout>
 
 
 
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
 
 

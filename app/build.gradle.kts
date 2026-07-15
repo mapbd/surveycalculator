@@ -199,7 +199,7 @@ dependencies {
     implementation("io.coil-kt:coil:1.1.1")
 
     // CameraX Core Lifecycle and View Engines
-    val cameraXVersion = "1.3.1"
+    val cameraXVersion = "1.3.4"
     implementation("androidx.camera:camera-core:$cameraXVersion")
     implementation("androidx.camera:camera-camera2:$cameraXVersion")
     implementation("androidx.camera:camera-lifecycle:$cameraXVersion")
