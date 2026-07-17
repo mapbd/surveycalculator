@@ -209,7 +209,7 @@
     <string name="_0piece">০ পিস</string>
     <string name="_00">০০</string>
     <string name="kilogram00">০০ কেজি</string>
-    <string name="piece00">০০ পিস</string>
+    <string name="piece">পিস</string>
 
     <string name="quntity">পিস</string>
     <string name="size">সাইজ</string>
@@ -245,5 +245,14 @@
     <string name="roti">রতি</string>
     <string name="vhori">ভরি</string>
     <string name="ana">আনা</string>
+
+    <string name="feet">ফুট</string>
+    <string name="inch">ইঞ্চি</string>
+    <string name="scope">পরিধি</string>
+
+
+    <string name="average_height">গড় উচ্চতা</string>
+    <string name="average_width">গড় প্রস্থ</string>
+    <string name="average_length">গড় দৈর্ঘ্য</string>
 
 </resources>

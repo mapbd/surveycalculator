@@ -31,8 +31,120 @@
             <ImageView
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="120dp"
                 android:src="@drawable/round"/>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3">
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="start"
+                    android:layout_gravity="top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/length"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center"
+                    android:layout_gravity="top"
+                    android:id="@+id/lengthId"
+                    android:background="@drawable/isr"
+                    android:nextFocusDown="@+id/et_gor_prostho"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/_0"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"/>
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="start"
+                    android:layout_gravity="top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feet"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3">
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="start"
+                    android:layout_gravity="top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scope"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center"
+                    android:layout_gravity="top"
+                    android:id="@+id/scopeId"
+                    android:background="@drawable/isr"
+                    android:nextFocusDown="@+id/et_gor_uchchata"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/_0"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"/>
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="start"
+                    android:layout_gravity="top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/inch"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3">
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="start"
+                    android:layout_gravity="top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prize"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center"
+                    android:layout_gravity="top"
+                    android:id="@+id/priceId"
+                    android:background="@drawable/isr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/_0"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"/>
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="start"
+                    android:layout_gravity="top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/taka"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
 
 
             <LinearLayout
@@ -40,100 +152,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Length :"
-                        android:layout_marginRight="30dp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Length in Feet"
-                        android:layout_margin="0dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/lengthId"
-                            android:inputType="numberDecimal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Scope :"
-                        android:layout_marginRight="35dp" />
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Scope in inches"
-                        android:layout_margin="0dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/scopeId"
-                            android:inputType="numberDecimal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                </LinearLayout>
-
-
-
-
-
-
-
-
-                <TextView
-                    android:textStyle="bold"
-                    android:textColor="@color/myperple"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/prize"/>
-
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/price"
-                        android:layout_margin="0dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/priceId"
-                            android:inputType="numberDecimal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                </LinearLayout>
-
-
 
 
                 <LinearLayout

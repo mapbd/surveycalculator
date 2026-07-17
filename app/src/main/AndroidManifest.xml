@@ -62,14 +62,16 @@
 
         <activity
             android:name=".MapActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".GenarelActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GenarelActivity" />
+                android:value=".GenarelActivity"/>
         </activity>
         <activity
             android:name=".AudioActivity"
             android:exported="true"
+            android:parentActivityName=".GenarelActivity"
             android:theme="@style/Theme.Recorder">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -77,7 +79,8 @@
         </activity>
         <activity
             android:name=".CameraActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".GenarelActivity"/>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GenarelActivity" />
@@ -93,10 +96,12 @@
         <activity
             android:name=".NoteActivity"
             android:exported="false"
+            android:parentActivityName=".GenarelActivity"
             android:theme="@style/Theme.SotMAsiabd">
             <meta-data
-                android:name="android.app.lib_name"
+                android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GenarelActivity" />
+            <!--                android:name="android.app.lib_name"-->
         </activity>
 
         <activity
@@ -141,7 +146,11 @@
         </provider>
         <activity
             android:name=".FormActivity"
+            android:parentActivityName=".GenarelActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
         </activity>
         <activity
             android:name=".InvoiceActivity"
@@ -359,7 +368,10 @@
             android:name=".CompassActivity"
             android:exported="false"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.App.NoActionBar" />
+            android:theme="@style/Theme.App.NoActionBar"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GenarelActivity" />
         <activity
             android:name=".GenarelActivity"
             android:exported="false"

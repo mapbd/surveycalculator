@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".CameraActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/white"
+        app:title="@string/title_camera"
+        android:background="@color/myperple"
+        tools:ignore="MissingConstraints"/>
+
     <androidx.camera.view.PreviewView
+        android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/viewFinder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <Button
         android:id="@+id/imageCaptureButton"

@@ -7,4 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".AudioActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/white"
+        app:title="@string/recorder"
+        android:background="@color/darkyellow"
+        tools:ignore="MissingConstraints"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
