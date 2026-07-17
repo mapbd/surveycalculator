@@ -2,8 +2,8 @@ package org.map_bd.surveycalculator.ui.themes
 
 import androidx.compose.ui.graphics.Color
 
-val LightSurface = Color(0xFF46449B)
-val DarkSurface = Color(0xFFABAAF2)
+val LightSurface = Color(0xFFFFFFFF)
+val DarkSurface = Color(0xFF3C3E4B)
 val LightYellow = Color(0xFFFFF3E0)
 val DarkYellow = Color(0xFFFFD152)
 val LightGrey = Color(0xFFCECECE)

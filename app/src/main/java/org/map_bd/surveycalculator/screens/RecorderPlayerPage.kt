@@ -165,10 +165,10 @@ fun RecorderPlayerPage(navController: NavHostController) {
                         ) {
                             Icon(
                                 imageVector =
-                                if (isRecording && !isPaused)
-                                    Icons.Filled.Pause
-                                else
-                                    Icons.Filled.PlayArrow,
+                                    if (isRecording && !isPaused)
+                                        Icons.Filled.Pause
+                                    else
+                                        Icons.Filled.PlayArrow,
                                 contentDescription = "Start recording",
                                 tint = if (isSystemInDarkTheme()) LightYellow else DarkGrey
                             )

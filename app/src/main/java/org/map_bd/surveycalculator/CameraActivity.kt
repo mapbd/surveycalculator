@@ -33,6 +33,10 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import android.os.Environment
+import java.io.File
+import java.io.FileOutputStream
+import java.util.Date
 
 class CameraActivity : AppCompatActivity() {
 
@@ -157,31 +161,99 @@ class CameraActivity : AppCompatActivity() {
         saveBitmapToStorage(mutableBitmap)
     }
 
+//    private fun saveBitmapToStorage(bitmap: Bitmap) {
+//        val filename = "surveycalculator_${System.currentTimeMillis()}.jpg"
+//        val contentValues = ContentValues().apply {
+//            put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
+//            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                put(MediaStore.Images.Media.RELATIVE_PATH, "Survey Calculator/GeotagCamera")
+//            }
+//        }
+//
+//        val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+//
+//        if (uri != null) {
+//            try {
+//                val outputStream: OutputStream? = contentResolver.openOutputStream(uri)
+//                outputStream?.use {
+//                    bitmap.compress(Bitmap.CompressFormat.JPEG, 95, it)
+//                }
+//                runOnUiThread {
+//                    Toast.makeText(this, "Photo overlay saved successfully!", Toast.LENGTH_LONG).show()
+//                }
+//            } catch (e: Exception) {
+//                runOnUiThread {
+//                    Toast.makeText(this, "Failed to save file system modifications.", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
+//    }
+
     private fun saveBitmapToStorage(bitmap: Bitmap) {
-        val filename = "surveycalculator_${System.currentTimeMillis()}.jpg"
-        val contentValues = ContentValues().apply {
-            put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                put(MediaStore.Images.Media.RELATIVE_PATH, "urvey Calculator/GeotagCamera")
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+        val currentDateAndTime = sdf.format(Date())
+//        val filename = "surveycalculator_${System.currentTimeMillis()}.jpg"
+        val filename = "surveycalculator_$currentDateAndTime.jpg"
+        var savedPathMessage = ""
+        var isSuccess = false
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // Android 10 (API 29) and above: MediaStore Implementation
+            val contentValues = ContentValues().apply {
+                put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
+                put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+                // Must specify a public root folder (DIRECTORY_PICTURES) on Android 10+
+                put(MediaStore.Images.Media.RELATIVE_PATH, "${Environment.DIRECTORY_PICTURES}/Survey Calculator/Camera")
+                // Lock the file during the compression stream
+                put(MediaStore.Images.Media.IS_PENDING, 1)
+            }
+
+            val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+
+            if (uri != null) {
+                try {
+                    val outputStream: OutputStream? = contentResolver.openOutputStream(uri)
+                    outputStream?.use {
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 95, it)
+                        isSuccess = true
+                        savedPathMessage = "Photo saved to Pictures/Survey Calculator/Camera"
+                    }
+
+                    // Unlock the file so other apps and galleries can see it
+                    contentValues.clear()
+                    contentValues.put(MediaStore.Images.Media.IS_PENDING, 0)
+                    contentResolver.update(uri, contentValues, null, null)
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        } else {
+            // Android 9 (API 28) and below: Legacy File API Implementation
+            val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Camera")
+            if (!folder.exists()) {
+                folder.mkdirs()
+            }
+
+            val file = File(folder, filename)
+            try {
+                FileOutputStream(file).use { outputStream ->
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 95, outputStream)
+                    isSuccess = true
+                    savedPathMessage = "Photo saved to: ${file.absolutePath}"
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
 
-        val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-
-        if (uri != null) {
-            try {
-                val outputStream: OutputStream? = contentResolver.openOutputStream(uri)
-                outputStream?.use {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 95, it)
-                }
-                runOnUiThread {
-                    Toast.makeText(this, "Photo overlay saved successfully!", Toast.LENGTH_LONG).show()
-                }
-            } catch (e: Exception) {
-                runOnUiThread {
-                    Toast.makeText(this, "Failed to save file system modifications.", Toast.LENGTH_SHORT).show()
-                }
+        // Single unified UI Thread handler for Toast feedback
+        runOnUiThread {
+            if (isSuccess) {
+                Toast.makeText(this, savedPathMessage, Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Failed to save photo.", Toast.LENGTH_SHORT).show()
             }
         }
     }

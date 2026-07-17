@@ -13,7 +13,6 @@ import android.graphics.pdf.PdfDocument.PageInfo
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log.d
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -35,6 +34,13 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
+
+import android.content.ContentValues
+import android.provider.MediaStore
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class OblongActivity : AppCompatActivity() {
@@ -215,30 +221,179 @@ class OblongActivity : AppCompatActivity() {
 
 
 
-    private fun createPDF(currentDateAndTime: String, num1:String, num2:String,num3:String, num4:String,dece: String,sqrf:String, kata: String, sqrlin: String) {
+//    private fun createPDF(currentDateAndTime: String, num1:String, num2:String,num3:String, num4:String,dece: String,sqrf:String, kata: String, sqrlin: String) {
+//        val pdfDocument = PdfDocument()
+//        val paint = Paint()
+//        val pageInfo = PageInfo.Builder(pageWidth, pageHeight, 1).create()
+//        val page = pdfDocument.startPage(pageInfo)
+//        val canvas = page.canvas
+//        canvas.drawBitmap(scaledImageBitmap!!, 0f, 0f, paint)
+//        paint.textAlign = Paint.Align.CENTER
+//        paint.textSize = 40f
+//        //paint.color = resources.getColor(android.R.color.holo_blue_bright, null)
+//        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD))
+//        canvas.drawText("Oblong Calculation" , (pageWidth / 2).toFloat(),  295f, paint)
+//
+//        paint.textAlign = Paint.Align.CENTER
+//        paint.textSize = 20f
+//        canvas.drawText("Your Input Table",(pageWidth / 2).toFloat(),335f,paint)
+//
+//        val line = Paint()
+//        line.strokeWidth = 2f
+//
+//        canvas.drawLine(150f,310f,550f,310f,line)
+//
+//        canvas.drawLine(150f,310f,150f,350f,line)
+//        canvas.drawLine(550f,310f,550f,350f,line)
+//
+//        // horizontal lines
+//        canvas.drawLine(150f, 350f, 550f, 350f, line)
+//        canvas.drawLine(150f, 400f, 550f, 400f, line)
+//        canvas.drawLine(150f, 450f, 550f, 450f, line)
+//        canvas.drawLine(150f, 500f, 550f, 500f, line)
+//        canvas.drawLine(150f, 550f, 550f, 550f, line)
+//
+//
+//        // vertical lines
+//        canvas.drawLine(150f, 350f, 150f, 550f, line)
+//        canvas.drawLine(350f, 350f, 350f, 550f, line)
+//        canvas.drawLine(550f, 350f, 550f, 550f, line)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.color = resources.getColor(R.color.grapeColor,null)
+//        paint.textSize = 20f
+//        canvas.drawText("Length 01",180f,380f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.color = resources.getColor(R.color.black,null)
+//        paint.textSize = 20f
+//        canvas.drawText("$num1 Feet",360f,380f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 20f
+//        canvas.drawText("Length 02",180f,430f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.color = resources.getColor(R.color.black,null)
+//        paint.textSize = 20f
+//        canvas.drawText("$num2 Feet",360f,430f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.color = resources.getColor(R.color.grapeColor,null)
+//        paint.textSize = 20f
+//        canvas.drawText("Width 01",180f,480f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.color = resources.getColor(R.color.black,null)
+//        paint.textSize = 20f
+//        canvas.drawText("$num3 Feet",360f,480f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 20f
+//        canvas.drawText("Width 02",180f,530f,paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.color = resources.getColor(R.color.black,null)
+//        paint.textSize = 20f
+//        canvas.drawText("$num4 Feet",360f,530f,paint)
+//
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 20f
+//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
+//        canvas.drawText("Total : ",150f, 565f, paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 30f
+//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
+//        canvas.drawText("Square Feet = $sqrf ",150f, 590f, paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 30f
+//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
+//        canvas.drawText("Decimal = $dece ",150f, 620f, paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 30f
+//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
+//        canvas.drawText("Katha = $kata ",150f, 650f, paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 30f
+//        paint.color = resources.getColor(R.color.hollyGreenColor, null)
+//        canvas.drawText("Square Link = $sqrlin ",150f, 680f, paint)
+//
+//
+//        paint.textAlign = Paint.Align.CENTER
+//        paint.textSize = 15f
+//        paint.color = resources.getColor(R.color.brickRedColor, null)
+//        canvas.drawText("Note: This is automatically generated from Survey Calculator.",(pageWidth / 2).toFloat(), 1000f, paint)
+//
+//        paint.textAlign = Paint.Align.LEFT
+//        paint.textSize = 10f
+//        paint.color = resources.getColor(R.color.black, null)
+//        canvas.drawText("Pdf Generating Time: $currentDateAndTime",40f,1150f,paint)
+//
+//        pdfDocument.finishPage(page)
+//
+//
+//        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/land/Oblong")
+//        if (folder.exists()) {
+//            d("folder", "exists")
+//        } else {
+//            d("folder", "not exists")
+//            folder.mkdirs()
+//        }
+//
+//
+//        val file = File(folder,
+//            "/Oblong_Calculation_$currentDateAndTime.pdf"
+//        )
+//        try {
+//            pdfDocument.writeTo(FileOutputStream(file))
+//            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
+//        } catch (e: IOException) {
+//            e.printStackTrace()
+//        }
+//        pdfDocument.close()
+//    }
+//
+
+    private fun createPDF(
+        currentDateAndTime: String,
+        num1: String,
+        num2: String,
+        num3: String,
+        num4: String,
+        dece: String,
+        sqrf: String,
+        kata: String,
+        sqrlin: String
+    ) {
         val pdfDocument = PdfDocument()
         val paint = Paint()
         val pageInfo = PageInfo.Builder(pageWidth, pageHeight, 1).create()
         val page = pdfDocument.startPage(pageInfo)
         val canvas = page.canvas
+
+        // Draw content on canvas
         canvas.drawBitmap(scaledImageBitmap!!, 0f, 0f, paint)
         paint.textAlign = Paint.Align.CENTER
         paint.textSize = 40f
-        //paint.color = resources.getColor(android.R.color.holo_blue_bright, null)
+//        paint.typeFace = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD))
-        canvas.drawText("Oblong Calculation" , (pageWidth / 2).toFloat(),  295f, paint)
+        canvas.drawText("Oblong Calculation", (pageWidth / 2).toFloat(), 295f, paint)
 
         paint.textAlign = Paint.Align.CENTER
         paint.textSize = 20f
-        canvas.drawText("Your Input Table",(pageWidth / 2).toFloat(),335f,paint)
+        canvas.drawText("Your Input Table", (pageWidth / 2).toFloat(), 335f, paint)
 
         val line = Paint()
         line.strokeWidth = 2f
 
-        canvas.drawLine(150f,310f,550f,310f,line)
-
-        canvas.drawLine(150f,310f,150f,350f,line)
-        canvas.drawLine(550f,310f,550f,350f,line)
+        canvas.drawLine(150f, 310f, 550f, 310f, line)
+        canvas.drawLine(150f, 310f, 150f, 350f, line)
+        canvas.drawLine(550f, 310f, 550f, 350f, line)
 
         // horizontal lines
         canvas.drawLine(150f, 350f, 550f, 350f, line)
@@ -247,109 +402,149 @@ class OblongActivity : AppCompatActivity() {
         canvas.drawLine(150f, 500f, 550f, 500f, line)
         canvas.drawLine(150f, 550f, 550f, 550f, line)
 
-
         // vertical lines
         canvas.drawLine(150f, 350f, 150f, 550f, line)
         canvas.drawLine(350f, 350f, 350f, 550f, line)
         canvas.drawLine(550f, 350f, 550f, 550f, line)
 
         paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.grapeColor,null)
+        paint.color = resources.getColor(R.color.grapeColor, null)
         paint.textSize = 20f
-        canvas.drawText("Length 01",180f,380f,paint)
+        canvas.drawText("Length 01", 180f, 380f, paint)
 
         paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
+        paint.color = resources.getColor(R.color.black, null)
         paint.textSize = 20f
-        canvas.drawText("$num1 Feet",360f,380f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.textSize = 20f
-        canvas.drawText("Length 02",180f,430f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$num2 Feet",360f,430f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.grapeColor,null)
-        paint.textSize = 20f
-        canvas.drawText("Width 01",180f,480f,paint)
-
-        paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
-        paint.textSize = 20f
-        canvas.drawText("$num3 Feet",360f,480f,paint)
+        canvas.drawText("$num1 Feet", 360f, 380f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 20f
-        canvas.drawText("Width 02",180f,530f,paint)
+        canvas.drawText("Length 02", 180f, 430f, paint)
 
         paint.textAlign = Paint.Align.LEFT
-        paint.color = resources.getColor(R.color.black,null)
+        paint.color = resources.getColor(R.color.black, null)
         paint.textSize = 20f
-        canvas.drawText("$num4 Feet",360f,530f,paint)
+        canvas.drawText("$num2 Feet", 360f, 430f, paint)
 
+        paint.textAlign = Paint.Align.LEFT
+        paint.color = resources.getColor(R.color.grapeColor, null)
+        paint.textSize = 20f
+        canvas.drawText("Width 01", 180f, 480f, paint)
+
+        paint.textAlign = Paint.Align.LEFT
+        paint.color = resources.getColor(R.color.black, null)
+        paint.textSize = 20f
+        canvas.drawText("$num3 Feet", 360f, 480f, paint)
+
+        paint.textAlign = Paint.Align.LEFT
+        paint.textSize = 20f
+        canvas.drawText("Width 02", 180f, 530f, paint)
+
+        paint.textAlign = Paint.Align.LEFT
+        paint.color = resources.getColor(R.color.black, null)
+        paint.textSize = 20f
+        canvas.drawText("$num4 Feet", 360f, 530f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 20f
         paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Total : ",150f, 565f, paint)
+        canvas.drawText("Total : ", 150f, 565f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 30f
         paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Square Feet = $sqrf ",150f, 590f, paint)
+        canvas.drawText("Square Feet = $sqrf ", 150f, 590f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 30f
         paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Decimal = $dece ",150f, 620f, paint)
+        canvas.drawText("Decimal = $dece ", 150f, 620f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 30f
         paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Katha = $kata ",150f, 650f, paint)
+        canvas.drawText("Katha = $kata ", 150f, 650f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 30f
         paint.color = resources.getColor(R.color.hollyGreenColor, null)
-        canvas.drawText("Square Link = $sqrlin ",150f, 680f, paint)
-
+        canvas.drawText("Square Link = $sqrlin ", 150f, 680f, paint)
 
         paint.textAlign = Paint.Align.CENTER
         paint.textSize = 15f
         paint.color = resources.getColor(R.color.brickRedColor, null)
-        canvas.drawText("Note: This is automatically generated from Survey Calculator.",(pageWidth / 2).toFloat(), 1000f, paint)
+        canvas.drawText("Note: This is automatically generated from Survey Calculator.", (pageWidth / 2).toFloat(), 1000f, paint)
 
         paint.textAlign = Paint.Align.LEFT
         paint.textSize = 10f
         paint.color = resources.getColor(R.color.black, null)
-        canvas.drawText("Pdf Generating Time: $currentDateAndTime",40f,1150f,paint)
+        canvas.drawText("Pdf Generating Time: $currentDateAndTime", 40f, 1150f, paint)
 
         pdfDocument.finishPage(page)
 
+        val fileName = "Oblong_Calculation_${currentDateAndTime.replace(":", "-").replace(" ", "_")}.pdf"
 
-        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/land/Oblong")
-        if (folder.exists()) {
-            d("folder", "exists")
-        } else {
-            d("folder", "not exists")
-            folder.mkdirs()
+        // Use a Coroutine scope to prevent locking up the UI thread during file writes
+        lifecycleScope.launch(Dispatchers.IO) {
+            var savedPathMessage = ""
+            var isSuccess = false
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                // Android 10 (API 29) and above: MediaStore Implementation
+                val contentValues = ContentValues().apply {
+                    put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+                    put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf")
+                    // Saves to public /Documents/Survey Calculator/land/Oblong
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, "${Environment.DIRECTORY_DOCUMENTS}/Survey Calculator/land/Oblong")
+                }
+
+                val resolver = contentResolver
+                val collectionUri = MediaStore.Files.getContentUri("external")
+
+                try {
+                    val uri = resolver.insert(collectionUri, contentValues)
+                    if (uri != null) {
+                        resolver.openOutputStream(uri).use { outputStream ->
+                            if (outputStream != null) {
+                                pdfDocument.writeTo(outputStream)
+                                isSuccess = true
+                                savedPathMessage = "PDF saved to Documents/Survey Calculator/land/Oblong"
+                            }
+                        }
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            } else {
+                // Android 9 and below: Legacy File API Implementation
+                val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/land/Oblong")
+                if (!folder.exists()) {
+                    folder.mkdirs()
+                }
+
+                val file = File(folder, fileName)
+                try {
+                    FileOutputStream(file).use { outputStream ->
+                        pdfDocument.writeTo(outputStream)
+                        isSuccess = true
+                        savedPathMessage = "PDF saved to: ${file.absolutePath}"
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+
+            pdfDocument.close()
+
+            // Switch back to Main thread for safe UI Toast updates
+            withContext(Dispatchers.Main) {
+                if (isSuccess) {
+                    Toast.makeText(this@OblongActivity, savedPathMessage, Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@OblongActivity, "Failed to save PDF document.", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
-
-
-        val file = File(folder,
-            "/Oblong_Calculation_$currentDateAndTime.pdf"
-        )
-        try {
-            pdfDocument.writeTo(FileOutputStream(file))
-            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        pdfDocument.close()
     }
 
 

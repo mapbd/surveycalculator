@@ -1,129 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".InvoiceActivity"
-    android:padding="10dp">
+    android:gravity="center"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
-    <ImageView
-        android:id="@+id/technopoints_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
-        android:id="@+id/technopoints_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/technopoints_logo"
-        app:layout_constraintBottom_toBottomOf="@id/technopoints_logo"
-        app:layout_constraintStart_toEndOf="@id/technopoints_logo"
-        android:text="Survey Calculator"
-        android:textSize="30sp"
-        android:layout_marginStart="5dp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/txt_invoice"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/technopoints_logo"
-        android:textSize="20sp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/rootLayout">
 
-    <TextView
-        android:id="@+id/txt_cust_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_invoice"
-        android:text="Name: Mr."
-        android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_cust_name"
-        android:text="Mouza"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txt_dates"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_date"
-        android:text="Plot Number"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/ic_launcher"/>
 
-    <TextView
-        android:id="@+id/txt_datess"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_dates"
-        android:text="Survey/Record Name"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/technopoints_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Survey Calculator"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/txt_datesss"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_datess"
-        android:text="Upazila"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"/>
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/txt_datessss"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_datesss"
-        android:text="Details"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/baseline_insert_photo_24"
-        app:layout_constraintTop_toBottomOf="@id/txt_datessss"
-        android:layout_marginTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date : "
+                    android:gravity="right"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/today_Id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text=" "
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Location : "
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_invoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textColor="@color/red"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title : "
+                    android:textColor="@color/myperple"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/txt_cust_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upazila : "
+                        android:textColor="@color/myperple"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_datesss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mouza : "
+                        android:textColor="@color/myperple"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plot Number : "
+                        android:textColor="@color/myperple"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_dates"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Survey/Record Name : "
+                        android:textColor="@color/myperple"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_datess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Details : "
+                        android:textColor="@color/myperple"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_datessss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/black"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Signature"
+                            android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/printId"
+                    android:text="Create Pdf"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:gravity="left">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thank you for choice us."
+                            android:textSize="10sp"
+                            android:textColor="@color/myperple"
+                            android:layout_marginBottom="10dp"/>
+
+
+                </LinearLayout>
 
 
 
-    <TextView
-        android:id="@+id/sign_blanks"
-        android:layout_width="150dp"
-        android:layout_height="1dp"
-        app:layout_constraintTop_toBottomOf="@id/img"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/black"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/sign_blanks"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="@id/sign_blanks"
-        android:text="Signature"
-        app:layout_constraintStart_toStartOf="@id/sign_blanks"
-        android:textSize="18sp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Thanks you for choice us."
-        android:textSize="15sp"
-        android:layout_marginBottom="10dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

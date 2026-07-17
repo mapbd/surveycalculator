@@ -1,21 +1,27 @@
+@file:Suppress("DEPRECATION")
+
 package org.map_bd.surveycalculator
 
 
 import android.Manifest
+import android.content.ContentValues
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.preference.PreferenceManager
+import android.provider.MediaStore
 import android.util.DisplayMetrics
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.map_bd.surveycalculator.databinding.ActivityMapBinding
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
@@ -26,7 +32,14 @@ import org.osmdroid.views.overlay.Polyline
 import org.osmdroid.views.overlay.ScaleBarOverlay
 import org.osmdroid.views.overlay.compass.CompassOverlay
 import org.osmdroid.views.overlay.compass.InternalCompassOrientationProvider
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.io.OutputStream
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+
 
 @Suppress("DEPRECATION")
 class MapActivity : AppCompatActivity() {
@@ -50,8 +63,8 @@ class MapActivity : AppCompatActivity() {
     // Define a custom, free ArcGIS Global Imagery Tile Source Engine
     private val arcGisSatelliteSource = XYTileSource(
         "ArcGIS_Satellite",
-        0, 19, 256, ".png",
-        arrayOf("https://{switch:services,server}.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{zoom}/{y}/{x}")
+        0, 19, 256, ".jpg",
+        arrayOf("https://mapbd.github.io/boimela/image/{z}/{x}/{y}.png")
 
 
 //                https://{switch:services,server}.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{zoom}/{y}/{x}
@@ -97,7 +110,9 @@ class MapActivity : AppCompatActivity() {
 
         fabSwitchLayer.setOnClickListener { toggleMapLayers() }
         btnToggleTracker.setOnClickListener { switchTrackingStates() }
-        btnExportGpxFile.setOnClickListener { triggerGpxDocumentCreationWizard() }
+//        btnExportGpxFile.setOnClickListener { triggerGpxDocumentCreationWizard() }
+        btnExportGpxFile.setOnClickListener { exportGpxDocument() }
+
 
         TrackingService.onRoutePointsUpdated = { spatialVectors ->
             runOnUiThread {
@@ -179,17 +194,94 @@ class MapActivity : AppCompatActivity() {
         }
     }
 
-    private fun triggerGpxDocumentCreationWizard() {
+//    private fun triggerGpxDocumentCreationWizard() {
+//        if (TrackingService.trackingPathPoints.isEmpty()) {
+//            Toast.makeText(this, "No vector track data available to export.", Toast.LENGTH_SHORT).show()
+//            return
+//        }
+//        val documentIntent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+//            addCategory(Intent.CATEGORY_OPENABLE)
+//            type = "application/gpx+xml"
+//            putExtra(Intent.EXTRA_TITLE, "surveycalculator_${System.currentTimeMillis()}.gpx")
+//        }
+//        saveDocumentFileLauncher.launch(documentIntent)
+//    }
+
+    private fun exportGpxDocument() {
         if (TrackingService.trackingPathPoints.isEmpty()) {
             Toast.makeText(this, "No vector track data available to export.", Toast.LENGTH_SHORT).show()
             return
         }
-        val documentIntent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "application/gpx+xml"
-            putExtra(Intent.EXTRA_TITLE, "surveycalculator_${System.currentTimeMillis()}.gpx")
+
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+        val currentDateAndTime = sdf.format(Date())
+//        val fileName = "surveycalculator_${System.currentTimeMillis()}.gpx"
+        val fileName = "surveycalculator_$currentDateAndTime.gpx"
+
+        // Execute storage logic in a background thread
+        lifecycleScope.launch(Dispatchers.IO) {
+            var isSuccess = false
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                // Android 10 (API 29) and above: MediaStore Implementation
+                val contentValues = ContentValues().apply {
+                    put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+                    // GPX is an XML-based format
+                    put(MediaStore.MediaColumns.MIME_TYPE, "application/gpx+xml")
+                    // Saves to public /Downloads/Survey Calculator/Form folder
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, "${Environment.DIRECTORY_DOWNLOADS}/Survey Calculator/Map")
+                }
+
+                val resolver = contentResolver
+                val collectionUri = MediaStore.Downloads.EXTERNAL_CONTENT_URI
+
+                try {
+                    val uri = resolver.insert(collectionUri, contentValues)
+                    if (uri != null) {
+                        resolver.openOutputStream(uri).use { outputStream ->
+                            if (outputStream != null) {
+                                // Helper method to write your track points text data
+                                writeGpxDataToStream(outputStream)
+                                isSuccess = true
+                            }
+                        }
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            } else {
+                // Android 9 and below: Legacy File API Implementation
+                val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Map")
+                if (!folder.exists()) {
+                    folder.mkdirs()
+                }
+
+                val file = File(folder, fileName)
+                try {
+                    FileOutputStream(file).use { outputStream ->
+                        writeGpxDataToStream(outputStream)
+                        isSuccess = true
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+
+            // Return to Main thread for UI feedback
+            withContext(Dispatchers.Main) {
+                if (isSuccess) {
+                    Toast.makeText(this@MapActivity, "GPX file saved successfully!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@MapActivity, "Failed to save GPX file.", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
-        saveDocumentFileLauncher.launch(documentIntent)
+    }
+
+    // Dummy helper structure for writing the text/xml bytes into the stream
+    private fun writeGpxDataToStream(outputStream: java.io.OutputStream) {
+        val gpxContent = "Your built XML string from TrackingService.trackingPathPoints goes here"
+        outputStream.write(gpxContent.toByteArray(Charsets.UTF_8))
     }
 
     private fun compileAndWriteGpxPayload(outputStream: OutputStream, vectors: List<GeoPoint>) {
@@ -235,4 +327,5 @@ class MapActivity : AppCompatActivity() {
         super.onPause()
         mapView.onPause()
     }
+
 }

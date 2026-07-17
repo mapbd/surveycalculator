@@ -44,7 +44,8 @@ class GenarelActivity : AppCompatActivity() {
             startActivity(camera)
         }
         binding.audioId.setOnClickListener{
-            val audio = Intent(this,AudioActivity::class.java);
+            val audio = Intent(this, AudioActivity::class.java);
+//            val audio = Intent(this, VoiceRecoredActivity::class.java);
             startActivity(audio)
         }
 

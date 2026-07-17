@@ -32,12 +32,14 @@ import org.map_bd.surveycalculator.databinding.ActivityPaintBinding
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaScannerConnection
+import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
@@ -56,6 +58,8 @@ import org.map_bd.surveycalculator.databinding.DialogBrushSizeBinding
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class PaintActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPaintBinding
@@ -263,53 +267,140 @@ class PaintActivity : AppCompatActivity() {
         return returnedBitmap
     }
 
-    private suspend fun saveBitmapFile(mBitmap :Bitmap?):String{
-        var result =""
-        withContext(Dispatchers.IO){
-            if (mBitmap != null){
+//    private suspend fun saveBitmapFile(mBitmap :Bitmap?):String{
+//        var result =""
+//        withContext(Dispatchers.IO){
+//            if (mBitmap != null){
+//                try {
+//                    // FileOutputStream sınıfı,
+//                    // dosyalara veri (bayt cinsinden) yazmak için kullanılabilir.
+//                    var bytes = ByteArrayOutputStream()
+//                    mBitmap.compress(Bitmap.CompressFormat.PNG,90,bytes)
+////Cache Storage : Geçici dosyaların tutulduğu alandır.
+//// Uygulama kaldırıldığında bu kısımda bulunan dosyalar da silinir.
+//// Kısıtlı bir alan olduğundan buradaki dosyaları işimiz bitince silmeliyiz.
+//
+//
+///
+//
+////                         orginal location
+//                    val f = File(externalCacheDir?.absoluteFile.toString() + File.separator + "DrawingApp_"+ System.currentTimeMillis() /1000 + ".png")
+//                    val fo = FileOutputStream(f)
+//                    fo.write(bytes.toByteArray())
+//                    fo.close()
+//
+//                    result = f.absolutePath
+//
+//                    runOnUiThread {
+//                        cancelProgressDialog()
+//                        if(result.isNotEmpty()){
+//                            Toast.makeText(this@PaintActivity,
+//                                "File saved successfully:$result",
+//                                Toast.LENGTH_LONG
+//                            ).show()
+////                            shareImage(result)
+//                        }else{
+//                            Toast.makeText(this@PaintActivity,
+//                                "Something went wrong while saving the file",
+//                                Toast.LENGTH_LONG
+//                            ).show()
+//                        }
+//                    }
+//                }catch (e:Exception){
+//                    result = ""
+//                    e.printStackTrace()
+//                }
+//            }
+//        }
+//        return  result
+//    }
+
+
+    private suspend fun saveBitmapFile(mBitmap: Bitmap?): String {
+
+
+        var result = ""
+        withContext(Dispatchers.IO) {
+            if (mBitmap != null) {
                 try {
-                    // FileOutputStream sınıfı,
-                    // dosyalara veri (bayt cinsinden) yazmak için kullanılabilir.
-                    var bytes = ByteArrayOutputStream()
-                    mBitmap.compress(Bitmap.CompressFormat.PNG,90,bytes)
-//Cache Storage : Geçici dosyaların tutulduğu alandır.
-// Uygulama kaldırıldığında bu kısımda bulunan dosyalar da silinir.
-// Kısıtlı bir alan olduğundan buradaki dosyaları işimiz bitince silmeliyiz.
+                    val bytes = ByteArrayOutputStream()
+                    mBitmap.compress(Bitmap.CompressFormat.PNG, 90, bytes)
 
+                    val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+                    val currentDateAndTime = sdf.format(Date())
+                    val fileName = "surveycalculator_$currentDateAndTime.png"
 
-//                     changed location
-//                    val f = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Paint" + File.separator + "DrawingApp_"+ System.currentTimeMillis() /1000 + ".png")
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        // Android 10 (API 29) and above: MediaStore Implementation
+                        val contentValues = ContentValues().apply {
+                            put(MediaStore.Images.Media.DISPLAY_NAME, fileName)
+                            put(MediaStore.Images.Media.MIME_TYPE, "image/png")
+                            // Saves to public Pictures/Survey Calculator/Form folder
+                            put(MediaStore.Images.Media.RELATIVE_PATH, "${Environment.DIRECTORY_PICTURES}/Survey Calculator/Paint")
+                            // Prevents other apps from reading the file while it is writing
+                            put(MediaStore.Images.Media.IS_PENDING, 1)
+                        }
 
-//                         orginal location
-                    val f = File(externalCacheDir?.absoluteFile.toString() + File.separator + "DrawingApp_"+ System.currentTimeMillis() /1000 + ".png")
-                    val fo = FileOutputStream(f)
-                    fo.write(bytes.toByteArray())
-                    fo.close()
+                        val resolver = contentResolver
+                        val collectionUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                        val imageUri = resolver.insert(collectionUri, contentValues)
 
-                    result = f.absolutePath
+                        if (imageUri != null) {
+                            resolver.openOutputStream(imageUri).use { outputStream ->
+                                if (outputStream != null) {
+                                    outputStream.write(bytes.toByteArray())
+                                    result = imageUri.toString() // Returns content:// URI string
+                                }
+                            }
 
-                    runOnUiThread {
+                            // Release the pending status so other apps can now see the image
+                            contentValues.clear()
+                            contentValues.put(MediaStore.Images.Media.IS_PENDING, 0)
+                            resolver.update(imageUri, contentValues, null, null)
+                        }
+                    } else {
+                        // Android 9 and below: Legacy File API Implementation
+                        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Paint")
+                        if (!folder.exists()) {
+                            folder.mkdirs()
+                        }
+
+                        val file = File(folder, fileName)
+                        FileOutputStream(file).use { outputStream ->
+                            outputStream.write(bytes.toByteArray())
+                        }
+                        result = file.absolutePath // Returns traditional file path
+                    }
+
+                    // UI adjustments
+                    withContext(Dispatchers.Main) {
                         cancelProgressDialog()
-                        if(result.isNotEmpty()){
-                            Toast.makeText(this@PaintActivity,
-                                "File saved successfully:$result",
+                        if (result.isNotEmpty()) {
+                            Toast.makeText(
+                                this@PaintActivity,
+                                "File saved successfully",
                                 Toast.LENGTH_LONG
                             ).show()
-//                            shareImage(result)
-                        }else{
-                            Toast.makeText(this@PaintActivity,
+                            // If you uncomment shareImage(result), make sure it accepts a URI string or File Path safely
+                            // shareImage(result)
+                        } else {
+                            Toast.makeText(
+                                this@PaintActivity,
                                 "Something went wrong while saving the file",
                                 Toast.LENGTH_LONG
                             ).show()
                         }
                     }
-                }catch (e:Exception){
+                } catch (e: Exception) {
                     result = ""
                     e.printStackTrace()
+                    withContext(Dispatchers.Main) {
+                        cancelProgressDialog()
+                    }
                 }
             }
         }
-        return  result
+        return result
     }
 
     private fun showProgressDialog() {

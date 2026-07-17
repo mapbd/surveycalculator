@@ -47,6 +47,7 @@ import java.util.Date
 import kotlin.jvm.java
 
 
+@Suppress("DEPRECATION")
 class FormActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFormBinding
@@ -57,17 +58,24 @@ class FormActivity : AppCompatActivity() {
 
 
     private val REQUESTCODE = 100
-    private var pageWidth = 720
-    private var pageHeight = 1200
-    private var imageBitmap: Bitmap? =  null
-    private var scaledImageBitmap: Bitmap? = null
-
 
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
 
+    private lateinit var printId: Button
+    private var selectedImageUri: Uri? = null
 
+    // Register the modern photo picker activity launcher
+    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        if (uri != null) {
+            selectedImageUri = uri
+            // Display picked image to local ImageView
+            imgV.setImageURI(uri)
+            // Enable the send button once an image is selected
+            printId.isEnabled = true
+        }
+    }
 
 
 
@@ -89,43 +97,21 @@ class FormActivity : AppCompatActivity() {
         var survey =findViewById<EditText>(R.id.surveyId)
         var upazila =findViewById<EditText>(R.id.upazilaId)
         var details =findViewById<EditText>(R.id.detailsId)
-        var printId =findViewById<Button>(R.id.printId)
 
-
+        imgV = findViewById(R.id.imageId)
+        printId =findViewById<Button>(R.id.printId)
         locationid = findViewById(R.id.locationid)
 
 
 
-        imgV = findViewById(R.id.imageId)
-
-
-
-
-
-        val pickmedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()){uri ->
-                if (uri!=null){
-                    imgV.setImageURI(uri)
-
-            }
-        }
-
         binding.photobtnId.setOnClickListener {
-            pickmedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
-
-
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         getCurrentLocation()
-
-
-
-
-
-
-
 
         printId.setOnClickListener {
 
@@ -138,54 +124,26 @@ class FormActivity : AppCompatActivity() {
             val locationid = locationid.text.toString().trim()
 
 
-            val intent = Intent(this, InvoiceActivity::class.java).apply {
-                putExtra("TITLE", title)
-                putExtra("MOUZA", mouza)
-                putExtra("PLOT", plot)
-                putExtra("SURVEY", survey)
-                putExtra("UPAZILA", upazila)
-                putExtra("DETAILS", details)
-                putExtra("LOCATION", locationid)
-
-            putExtra("EXTRA_IMAGE_URI", imgV?.toString())
-
-            // CRITICAL FOR SDK 34: Grants temporary read access if using content:// URIs
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-
-
+            selectedImageUri?.let { uri ->
+                val intent = Intent(this, InvoiceActivity::class.java).apply {
+                    putExtra("IMAGE_URI_EXTRA", uri.toString())
+                    putExtra("TITLE", title)
+                    putExtra("MOUZA", mouza)
+                    putExtra("PLOT", plot)
+                    putExtra("SURVEY", survey)
+                    putExtra("UPAZILA", upazila)
+                    putExtra("DETAILS", details)
+                    putExtra("LOCATION", locationid)
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
 
-            createViewPDF()
+
+
+//            createViewPDF()
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     private fun getCurrentLocation(){
@@ -271,47 +229,17 @@ class FormActivity : AppCompatActivity() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     // hide keyboard
-    private fun closeKeyBoard() {
-        val view = this.currentFocus
-        if (view != null) {
-            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
+//    private fun closeKeyBoard() {
+//        val view = this.currentFocus
+//        if (view != null) {
+//            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+//            imm.hideSoftInputFromWindow(view.windowToken, 0)
+//        }
+//    }
 
 
 
-
-
-
-
-    private fun requestAllPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.requestPermissions(
-                this@FormActivity,
-                arrayOf<String>(permission.READ_MEDIA_IMAGES),
-                REQUESTCODE
-            )
-        } else {
-            ActivityCompat.requestPermissions(
-                this@FormActivity, arrayOf(
-                    permission.READ_EXTERNAL_STORAGE,
-                    permission.WRITE_EXTERNAL_STORAGE
-                ), REQUESTCODE
-            )
-        }
-    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -328,69 +256,5 @@ class FormActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-    private fun createViewPDF() {
-        val screenWidth : Int
-        val screenHeight : Int
-
-        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
-        val currentDateAndTime = sdf.format(Date()).toString()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            screenWidth = windowManager.currentWindowMetrics.bounds.width()
-            screenHeight = windowManager.currentWindowMetrics.bounds.height()
-        } else {
-            val displayMetrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(displayMetrics)
-            screenWidth = displayMetrics.widthPixels
-            screenHeight = displayMetrics.heightPixels
-        }
-
-        val view = LayoutInflater.from(this).inflate(R.layout.invoice_activity, null)
-
-        view.measure(
-            View.MeasureSpec.makeMeasureSpec(screenWidth, View.MeasureSpec.EXACTLY),
-            View.MeasureSpec.makeMeasureSpec(screenHeight, View.MeasureSpec.EXACTLY)
-        )
-
-        view.layout(0, 0, screenWidth, screenHeight)
-
-        val pdfDocument = PdfDocument()
-        val pageInfo =  PageInfo.Builder(screenWidth, screenHeight, 1).create()
-        val page = pdfDocument.startPage(pageInfo)
-
-        view.draw(page.canvas)
-        pdfDocument.finishPage(page)
-
-//        val file = File(Environment..getExternalStorageDirectory(), "MyViewPDF.pdf")
-//        pdfDocument.writeTo(FileOutputStream(file))
-
-        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Form")
-        if (folder.exists()) {
-            d("folder", "exists")
-        } else {
-            d("folder", "not exists")
-            folder.mkdirs()
-        }
-
-
-        val file = File(folder,
-            "/Form_$currentDateAndTime.pdf"
-        )
-        try {
-            pdfDocument.writeTo(FileOutputStream(file))
-            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        pdfDocument.close()
-    }
-
-
-
-
-
 
 }
