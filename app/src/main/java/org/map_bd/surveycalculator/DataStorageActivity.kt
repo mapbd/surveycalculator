@@ -41,6 +41,13 @@ class DataStorageActivity : AppCompatActivity() {
         conversions["Gigabyte (GB)"] = BigDecimal("1048576")
         conversions["Terabyte (TB)"] = BigDecimal("1073741824")
 
+        conversions["বিট"] = BigDecimal("0.0001220703125")
+        conversions["বাইট (বি)"] = BigDecimal("0.0009765625")
+        conversions["কিলোবাইট (কেবি)"] = BigDecimal("1")
+        conversions["মেগাবাইট (এমবি)"] = BigDecimal("1024")
+        conversions["গিগাবাইট (জিবি)"] = BigDecimal("1048576")
+        conversions["টেরাবাইট (টিবি)"] = BigDecimal("1073741824")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

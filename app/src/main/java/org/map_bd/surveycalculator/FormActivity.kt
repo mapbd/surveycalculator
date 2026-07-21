@@ -124,6 +124,9 @@ class FormActivity : AppCompatActivity() {
             val locationid = locationid.text.toString().trim()
 
 
+
+
+
             selectedImageUri?.let { uri ->
                 val intent = Intent(this, InvoiceActivity::class.java).apply {
                     putExtra("IMAGE_URI_EXTRA", uri.toString())
@@ -136,11 +139,18 @@ class FormActivity : AppCompatActivity() {
                     putExtra("LOCATION", locationid)
                 }
                 startActivity(intent)
+                finish()
             }
 
 
 
 //            createViewPDF()
+
+
+
+
+
+
         }
 
     }

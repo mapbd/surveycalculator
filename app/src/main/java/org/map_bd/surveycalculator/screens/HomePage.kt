@@ -37,21 +37,33 @@ import androidx.navigation.NavHostController
 import org.map_bd.surveycalculator.GenarelActivity
 import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.navigation.NavScreens
-import org.map_bd.surveycalculator.ui.composables.BackPress
+// import org.map_bd.surveycalculator.ui.composables.BackPress
 import org.map_bd.surveycalculator.ui.themes.DarkGrey
 import org.map_bd.surveycalculator.ui.themes.DarkText
 import org.map_bd.surveycalculator.ui.themes.DarkYellow
 import org.map_bd.surveycalculator.ui.themes.LightText
 import org.map_bd.surveycalculator.ui.themes.LightYellow
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomePage(navController: NavHostController) {
     var showInfoDialog by remember { mutableStateOf(false) }
 
-    BackPress(onBackPressed = {})
+//    BackPress(onBackPressed = {})
 
-    val context = LocalContext.current
+    val context = LocalContext.current as? Activity
+
+    // 2. Intercept the system back button
+    BackHandler {
+        // 3. Create the intent for the target activity
+        val intent = Intent(context, GenarelActivity::class.java)
+        context?.startActivity(intent)
+
+        // 4. Close the current activity
+        context?.finish()
+    }
 
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -75,7 +87,14 @@ fun HomePage(navController: NavHostController) {
                             val intent = Intent(context, GenarelActivity::class.java)
 
                             // 3. Start the target activity
-                            context.startActivity(intent)
+//                            context.startActivity(intent)
+                            context?.startActivity(intent)
+
+                            // finish  current activity
+                            (context as? ComponentActivity)?.finish()
+
+//                            // Close the current activity
+//                                    context?.finish()
 
                         }
                     ) {

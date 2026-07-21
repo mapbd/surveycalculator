@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="storageUnits">
+        <item>বিট</item>
+        <item>বাইট (বি)</item>
+        <item>কিলোবাইট (কেবি)</item>
+        <item>মেগাবাইট (এমবি)</item>
+        <item>গিগাবাইট (জিবি)</item>
+        <item>টেরাবাইট (টিবি)</item>
+    </string-array>
+</resources>

@@ -2,6 +2,7 @@ package org.map_bd.surveycalculator
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.pdf.PdfDocument
@@ -19,6 +20,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import java.io.File
@@ -36,6 +38,8 @@ class InvoiceActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        // 1. Enable full-screen drawing
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.invoice_activity)
 
@@ -57,6 +61,8 @@ class InvoiceActivity : AppCompatActivity() {
         val ivResultImage = findViewById<ImageView>(R.id.img)
 
         val pdf  = findViewById<Button>(R.id.printId)
+
+        val back  = findViewById<Button>(R.id.backId)
 
         val rootLayout = findViewById<View>(R.id.rootLayout)
 
@@ -101,7 +107,14 @@ class InvoiceActivity : AppCompatActivity() {
             val bitmap = createBitmapFromView(rootLayout)
             saveBitmapAsPdf(bitmap)
 
+            back.visibility = View.VISIBLE
+
 //            createViewPDF()
+        }
+        back.setOnClickListener {
+            val form = Intent(this,FormActivity::class.java);
+            startActivity(form)
+            finish()
         }
 
     }
