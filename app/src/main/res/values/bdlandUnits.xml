@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bdlandUnits">
+        <item>Square Feet</item>
+        <item>Til</item>
+        <item>Kranti</item>
+        <item>Kora</item>
+        <item>Gonda</item>
+        <item>Kani</item>
+        <item>Shatak</item>
+    </string-array>
+</resources>

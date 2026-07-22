@@ -9,10 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.BasicalculatorActivity
+import org.map_bd.surveycalculator.BdlandActivity
 import org.map_bd.surveycalculator.CompassActivity
 import org.map_bd.surveycalculator.R
-import org.map_bd.surveycalculator.databinding.ActivityCcircleBinding
-import org.map_bd.surveycalculator.databinding.ActivityKhatianCalculatorBinding
 import org.map_bd.surveycalculator.databinding.ActivityUnitchangeBinding
 
 class UnitChangeActivity : AppCompatActivity() {
@@ -27,6 +26,11 @@ class UnitChangeActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.bdlandId.setOnClickListener {
+            val bdland = Intent(this, BdlandActivity::class.java);
+            startActivity(bdland)
+        }
 
     }
 

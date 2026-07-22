@@ -42,7 +42,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/buttonareaId"
+                android:id="@+id/bdlandId"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
