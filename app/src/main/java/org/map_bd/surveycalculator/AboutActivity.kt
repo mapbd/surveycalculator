@@ -3,12 +3,17 @@ package org.map_bd.surveycalculator
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +26,8 @@ import org.map_bd.surveycalculator.databinding.ActivitySettingBinding
 @Suppress("DEPRECATION")
 class AboutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAboutBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +42,10 @@ class AboutActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+
+
+
 
         binding.versionText.text = getCurrentVersion(packageManager, packageName)
 

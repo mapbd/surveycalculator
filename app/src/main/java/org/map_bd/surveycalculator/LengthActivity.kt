@@ -46,6 +46,19 @@ class LengthActivity : AppCompatActivity() {
         conversions["Mile (mi)"] = BigDecimal("1609.344")
         conversions["Nautical mile (M, NM, nmi)"] = BigDecimal("1852")
 
+
+        conversions["ন্যানোমিটার (nm)"] = BigDecimal("0.000000001")
+        conversions["মাইক্রোমিটার (μm)"] = BigDecimal("0.000001")
+        conversions["মিলিমিটার (mm)"] = BigDecimal("0.001")
+        conversions["সেন্টিমিটার (cm)"] = BigDecimal("0.01")
+        conversions["মিটার (m)"] = BigDecimal("1")
+        conversions["কিলোমিটার (km)"] = BigDecimal("1000")
+        conversions["ইঞ্চি (in)"] = BigDecimal("0.0254")
+        conversions["ফুট (ft)"] = BigDecimal("0.3048")
+        conversions["গজ (yd)"] = BigDecimal("0.9144")
+        conversions["মাইল (mi)"] = BigDecimal("1609.344")
+        conversions["নটিক্যাল মাইল (M, NM, nmi)"] = BigDecimal("1852")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

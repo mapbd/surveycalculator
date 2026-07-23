@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bdUnits">
+<!--        <item>Square inch</item>-->
+<!--        <item>Square foot</item>-->
+<!--        <item>Square hat</item>-->
+<!--        <item>Square yard</item>-->
+<!--        <item>Square meter</item>-->
+<!--        <item>Square link</item>-->
+<!--        <item>Square chain</item>-->
+<!--        <item>Square centimeter</item>-->
+<!--        <item>Square kilometer</item>-->
+<!--        <item>Square mile</item>-->
+
+<!--        <item>Til</item>-->
+<!--        <item>Kranti</item>-->
+<!--        <item>Kora</item>-->
+<!--        <item>Ganda</item>-->
+<!--        <item>Chhatak</item>-->
+<!--        <item>Kachcha Kani</item>-->
+<!--        <item>Katha</item>-->
+<!--        <item>Bigha</item>-->
+
+<!--        <item>Shatangsha</item>-->
+<!--        <item>Shatak</item>-->
+<!--        <item>Decimal</item>-->
+<!--        <item>Decim</item>-->
+<!--        <item>Ayutangsha</item>-->
+
+<!--        <item>Air</item>-->
+<!--        <item>Acre</item>-->
+<!--        <item>Hectare</item>-->
+
+<!--        <item>Kani</item>-->
+<!--        <item>Sai Kani 1</item>-->
+<!--        <item>Sai Kani 2</item>-->
+
+<!--        <item>Renu</item>-->
+<!--        <item>Kantho</item>-->
+<!--        <item>Kak</item>-->
+<!--        <item>Dul</item>-->
+<!--        <item>Dhanu</item>-->
+
+        <item>Square inch</item>
+        <item>Square foot</item>
+        <item>Square hat</item>
+        <item>Square yard</item>
+        <item>Square meter</item>
+        <item>Square link</item>
+        <item>Square chain</item>
+        <item>Square centimeter</item>
+        <item>Square kilometer</item>
+        <item>Square mile</item>
+        <item>Til</item>
+        <item>Kranti</item>
+        <item>Kora</item>
+        <item>Ganda</item>
+        <item>Chhatak</item>
+        <item>Kachcha Kani</item>
+        <item>Katha</item>
+        <item>Bigha</item>
+        <item>Shatangsha</item>
+        <item>Shatak</item>
+        <item>Decimal</item>
+        <item>Decim</item>
+        <item>Ayutangsha</item>
+        <item>Air</item>
+        <item>Acre</item>
+        <item>Hectare</item>
+        <item>Kani</item>
+        <item>Sai Kani 1</item>
+        <item>Sai Kani 2</item>
+        <item>Renu</item>
+        <item>Kantho</item>
+        <item>Kak</item>
+        <item>Dul</item>
+        <item>Dhanu</item>
+    </string-array>
+</resources>

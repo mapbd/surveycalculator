@@ -372,6 +372,27 @@
                 android:value=".land.UnitChangeActivity" />
         </activity>
         <activity
+            android:name=".WebviewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".land.UnitChangeActivity" />
+        </activity>
+        <activity
+            android:name=".WebviewsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".land.UnitChangeActivity" />
+        </activity>
+        <activity
+            android:name=".UnitcActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".land.UnitChangeActivity" />
+        </activity>
+        <activity
             android:name=".CompassActivity"
             android:exported="false"
             android:launchMode="singleTask"

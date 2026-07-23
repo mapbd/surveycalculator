@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MassActivity">
+    tools:context=".UnitcActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         app:titleTextColor="@color/white"
-        app:title="@string/mass"
+        app:title="@string/bdunit"
         android:background="@color/myperple"
         tools:ignore="MissingConstraints" />
 
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/input1_mass"
+            android:id="@+id/input1_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -38,16 +38,16 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/unit1_mass"
+            android:id="@+id/unit1_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/massUnits"
+            android:entries="@array/bdUnits"
             android:minHeight="48dp"
             android:spinnerMode="dialog"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
-            android:id="@+id/equals_mass"
+            android:id="@+id/equals_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="="
@@ -55,7 +55,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/input2_mass"
+            android:id="@+id/input2_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,10 +64,10 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/unit2_mass"
+            android:id="@+id/unit2_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/massUnits"
+            android:entries="@array/bdUnits"
             android:minHeight="48dp"
             android:spinnerMode="dialog" />
     </LinearLayout>

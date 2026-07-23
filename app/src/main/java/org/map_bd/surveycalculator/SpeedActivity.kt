@@ -40,6 +40,12 @@ class SpeedActivity : AppCompatActivity() {
         conversions["Miles per hour (mph)"] = BigDecimal("1.609344")
         conversions["Knot (kn, kt)"] = BigDecimal("1.852")
 
+        conversions["মিটার প্রতি সেকেন্ড (এম/এস)"] = BigDecimal("3.6")
+        conversions["কিলোমিটার প্রতি ঘণ্টা (কিমি/ঘ)"] = BigDecimal("1")
+        conversions["ফুট প্রতি সেকেন্ড (ফিট/সে)"] = BigDecimal("1.09728")
+        conversions["মাইল প্রতি ঘণ্টা (এমপিএইচ)"] = BigDecimal("1.609344")
+        conversions["নট (কেএন, কেটি)"] = BigDecimal("1.852")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

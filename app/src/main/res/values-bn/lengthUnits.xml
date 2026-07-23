@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lengthUnits">
+        <item>ন্যানোমিটার (nm)</item>
+        <item>মাইক্রোমিটার (μm)</item>
+        <item>মিলিমিটার (mm)</item>
+        <item>সেন্টিমিটার (cm)</item>
+        <item>মিটার (m)</item>
+        <item>কিলোমিটার (km)</item>
+        <item>ইঞ্চি (in)</item>
+        <item>ফুট (ft)</item>
+        <item>গজ (yd)</item>
+        <item>মাইল (mi)</item>
+        <item>নটিক্যাল মাইল (M, NM, nmi)</item>
+    </string-array>
+</resources>

@@ -46,6 +46,19 @@ class TimeActivity: AppCompatActivity() {
         conversions["Century"] = BigDecimal("3153600000")
         conversions["Millennium"] = BigDecimal("31536000000")
 
+
+        conversions["মিলিসেকেন্ড (ms)"] = BigDecimal("0.001")
+        conversions["সেকেন্ড (s)"] = BigDecimal("1")
+        conversions["মিনিট"] = BigDecimal("60")
+        conversions["ঘণ্টা (h)"] = BigDecimal("3600")
+        conversions["দিন"] = BigDecimal("86400")
+        conversions["সপ্তাহ"] = BigDecimal("604800")
+        conversions["মাস"] = BigDecimal("2628000")
+        conversions["বছর"] = BigDecimal("31536000")
+        conversions["দশক"] = BigDecimal("315360000")
+        conversions["শতাব্দী"] = BigDecimal("3153600000")
+        conversions["সহস্রাব্দ"] = BigDecimal("31536000000")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

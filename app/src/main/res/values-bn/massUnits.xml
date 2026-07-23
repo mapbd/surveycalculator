@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="massUnits">
+        <item>মিলিগ্রাম (mg)</item>
+        <item>গ্রাম (g)</item>
+        <item>কিলোগ্রাম (kg)</item>
+        <item>টন / মেট্রিক টন (t)</item>
+        <item>আউন্স (oz)</item>
+        <item>পাউন্ড (lb)</item>
+        <item>ইউএস টন</item>
+        <item>ইম্পেরিয়াল টন</item>
+    </string-array>
+</resources>

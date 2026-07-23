@@ -12,6 +12,9 @@ import org.map_bd.surveycalculator.BasicalculatorActivity
 import org.map_bd.surveycalculator.BdlandActivity
 import org.map_bd.surveycalculator.CompassActivity
 import org.map_bd.surveycalculator.R
+import org.map_bd.surveycalculator.UnitcActivity
+import org.map_bd.surveycalculator.WebviewActivity
+import org.map_bd.surveycalculator.WebviewsActivity
 import org.map_bd.surveycalculator.databinding.ActivityUnitchangeBinding
 
 class UnitChangeActivity : AppCompatActivity() {
@@ -31,6 +34,21 @@ class UnitChangeActivity : AppCompatActivity() {
             val bdland = Intent(this, BdlandActivity::class.java);
             startActivity(bdland)
         }
+
+        binding.bdUnitcId.setOnClickListener {
+            val bdunit = Intent(this, UnitcActivity::class.java);
+            startActivity(bdunit)
+        }
+
+        binding.webview1Id.setOnClickListener {
+            val webview1 = Intent(this, WebviewActivity::class.java);
+            startActivity(webview1)
+        }
+        binding.webview2Id.setOnClickListener {
+            val webview2 = Intent(this, WebviewsActivity::class.java);
+            startActivity(webview2)
+        }
+
 
     }
 

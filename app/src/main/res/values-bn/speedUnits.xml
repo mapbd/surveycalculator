@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="speedUnits">
+        <item>মিটার প্রতি সেকেন্ড (এম/এস)</item>
+        <item>কিলোমিটার প্রতি ঘণ্টা (কিমি/ঘ)</item>
+        <item>ফুট প্রতি সেকেন্ড (ফিট/সে)</item>
+        <item>মাইল প্রতি ঘণ্টা (এমপিএইচ)</item>
+        <item>নট (কেএন, কেটি)</item>
+    </string-array>
+</resources>

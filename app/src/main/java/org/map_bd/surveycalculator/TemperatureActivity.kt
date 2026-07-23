@@ -41,6 +41,10 @@ class TemperatureActivity : AppCompatActivity() {
         conversions["Fahrenheit (°F)"] = BigDecimal("-155").divide(BigDecimal("9"), mc)
         conversions["Kelvin (K)"] = BigDecimal("-272.15")
 
+//        conversions["সেলসিয়াস (°সে)"] = BigDecimal("1")
+//        conversions["ফারেনহাইট (°ফা)"] = BigDecimal("-155").divide(BigDecimal("9"), mc)
+//        conversions["কেলভিন (কে)"] = BigDecimal("-272.15")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

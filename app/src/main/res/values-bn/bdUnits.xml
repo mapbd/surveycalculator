@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bdUnits">
+<!--        <item>বর্গইঞ্চি</item>-->
+<!--        <item>বর্গফুট</item>-->
+<!--        <item>বর্গহাত</item>-->
+<!--        <item>বর্গগজ</item>-->
+<!--        <item>বর্গমিটার</item>-->
+<!--        <item>বর্গলিংক</item>-->
+<!--        <item>বর্গচেইন</item>-->
+<!--        <item>বর্গসেন্টিমিটার</item>-->
+<!--        <item>বর্গকিলোমিটার</item>-->
+<!--        <item>বর্গমাইল</item>-->
+
+<!--        <item>তিল</item>-->
+<!--        <item>ক্রান্তি</item>-->
+<!--        <item>কড়া</item>-->
+<!--        <item>গন্ডা</item>-->
+<!--        <item>ছটাক</item>-->
+<!--        <item>কাচ্চা কানি</item>-->
+<!--        <item>কাঠা</item>-->
+<!--        <item>বিঘা</item>-->
+
+<!--        <item>শতাংশ</item>-->
+<!--        <item>শতক</item>-->
+<!--        <item>ডেসিমাল</item>-->
+<!--        <item>ডিসিম</item>-->
+<!--        <item>অযুতাংশ</item>-->
+
+<!--        <item>এয়র</item>-->
+<!--        <item>একর</item>-->
+<!--        <item>হেক্টর</item>-->
+
+<!--        <item>কানি</item>-->
+<!--        <item>সাই কানি ১</item>-->
+<!--        <item>সাই কানি ২</item>-->
+
+<!--        <item>রেনু</item>-->
+<!--        <item>কন্ঠ</item>-->
+<!--        <item>কাক</item>-->
+<!--        <item>দুল</item>-->
+<!--        <item>ধনু</item>-->
+
+        <item>বর্গইঞ্চি</item>
+        <item>বর্গফুট</item>
+        <item>বর্গহাত</item>
+        <item>বর্গগজ</item>
+        <item>বর্গমিটার</item>
+        <item>বর্গলিংক</item>
+        <item>বর্গচেইন</item>
+        <item>বর্গসেন্টিমিটার</item>
+        <item>বর্গকিলোমিটার</item>
+        <item>বর্গমাইল</item>
+        <item>তিল</item>
+        <item>ক্রান্তি</item>
+        <item>কড়া</item>
+        <item>গন্ডা</item>
+        <item>ছটাক</item>
+        <item>কাচ্চা কানি</item>
+        <item>কাঠা</item>
+        <item>বিঘা</item>
+        <item>শতাংশ</item>
+        <item>শতক</item>
+        <item>ডেসিমাল</item>
+        <item>ডিসিম</item>
+        <item>অযুতাংশ</item>
+        <item>এয়র</item>
+        <item>একর</item>
+        <item>হেক্টর</item>
+        <item>কানি</item>
+        <item>সাই কানি ১</item>
+        <item>সাই কানি ২</item>
+        <item>রেনু</item>
+        <item>কন্ঠ</item>
+        <item>কাক</item>
+        <item>দুল</item>
+        <item>ধনু</item>
+
+    </string-array>
+</resources>

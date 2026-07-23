@@ -53,6 +53,25 @@ class VolumeActivity : AppCompatActivity() {
         conversions["Imperial quart (qt)"] = BigDecimal("0.0011365225")
         conversions["Imperial gallon (gal)"] = BigDecimal("0.00454609")
 
+        conversions["ঘন সেন্টিমিটার (cm³, cc)"] = BigDecimal("0.000001")
+        conversions["ঘন মিটার (m³)"] = BigDecimal("1")
+        conversions["মিলিলিটার (mL)"] = BigDecimal("0.000001")
+        conversions["লিটার (L)"] = BigDecimal("0.001")
+        conversions["ঘন ইঞ্চি (in³, cu in)"] = BigDecimal("0.000016387064")
+        conversions["ঘন ফুট (ft³, cu ft)"] = BigDecimal("0.028316846592")
+        conversions["ইউএস চা-চামচ (tsp)"] = BigDecimal("0.00000492892159375")
+        conversions["ইউএস টেবিল-চামচ (tbsp)"] = BigDecimal("0.00001478676478125")
+        conversions["ইউএস ফ্লুইড আউন্স (fl oz)"] = BigDecimal("0.0000295735295625")
+        conversions["ইউএস কাপ (c)"] = BigDecimal("0.0002365882365")
+        conversions["ইউএস লিগ্যাল কাপ"] = BigDecimal("0.00024")
+        conversions["ইউএস লিকুইড পিন্ট (pt)"] = BigDecimal("0.000473176473")
+        conversions["ইউএস লিকুইড কোয়ার্ট (qt)"] = BigDecimal("0.000946352946")
+        conversions["ইউএস লিকুইড গ্যালন (gal)"] = BigDecimal("0.003785411784")
+        conversions["ইম্পেরিয়াল ফ্লুইড আউন্স (fl oz)"] = BigDecimal("0.0000284130625")
+        conversions["ইম্পেরিয়াল পিন্ট (pt)"] = BigDecimal("0.00056826125")
+        conversions["ইম্পেরিয়াল কোয়ার্ট (qt)"] = BigDecimal("0.0011365225")
+        conversions["ইম্পেরিয়াল গ্যালন (gal)"] = BigDecimal("0.00454609")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

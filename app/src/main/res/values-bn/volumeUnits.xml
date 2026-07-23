@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="volumeUnits">
+        <item>ঘন সেন্টিমিটার (cm³, cc)</item>
+        <item>ঘন মিটার (m³)</item>
+        <item>মিলিলিটার (mL)</item>
+        <item>লিটার (L)</item>
+        <item>ঘন ইঞ্চি (in³, cu in)</item>
+        <item>ঘন ফুট (ft³, cu ft)</item>
+        <item>ইউএস চা-চামচ (tsp)</item>
+        <item>ইউএস টেবিল-চামচ (tbsp)</item>
+        <item>ইউএস ফ্লুইড আউন্স (fl oz)</item>
+        <item>ইউএস কাপ (c)</item>
+        <item>ইউএস লিগ্যাল কাপ</item>
+        <item>ইউএস লিকুইড পিন্ট (pt)</item>
+        <item>ইউএস লিকুইড কোয়ার্ট (qt)</item>
+        <item>ইউএস লিকুইড গ্যালন (gal)</item>
+        <item>ইম্পেরিয়াল ফ্লুইড আউন্স (fl oz)</item>
+        <item>ইম্পেরিয়াল পিন্ট (pt)</item>
+        <item>ইম্পেরিয়াল কোয়ার্ট (qt)</item>
+        <item>ইম্পেরিয়াল গ্যালন (gal)</item>
+    </string-array>
+</resources>

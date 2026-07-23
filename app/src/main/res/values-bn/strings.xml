@@ -255,4 +255,51 @@
     <string name="average_width">গড় প্রস্থ</string>
     <string name="average_length">গড় দৈর্ঘ্য</string>
 
+    <string name="bdunit">বিডি ইউনিট কনভার্টার</string>
+    <string name="bdlandpage">বাংলাদেশ ভূমি পরিমাপের আদর্শ এককসমূহ</string>
+    <string name="bdlandpages">জমির পরিমাপ ও একক</string>
+
+    <string name="bigaxis">বড় অক্ষ</string>
+    <string name="smllaxis">ছোট অক্ষ</string>
+
+
+    <string name="abouts1">Welcome to Survey Calculator, your reliable mobile companion for precise, efficient, and fast field calculations. Built natively using Kotlin and modern Android architecture, this application is designed specifically for surveyors, civil engineers, contractors, and real estate professionals who need accurate geometric and geospatial data on the go.</string>
+    <string name="abouts2">In land surveying, precision is everything. Traditional field calculation methods can be slow and prone to human error. Our mission is to eliminate the guesswork by providing a robust, offline-capable digital toolkit that simplifies complex mathematical computations, allowing you to focus on getting the job done right.</string>
+    <string name="abouts3">We respect your privacy and data security.</string>
+    <string name="offline_desc">100% Offline Capability: </string>
+    <string name="offtext">All computations happen directly on your device. No internet connection is required, making it perfect for remote field locations.</string>
+    <string name="offtext2">Only Basemap require an active internet connection to load background tiles.</string>
+    <string name="datacollection">No Data Collection:</string>
+    <string name="datacollection2">We do not track, store, or share your geographical data or calculation history.</string>
+
+    <string name="key1">Different types of area calculation: </string>
+    <string name="key02">Different types of Unit: </string>
+    <string name="key2">Other Calculation: </string>
+    <string name="key3">GPS Tracker: </string>
+    <string name="key4">GeoTag Camera: </string>
+    <string name="key5">Compass: </string>
+    <string name="key6">Audio recorder: </string>
+    <string name="key7">Calculator: </string>
+    <string name="key8">NoteBook: </string>
+    <string name="key9">Unit Converter: </string>
+    <string name="key10">Data Collection Form: </string>
+    <string name="key11">Other Features: </string>
+
+    <string name="keys1">Different types of area calculation can allow landowners, amins, server to measure any land shape accurately using standard international metrics or traditional Bangladeshi units.</string>
+    <string name="keys02">An integrated Local Unit Calculation provides invaluable localized utility, ensuring everyone can compute using the exact, historical regional systems native to their home districts. </string>
+    <string name="keys2">It has Steel Rod Calculation, Gold Calculation, Timber Calculation, Soil Calculation for helping users.</string>
+    <string name="keys3">A built-in GPS Tracker that records and stores GPX files locally offline adds massive value for field engineers, loggers, and surveyors who work in remote areas with zero cellular coverage.</string>
+    <string name="keys4">A built-in GeoTag Image feature provides users with definitive visual proof of their survey locations by embedding precise location metadata directly into the image file.</string>
+    <string name="keys5">A built-in Digital Compass provides users with immediate, offline orientation, which is help measuring land boundaries.</string>
+    <string name="keys6">A built-in Audio Recorder allows surveyors and field engineers to capture hands-free verbal notes, keeping their eyes on the project while preserving critical site details for future use.</string>
+    <string name="keys7">Integrating a Basic Calculator into the tool eliminates app-switching, allowing users to perform quick arithmetic directly alongside their specialized material and survey modules.</string>
+    <string name="keys8">An integrated Notebook allows field workers to write down critical observations, measurements, and project details in one secure place alongside their calculations and GPS data.</string>
+    <string name="keys9">An integrated Unit Converter completes your utility toolkit by allowing users to instantly translate measurements between different regional and international standards without leaving the app. </string>
+    <string name="keys10">A built-in Data Collection Form acts as the central data aggregator for your application, allowing field surveyors to compile all work info, calculations, and media into a professional project report that can be shared instantly with clients.</string>
+    <string name="keys11">Stopwatch, Counter, and Drawing Tools completes your applications field toolkit, giving Amins and server the exact utility features needed for timing equipment, counting assets, and sketching plots onsite.</string>
+
+
+
+
+
 </resources>

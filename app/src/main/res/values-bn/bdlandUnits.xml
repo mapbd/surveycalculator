@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bdlandUnits">
+        <item>বর্গফুট</item>
+        <item>তিল</item>
+        <item>ক্রান্তি</item>
+        <item>কড়া</item>
+        <item>গন্ডা</item>
+        <item>শতক</item>
+        <item>কানি</item>
+    </string-array>
+</resources>

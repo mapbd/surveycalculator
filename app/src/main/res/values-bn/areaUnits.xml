@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="areaUnits">
+        <item>বর্গ সেন্টিমিটার (cm²)</item>
+        <item>বর্গ মিটার (m²)</item>
+        <item>বর্গ কিলোমিটার (km²)</item>
+        <item>হেক্টর (ha)</item>
+        <item>বর্গ ইঞ্চি (sq in)</item>
+        <item>বর্গ ফুট (sq ft)</item>
+        <item>বর্গ গজ (sq yd)</item>
+        <item>বর্গ মাইল (sq mi)</item>
+        <item>একর (ac)</item>
+    </string-array>
+</resources>

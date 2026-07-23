@@ -51,6 +51,16 @@ class AreaActivity : AppCompatActivity() {
         conversions["Square mile (sq mi)"] = BigDecimal("2589988.11")
         conversions["Acre (ac)"] = BigDecimal("4046.8564224")
 
+        conversions["বর্গ সেন্টিমিটার (cm²)"] = BigDecimal("0.0001")
+        conversions["বর্গ মিটার (m²)"] = BigDecimal("1")
+        conversions["বর্গ কিলোমিটার (km²)"] = BigDecimal("1000000")
+        conversions["হেক্টর (ha)"] = BigDecimal("10000")
+        conversions["বর্গ ইঞ্চি (sq in)"] = BigDecimal("0.00064516")
+        conversions["বর্গ ফুট (sq ft)"] = BigDecimal("0.09290304")
+        conversions["বর্গ গজ (sq yd)"] = BigDecimal("0.83612736")
+        conversions["বর্গ মাইল (sq mi)"] = BigDecimal("2589988.11")
+        conversions["একর (ac)"] = BigDecimal("4046.8564224")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 

@@ -48,5 +48,13 @@ class BdlandActivity : AppCompatActivity() {
         conversions["Gonda"] = BigDecimal("871.2")
         conversions["Shatak"] = BigDecimal("435.6")
         conversions["Kani"] = BigDecimal("17424")
+
+        conversions["বর্গফুট"] = BigDecimal("1")
+        conversions["তিল"] = BigDecimal("3.63")       // Fixed negative value
+        conversions["ক্রান্তি"] = BigDecimal("72.6")
+        conversions["কড়া"] = BigDecimal("217.8")
+        conversions["গন্ডা"] = BigDecimal("871.2")
+        conversions["শতক"] = BigDecimal("435.6")
+        conversions["কানি"] = BigDecimal("17424")
     }
 }

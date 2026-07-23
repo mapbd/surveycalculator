@@ -43,6 +43,15 @@ class MassActivity : AppCompatActivity() {
         conversions["US ton"] = BigDecimal("907184.74")
         conversions["Imperial ton"] = BigDecimal("1016046.9088")
 
+        conversions["মিলিগ্রাম (mg)"] = BigDecimal("0.001")
+        conversions["গ্রাম (g)"] = BigDecimal("1")
+        conversions["কিলোগ্রাম (kg)"] = BigDecimal("1000")
+        conversions["টন / মেট্রিক টন (t)"] = BigDecimal("1000000")
+        conversions["আউন্স (oz)"] = BigDecimal("28.349523125")
+        conversions["পাউন্ড (lb)"] = BigDecimal("453.59237")
+        conversions["ইউএস টন"] = BigDecimal("907184.74")
+        conversions["ইম্পেরিয়াল টন"] = BigDecimal("1016046.9088")
+
         val converter = Converter(input1, input2, unit1, unit2, conversions)
 
 
