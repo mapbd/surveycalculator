@@ -4,31 +4,6 @@ package org.map_bd.surveycalculator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.map_bd.surveycalculator.databinding.ActivityPaintBinding
-
-//class PaintActivity : AppCompatActivity() {
-//
-//    private lateinit var binding: ActivityPaintBinding
-//
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        binding = ActivityPaintBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        //binding.toolbar.title = "Home"
-////        setSupportActionBar(binding.toolbar)
-////        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//
-//
-//
-//
-//
-//    }
-//}
-
-
-
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
@@ -60,51 +35,38 @@ import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
+
 
 class PaintActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPaintBinding
     private var mImageButtonCurrentPaint:ImageButton?=null
     var customProgressDialog: Dialog? = null
 
-    val openGalleryLuncher:ActivityResultLauncher<Intent> =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-                result->
-
-            if(result.resultCode == RESULT_OK && result.data!= null){
+    // Launcher for picking images from gallery
+    private val openGalleryLauncher: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK && result.data != null) {
                 binding.ivBackground.setImageURI(result.data?.data)
             }
         }
 
-
-    val requestPermission:ActivityResultLauncher<Array<String>> =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){
-                permissions->
-            permissions.entries.forEach {
-                val permissionName = it.key
-                val isGranted =  it.value
-
-                if(isGranted){
-                    Toast.makeText(
-                        this,
-                        "Permission granted for location",
-                        Toast.LENGTH_LONG )
-                        .show()
-                    val pickIntent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    openGalleryLuncher.launch(pickIntent)
-                }
-                else{
-                    if(permissionName == Manifest.permission.READ_EXTERNAL_STORAGE){
-                        Toast.makeText(
-                            this,
-                            "Permission denied for storage",
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
-                    }
-
+    // Launcher for checking and requesting runtime permissions
+    private val requestPermissionLauncher: ActivityResultLauncher<Array<String>> =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            var isGranted = false
+            permissions.entries.forEach { entry ->
+                if (entry.value) {
+                    isGranted = true
                 }
             }
 
+            if (isGranted) {
+                Toast.makeText(this, "Permission granted for storage", Toast.LENGTH_LONG).show()
+                openGalleryIntent()
+            } else {
+                Toast.makeText(this, "Permission denied for storage", Toast.LENGTH_LONG).show()
+            }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -116,7 +78,7 @@ class PaintActivity : AppCompatActivity() {
         mImageButtonCurrentPaint = paintColors[1] as ImageButton
         mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.pallet_pressed))
 
-        binding.drawingView.setSizeForBrush(20.toFloat())
+        binding.drawingView.setSizeForBrush(20f)
 
         binding.brush.setOnClickListener {
             showBrushSizeChooserDialog()
@@ -124,7 +86,7 @@ class PaintActivity : AppCompatActivity() {
 
 
         binding.ibGallery.setOnClickListener {
-            requestStoragePermission()
+            handleGalleryPermission()
         }
 
 
@@ -133,192 +95,131 @@ class PaintActivity : AppCompatActivity() {
         }
 
         binding.ibSave.setOnClickListener {
-            showProgressDialog()
-            if(isReadStorageAllowed()){
-                lifecycleScope.launch{
-
+            // MediaStore doesn't require run-time permissions to save images on API 29+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q || isStoragePermissionGranted()) {
+                showProgressDialog()
+                lifecycleScope.launch {
                     saveBitmapFile(getBitmapFromView(binding.flDrawingViewContainer))
                 }
+            } else {
+                // Request legacy permission for API 28 and down
+                requestLegacyWritePermission()
             }
         }
     }
 
 
 
-    private fun showBrushSizeChooserDialog(){
-        val brushbinding = DialogBrushSizeBinding.inflate(layoutInflater)
+    private fun openGalleryIntent() {
+        val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        openGalleryLauncher.launch(pickIntent)
+    }
 
+    private fun getStoragePermissionString(): String {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Manifest.permission.READ_MEDIA_IMAGES
+        } else {
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        }
+    }
+
+    private fun isStoragePermissionGranted(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this, getStoragePermissionString()
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun handleGalleryPermission() {
+        val permission = getStoragePermissionString()
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+            showRationaleDialog(
+                "Storage Permission Needed",
+                "This app needs access to your gallery to load background images."
+            ) {
+                requestPermissionLauncher.launch(arrayOf(permission))
+            }
+        } else {
+            requestPermissionLauncher.launch(arrayOf(permission))
+        }
+    }
+
+    private fun requestLegacyWritePermission() {
+        val permission = Manifest.permission.WRITE_EXTERNAL_STORAGE
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+            showRationaleDialog(
+                "Storage Permission Needed",
+                "This app needs storage permission to save your drawings."
+            ) {
+                requestPermissionLauncher.launch(arrayOf(permission))
+            }
+        } else {
+            requestPermissionLauncher.launch(arrayOf(permission))
+        }
+    }
+
+    private fun showRationaleDialog(title: String, message: String, onPositiveClick: () -> Unit) {
+        AlertDialog.Builder(this)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton("Grant") { dialog, _ ->
+                onPositiveClick()
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
+    }
+
+    private fun showBrushSizeChooserDialog() {
+        val brushbinding = DialogBrushSizeBinding.inflate(layoutInflater)
         val brushDialog = Dialog(this)
         brushDialog.setContentView(brushbinding.root)
-
         brushDialog.setTitle("Brush Size:")
 
-        val smallBtn = brushbinding.ibSmallBrush
-        smallBtn.setOnClickListener {
-            binding.drawingView.setSizeForBrush(10.toFloat())
-
-            brushDialog.dismiss()
-
-        }
-
-
-        val mediumBtn = brushbinding.ibMediumBrush
-        mediumBtn.setOnClickListener {
-            binding.drawingView.setSizeForBrush(20.toFloat())
+        brushbinding.ibSmallBrush.setOnClickListener {
+            binding.drawingView.setSizeForBrush(10f)
             brushDialog.dismiss()
         }
-
-        val largeBtn = brushbinding.ibLargeBrush
-        largeBtn.setOnClickListener {
-            binding.drawingView.setSizeForBrush(30.toFloat())
+        brushbinding.ibMediumBrush.setOnClickListener {
+            binding.drawingView.setSizeForBrush(20f)
+            brushDialog.dismiss()
+        }
+        brushbinding.ibLargeBrush.setOnClickListener {
+            binding.drawingView.setSizeForBrush(30f)
             brushDialog.dismiss()
         }
         brushDialog.show()
-
-
-
     }
 
-
-
-    private fun isReadStorageAllowed():Boolean{
-        val result = ContextCompat.checkSelfPermission(this,
-            Manifest.permission.READ_EXTERNAL_STORAGE)
-
-        return result == PackageManager.PERMISSION_GRANTED
-    }
-
-    //iznin neden istendiğini belirten fonksiyon
-    private fun requestStoragePermission(){
-        //Android sistemi, kullanıcıya bir açıklama göstermenin gerekli
-        // olup olmadığına karar vermemizi kolaylaştıran bir metod sunmuştur:
-        // shouldShowRequestPermissionRationale() metodu true dönerse,
-        // kullanıcıya daha önceden
-        // android standart dialog’u gösterilmiş ve kullanıcı izni onaylamamıştır.
-        // Bu sebeple true döndüğü durumlarda önce iznin
-        // ne için gerekli olduğunu anlatan bir açıklama gösterilmesi
-        // ve kullanıcı bu açıklamayı onaylarsa standart izin dialog’una
-        // yönlendirilmesi gerekir. İzin kullanıcıdan ilk defa istenecekse
-        // ya da kullanıcı “Never ask again” durumu onaylanmışsa metod false
-        // döner.
-        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
-
-            showRationaleDialog("Drawing","Drawing" + "needs to Access Your External Storage")
-        }
-        else{
-            requestPermission.launch(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE))
-        }
-
-
-    }
-
-
-    fun paintClicked(view: View){
-        if(view !== mImageButtonCurrentPaint){
+    fun paintClicked(view: View) {
+        if (view !== mImageButtonCurrentPaint) {
             val imageButton = view as ImageButton
-
             val colorTag = imageButton.tag.toString()
             binding.drawingView.setColor(colorTag)
-
-            imageButton!!.setImageDrawable(ContextCompat.getDrawable
-                (this,R.drawable.pallet_pressed))
-
-            mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable
-                (this,R.drawable.pallet_normal))
-
-            mImageButtonCurrentPaint=view
-
+            imageButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.pallet_pressed))
+            mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.pallet_normal))
+            mImageButtonCurrentPaint = view
         }
-
-    }
-
-
-    private fun showRationaleDialog(
-        title: String,
-        message: String,) {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setTitle(title)
-            .setMessage(message)
-            .setPositiveButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
-            }
-        builder.create().show()
     }
 
     private fun getBitmapFromView(view: View): Bitmap {
-
-        //Define a bitmap with the same size as the view.
-        // CreateBitmap : Returns a mutable bitmap with the specified width and height
         val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-        //Bind a canvas to it
         val canvas = Canvas(returnedBitmap)
-        //Get the view's background
         val bgDrawable = view.background
         if (bgDrawable != null) {
-            //has background drawable, then draw it on the canvas
             bgDrawable.draw(canvas)
         } else {
-            //does not have background drawable, then draw white background on the canvas
             canvas.drawColor(Color.WHITE)
         }
-        // draw the view on the canvas
         view.draw(canvas)
-        //return the bitmap
         return returnedBitmap
     }
 
-//    private suspend fun saveBitmapFile(mBitmap :Bitmap?):String{
-//        var result =""
-//        withContext(Dispatchers.IO){
-//            if (mBitmap != null){
-//                try {
-//                    // FileOutputStream sınıfı,
-//                    // dosyalara veri (bayt cinsinden) yazmak için kullanılabilir.
-//                    var bytes = ByteArrayOutputStream()
-//                    mBitmap.compress(Bitmap.CompressFormat.PNG,90,bytes)
-////Cache Storage : Geçici dosyaların tutulduğu alandır.
-//// Uygulama kaldırıldığında bu kısımda bulunan dosyalar da silinir.
-//// Kısıtlı bir alan olduğundan buradaki dosyaları işimiz bitince silmeliyiz.
-//
-//
-///
-//
-////                         orginal location
-//                    val f = File(externalCacheDir?.absoluteFile.toString() + File.separator + "DrawingApp_"+ System.currentTimeMillis() /1000 + ".png")
-//                    val fo = FileOutputStream(f)
-//                    fo.write(bytes.toByteArray())
-//                    fo.close()
-//
-//                    result = f.absolutePath
-//
-//                    runOnUiThread {
-//                        cancelProgressDialog()
-//                        if(result.isNotEmpty()){
-//                            Toast.makeText(this@PaintActivity,
-//                                "File saved successfully:$result",
-//                                Toast.LENGTH_LONG
-//                            ).show()
-////                            shareImage(result)
-//                        }else{
-//                            Toast.makeText(this@PaintActivity,
-//                                "Something went wrong while saving the file",
-//                                Toast.LENGTH_LONG
-//                            ).show()
-//                        }
-//                    }
-//                }catch (e:Exception){
-//                    result = ""
-//                    e.printStackTrace()
-//                }
-//            }
-//        }
-//        return  result
-//    }
 
 
     private suspend fun saveBitmapFile(mBitmap: Bitmap?): String {
-
-
         var result = ""
         withContext(Dispatchers.IO) {
             if (mBitmap != null) {
@@ -326,18 +227,15 @@ class PaintActivity : AppCompatActivity() {
                     val bytes = ByteArrayOutputStream()
                     mBitmap.compress(Bitmap.CompressFormat.PNG, 90, bytes)
 
-                    val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+                    val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss", Locale.getDefault())
                     val currentDateAndTime = sdf.format(Date())
                     val fileName = "surveycalculator_$currentDateAndTime.png"
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        // Android 10 (API 29) and above: MediaStore Implementation
                         val contentValues = ContentValues().apply {
                             put(MediaStore.Images.Media.DISPLAY_NAME, fileName)
                             put(MediaStore.Images.Media.MIME_TYPE, "image/png")
-                            // Saves to public Pictures/Survey Calculator/Form folder
                             put(MediaStore.Images.Media.RELATIVE_PATH, "${Environment.DIRECTORY_PICTURES}/Survey Calculator/Paint")
-                            // Prevents other apps from reading the file while it is writing
                             put(MediaStore.Images.Media.IS_PENDING, 1)
                         }
 
@@ -347,48 +245,31 @@ class PaintActivity : AppCompatActivity() {
 
                         if (imageUri != null) {
                             resolver.openOutputStream(imageUri).use { outputStream ->
-                                if (outputStream != null) {
-                                    outputStream.write(bytes.toByteArray())
-                                    result = imageUri.toString() // Returns content:// URI string
-                                }
+                                outputStream?.write(bytes.toByteArray())
                             }
-
-                            // Release the pending status so other apps can now see the image
                             contentValues.clear()
                             contentValues.put(MediaStore.Images.Media.IS_PENDING, 0)
                             resolver.update(imageUri, contentValues, null, null)
+                            result = imageUri.toString()
                         }
                     } else {
-                        // Android 9 and below: Legacy File API Implementation
                         val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Paint")
                         if (!folder.exists()) {
                             folder.mkdirs()
                         }
-
                         val file = File(folder, fileName)
                         FileOutputStream(file).use { outputStream ->
                             outputStream.write(bytes.toByteArray())
                         }
-                        result = file.absolutePath // Returns traditional file path
+                        result = file.absolutePath
                     }
 
-                    // UI adjustments
                     withContext(Dispatchers.Main) {
                         cancelProgressDialog()
                         if (result.isNotEmpty()) {
-                            Toast.makeText(
-                                this@PaintActivity,
-                                "File saved successfully",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            // If you uncomment shareImage(result), make sure it accepts a URI string or File Path safely
-                            // shareImage(result)
+                            Toast.makeText(this@PaintActivity, "File saved successfully", Toast.LENGTH_LONG).show()
                         } else {
-                            Toast.makeText(
-                                this@PaintActivity,
-                                "Something went wrong while saving the file",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            Toast.makeText(this@PaintActivity, "Something went wrong saving the file", Toast.LENGTH_LONG).show()
                         }
                     }
                 } catch (e: Exception) {
@@ -421,23 +302,6 @@ class PaintActivity : AppCompatActivity() {
     }
 
 
-    private fun shareImage(result:String){
-        //medya tarayıcı hizmeti dosyadan meat verileri okuyacak
-        //ve dosyayı medya içerik sağlayıcısına ekleyecektir
-        MediaScannerConnection.scanFile(this, arrayOf(result),null){
-                path,uri ->
-//Uri (uniform resource identifier) yani nizami kaynak belirteci,
-// bir kaynağı ya da
-// veriyi isimlendirmek için kullanılan bir standarttır.
-            val shareIntent = Intent()
-            shareIntent.action = Intent.ACTION_SEND
-            shareIntent.putExtra(Intent.EXTRA_STREAM,uri)
-            shareIntent.type = "image/png"
-            //Uygulama seçim diyalogu gösterme
-             startActivity(Intent.createChooser(shareIntent,"Share"))
 
-        }
-
-    }
 
 }

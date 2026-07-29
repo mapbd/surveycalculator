@@ -1,8 +1,10 @@
 package org.map_bd.surveycalculator
 
+import android.Manifest.permission
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.pdf.PdfDocument
@@ -22,6 +24,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import java.io.File
 import java.io.FileOutputStream
@@ -32,6 +36,8 @@ import java.util.Date
 
 @Suppress("DEPRECATION")
 class InvoiceActivity : AppCompatActivity() {
+
+    private val REQUESTCODE = 100
 
 
 
@@ -105,12 +111,41 @@ class InvoiceActivity : AppCompatActivity() {
 
             it.isVisible = false
             val bitmap = createBitmapFromView(rootLayout)
-            saveBitmapAsPdf(bitmap)
+//            saveBitmapAsPdf(bitmap)
+
+
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (ContextCompat.checkSelfPermission(
+                        applicationContext,
+                        permission.READ_MEDIA_IMAGES
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    saveBitmapAsPdf(bitmap)
+                } else {
+                    requestAllPermission()
+                }
+            } else {
+                if (ContextCompat.checkSelfPermission(
+                        applicationContext,
+                        permission.READ_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(
+                        applicationContext,
+                        permission.WRITE_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    saveBitmapAsPdf(bitmap)
+                } else {
+                    requestAllPermission()
+                }
+            }
 
             back.visibility = View.VISIBLE
 
-//            createViewPDF()
+
         }
+
         back.setOnClickListener {
             val form = Intent(this,FormActivity::class.java);
             startActivity(form)
@@ -119,62 +154,7 @@ class InvoiceActivity : AppCompatActivity() {
 
     }
 
-    private fun createViewPDF() {
-        val screenWidth : Int
-        val screenHeight : Int
 
-        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
-        val currentDateAndTime = sdf.format(Date()).toString()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            screenWidth = windowManager.currentWindowMetrics.bounds.width()
-            screenHeight = windowManager.currentWindowMetrics.bounds.height()
-        } else {
-            val displayMetrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(displayMetrics)
-            screenWidth = displayMetrics.widthPixels
-            screenHeight = displayMetrics.heightPixels
-        }
-
-        val view = LayoutInflater.from(this).inflate(R.layout.invoice_activity, null)
-
-        view.measure(
-            View.MeasureSpec.makeMeasureSpec(screenWidth, View.MeasureSpec.EXACTLY),
-            View.MeasureSpec.makeMeasureSpec(screenHeight, View.MeasureSpec.EXACTLY)
-        )
-
-        view.layout(0, 0, screenWidth, screenHeight)
-
-        val pdfDocument = PdfDocument()
-        val pageInfo =  PageInfo.Builder(screenWidth, screenHeight, 1).create()
-        val page = pdfDocument.startPage(pageInfo)
-
-        view.draw(page.canvas)
-        pdfDocument.finishPage(page)
-
-//        val file = File(Environment..getExternalStorageDirectory(), "MyViewPDF.pdf")
-//        pdfDocument.writeTo(FileOutputStream(file))
-
-        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Form")
-        if (folder.exists()) {
-            d("folder", "exists")
-        } else {
-            d("folder", "not exists")
-            folder.mkdirs()
-        }
-
-
-        val file = File(folder,
-            "/Form_$currentDateAndTime.pdf"
-        )
-        try {
-            pdfDocument.writeTo(FileOutputStream(file))
-            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        pdfDocument.close()
-    }
 
 
     // Convert the XML layout view into a Bitmap image
@@ -186,54 +166,7 @@ class InvoiceActivity : AppCompatActivity() {
         return bitmap
     }
 
-//    private fun saveBitmapAsPdf(bitmap: Bitmap) {
-//        val pdfDocument = PdfDocument()
-//
-//        // Create page info matching the bitmap dimensions
-//        val pageInfo = PdfDocument.PageInfo.Builder(bitmap.width, bitmap.height, 1).create()
-//        val page = pdfDocument.startPage(pageInfo)
-//
-//        // Draw the bitmap onto the PDF page canvas
-//        val canvas = page.canvas
-//        canvas.drawBitmap(bitmap, 0f, 0f, null)
-//        pdfDocument.finishPage(page)
-//
-//        val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
-//        val currentDateAndTime = sdf.format(Date()).toString()
-//
-//        // Define file path (App-specific internal storage)
-////        val file = File(getExternalFilesDir(null), "ActivityLayout.pdf")
-////
-////        try {
-////            pdfDocument.writeTo(FileOutputStream(file))
-////            Toast.makeText(this, "PDF saved: ${file.absolutePath}", Toast.LENGTH_LONG).show()
-////        } catch (e: IOException) {
-////            e.printStackTrace()
-////            Toast.makeText(this, "Failed to generate PDF", Toast.LENGTH_SHORT).show()
-////        } finally {
-////            pdfDocument.close()
-//
-//        val folder = File(Environment.getExternalStorageDirectory(), "Survey Calculator/Form")
-//        if (folder.exists()) {
-//            d("folder", "exists")
-//        } else {
-//            d("folder", "not exists")
-//            folder.mkdirs()
-//        }
-//
-//
-//        val file = File(folder,
-//            "/Form_$currentDateAndTime.pdf"
-//        )
-//        try {
-//            pdfDocument.writeTo(FileOutputStream(file))
-//            Toast.makeText(this, "PDF saved to " + file.absolutePath, Toast.LENGTH_SHORT).show()
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//        }
-//        pdfDocument.close()
-//
-//    }
+
 
     private fun saveBitmapAsPdf(bitmap: Bitmap) {
         val pdfDocument = PdfDocument()
@@ -302,6 +235,38 @@ class InvoiceActivity : AppCompatActivity() {
         }
 
         pdfDocument.close()
+    }
+
+    private fun requestAllPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                this@InvoiceActivity,
+                arrayOf<String>(permission.READ_MEDIA_IMAGES),
+                REQUESTCODE
+            )
+        } else {
+            ActivityCompat.requestPermissions(
+                this@InvoiceActivity, arrayOf(
+                    permission.READ_EXTERNAL_STORAGE,
+                    permission.WRITE_EXTERNAL_STORAGE
+                ), REQUESTCODE
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUESTCODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this@InvoiceActivity, "Permission Granted", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 
