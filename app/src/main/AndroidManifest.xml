@@ -250,7 +250,7 @@
                 android:value=".LandActivity" />
         </activity>
         <activity
-            android:name=".land.AccurateLandCalculationActivity"
+            android:name=".AccurateLandCalculationActivity"
             android:exported="false"
             android:parentActivityName=".LandActivity">
             <meta-data
