@@ -141,8 +141,9 @@ class CameraActivity : AppCompatActivity() {
             setShadowLayer(4f, 2f, 2f, Color.BLACK) // Black border trace shadow for readability
         }
 
-        val textLine1 = "Lat: ${location?.latitude ?: "N/A"}"
-        val textLine2 = "Lon: ${location?.longitude ?: "N/A"}"
+        val textLine1 = "Survey Calculator Camera"
+        val textLine2 = "Lat: ${location?.latitude ?: "N/A"}"
+        val textLine3 = "Lon: ${location?.longitude ?: "N/A"}"
         val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(System.currentTimeMillis())
 
         // Margin parameters offset from bottom-right corner
@@ -154,6 +155,8 @@ class CameraActivity : AppCompatActivity() {
         canvas.drawText(textLine1, xOffset, currentY, paint)
         currentY += yOffsetStep
         canvas.drawText(textLine2, xOffset, currentY, paint)
+        currentY += yOffsetStep
+        canvas.drawText(textLine3, xOffset, currentY, paint)
         currentY += yOffsetStep
         canvas.drawText(timestamp, xOffset, currentY, paint)
 

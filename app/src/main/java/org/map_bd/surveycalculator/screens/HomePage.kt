@@ -264,14 +264,14 @@ fun HomePage(navController: NavHostController) {
                             )
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "My GitHub",
+                                text = "MapBD",
                                 color = if (isSystemInDarkTheme()) LightText else DarkText,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 24.sp
                             )
                             Spacer(modifier = Modifier.height(5.dp))
                             IconButton(
-                                onClick = { uriHandler.openUri("https://github.com/ndenicolais") },
+                                onClick = { uriHandler.openUri("https://github.com/mapbd") },
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.github_logo),

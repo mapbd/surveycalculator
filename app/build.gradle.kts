@@ -140,7 +140,7 @@ dependencies {
     //implementation ("com.uttampanchasara.pdfgenerator:pdfgenerator:1.3")
 
     //implementation("com.github.dangiashish:GeoTagImage:1.1.4")
-    implementation ("com.google.android.gms:play-services-location:21.1.0")
+    implementation ("com.google.android.gms:play-services-location:21.3.0")
 
 
     // Access old API

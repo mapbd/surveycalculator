@@ -300,6 +300,30 @@
 
 
 
+    <string name="title_heirs">উত্তরাধিকারীর তালিকা</string>
+    <string name="title_assets">সম্পদের বিবরণ</string>
+    <string name="lbl_husband">স্বামী</string>
+    <string name="lbl_wife">স্ত্রী</string>
+    <string name="lbl_father">পিতা</string>
+    <string name="lbl_mother">মাতা</string>
+    <string name="lbl_sons">পুত্র</string>
+    <string name="lbl_daughters">কন্যা</string>
+
+    <string name="hint_land">জমি (শতাংশ)</string>
+    <string name="hint_gold">স্বর্ণ (ভরি)</string>
+    <string name="hint_silver">রৌপ্য (ভরি)</string>
+    <string name="hint_cash">মুদ্রা (টাকা)</string>
+
+    <string name="btn_calculate">হিসাব করুন</string>
+    <string name="btn_export_pdf">পিডিএফ ডাউনলোড</string>
+    <string name="btn_lang_toggle">English</string>
+
+    <string name="heir_husband">স্বামী</string>
+    <string name="heir_wife">স্ত্রী</string>
+    <string name="heir_father">পিতা</string>
+    <string name="heir_mother">মাতা</string>
+    <string name="heir_son">পুত্র</string>
+    <string name="heir_daughter">কন্যা</string>
 
 
 </resources>

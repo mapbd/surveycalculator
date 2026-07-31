@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp">
+            <TextView
+                android:id="@+id/tvHeirTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Son (x2)"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#212121"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/tvHeirShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share: 33.33%"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvAllocatedAssets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Land: 12.5 Shatansh | Cash: 50,000 Taka"
+            android:textSize="13sp"
+            android:textColor="#666666"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

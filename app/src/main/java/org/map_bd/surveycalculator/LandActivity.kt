@@ -9,7 +9,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import org.map_bd.surveycalculator.databinding.ActivityLandBinding
-import org.map_bd.surveycalculator.land.AccurateLandCalculationActivity
+import org.map_bd.surveycalculator.AccurateLandCalculationActivity
 import org.map_bd.surveycalculator.land.CcircleActivity
 import org.map_bd.surveycalculator.land.CircleActivity
 import org.map_bd.surveycalculator.land.CosineRuleActivity

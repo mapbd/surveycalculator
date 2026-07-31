@@ -294,6 +294,30 @@
     <string name="keys11">Stopwatch, Counter, and Drawing Tools completes your applications field toolkit, giving amins and server the exact utility features needed for timing equipment, counting assets, and sketching plots onsite.</string>
 
 
+    <string name="title_heirs">Select Heirs</string>
+    <string name="title_assets">Estate Assets</string>
+    <string name="lbl_husband">Husband</string>
+    <string name="lbl_wife">Wives</string>
+    <string name="lbl_father">Father</string>
+    <string name="lbl_mother">Mother</string>
+    <string name="lbl_sons">Sons</string>
+    <string name="lbl_daughters">Daughters</string>
+
+    <string name="hint_land">Land (Shatansh)</string>
+    <string name="hint_gold">Gold (Bhori)</string>
+    <string name="hint_silver">Silver (Bhori)</string>
+    <string name="hint_cash">Cash (Taka)</string>
+
+    <string name="btn_calculate">Calculate Distribution</string>
+    <string name="btn_export_pdf">Export to PDF</string>
+    <string name="btn_lang_toggle">বাংলা</string>
+
+    <string name="heir_husband">Husband</string>
+    <string name="heir_wife">Wife</string>
+    <string name="heir_father">Father</string>
+    <string name="heir_mother">Mother</string>
+    <string name="heir_son">Son</string>
+    <string name="heir_daughter">Daughter</string>
 
 
 
