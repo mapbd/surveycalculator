@@ -181,6 +181,9 @@
 
     <string name="note">নোটবই</string>
 
+    <string name="ana_rot">ভরি আনা রতি</string>
+    <string name="gramtt">গ্রাম</string>
+
     <string name="ana_roti">ভরি আনা রতি পদ্ধতি</string>
     <string name="gramt">গ্রাম পদ্ধতি</string>
 
@@ -263,42 +266,75 @@
     <string name="smllaxis">ছোট অক্ষ</string>
 
 
-    <string name="abouts1">Welcome to Survey Calculator, your reliable mobile companion for precise, efficient, and fast field calculations. Built natively using Kotlin and modern Android architecture, this application is designed specifically for surveyors, civil engineers, contractors, and real estate professionals who need accurate geometric and geospatial data on the go.</string>
-    <string name="abouts2">In land surveying, precision is everything. Traditional field calculation methods can be slow and prone to human error. Our mission is to eliminate the guesswork by providing a robust, offline-capable digital toolkit that simplifies complex mathematical computations, allowing you to focus on getting the job done right.</string>
-    <string name="abouts3">We respect your privacy and data security.</string>
-    <string name="offline_desc">100% Offline Capability: </string>
-    <string name="offtext">All computations happen directly on your device. No internet connection is required, making it perfect for remote field locations.</string>
-    <string name="offtext2">Only Basemap require an active internet connection to load background tiles.</string>
-    <string name="datacollection">No Data Collection:</string>
-    <string name="datacollection2">We do not track, store, or share your geographical data or calculation history.</string>
+<!--    <string name="abouts1">Welcome to Survey Calculator, your reliable mobile companion for precise, efficient, and fast field calculations. Built natively using Kotlin and modern Android architecture, this application is designed specifically for surveyors, civil engineers, contractors, and real estate professionals who need accurate geometric and geospatial data on the go.</string>-->
+<!--    <string name="abouts2">In land surveying, precision is everything. Traditional field calculation methods can be slow and prone to human error. Our mission is to eliminate the guesswork by providing a robust, offline-capable digital toolkit that simplifies complex mathematical computations, allowing you to focus on getting the job done right.</string>-->
+<!--    <string name="abouts3">We respect your privacy and data security.</string>-->
+<!--    <string name="offline_desc">100% Offline Capability: </string>-->
+<!--    <string name="offtext">All computations happen directly on your device. No internet connection is required, making it perfect for remote field locations.</string>-->
+<!--    <string name="offtext2">Only Basemap require an active internet connection to load background tiles.</string>-->
+<!--    <string name="datacollection">No Data Collection:</string>-->
+<!--    <string name="datacollection2">We do not track, store, or share your geographical data or calculation history.</string>-->
 
-    <string name="key1">Different types of area calculation: </string>
-    <string name="key02">Different types of Unit: </string>
-    <string name="key2">Other Calculation: </string>
-    <string name="key3">GPS Tracker: </string>
-    <string name="key4">GeoTag Camera: </string>
-    <string name="key5">Compass: </string>
-    <string name="key6">Audio recorder: </string>
-    <string name="key7">Calculator: </string>
-    <string name="key8">NoteBook: </string>
-    <string name="key9">Unit Converter: </string>
-    <string name="key10">Data Collection Form: </string>
-    <string name="key11">Other Features: </string>
+<!--    <string name="key1">Different types of area calculation: </string>-->
+<!--    <string name="key02">Different types of Unit: </string>-->
+<!--    <string name="key2">Other Calculation: </string>-->
+<!--    <string name="key3">GPS Tracker: </string>-->
+<!--    <string name="key4">GeoTag Camera: </string>-->
+<!--    <string name="key5">Compass: </string>-->
+<!--    <string name="key6">Audio recorder: </string>-->
+<!--    <string name="key7">Calculator: </string>-->
+<!--    <string name="key8">NoteBook: </string>-->
+<!--    <string name="key9">Unit Converter: </string>-->
+<!--    <string name="key10">Data Collection Form: </string>-->
+<!--    <string name="key11">Other Features: </string>-->
 
-    <string name="keys1">Different types of area calculation can allow landowners, amins, server to measure any land shape accurately using standard international metrics or traditional Bangladeshi units.</string>
-    <string name="keys02">An integrated Local Unit Calculation provides invaluable localized utility, ensuring everyone can compute using the exact, historical regional systems native to their home districts. </string>
-    <string name="keys2">It has Steel Rod Calculation, Gold Calculation, Timber Calculation, Soil Calculation for helping users.</string>
-    <string name="keys3">A built-in GPS Tracker that records and stores GPX files locally offline adds massive value for field engineers, loggers, and surveyors who work in remote areas with zero cellular coverage.</string>
-    <string name="keys4">A built-in GeoTag Image feature provides users with definitive visual proof of their survey locations by embedding precise location metadata directly into the image file.</string>
-    <string name="keys5">A built-in Digital Compass provides users with immediate, offline orientation, which is help measuring land boundaries.</string>
-    <string name="keys6">A built-in Audio Recorder allows surveyors and field engineers to capture hands-free verbal notes, keeping their eyes on the project while preserving critical site details for future use.</string>
-    <string name="keys7">Integrating a Basic Calculator into the tool eliminates app-switching, allowing users to perform quick arithmetic directly alongside their specialized material and survey modules.</string>
-    <string name="keys8">An integrated Notebook allows field workers to write down critical observations, measurements, and project details in one secure place alongside their calculations and GPS data.</string>
-    <string name="keys9">An integrated Unit Converter completes your utility toolkit by allowing users to instantly translate measurements between different regional and international standards without leaving the app. </string>
-    <string name="keys10">A built-in Data Collection Form acts as the central data aggregator for your application, allowing field surveyors to compile all work info, calculations, and media into a professional project report that can be shared instantly with clients.</string>
-    <string name="keys11">Stopwatch, Counter, and Drawing Tools completes your applications field toolkit, giving Amins and server the exact utility features needed for timing equipment, counting assets, and sketching plots onsite.</string>
+<!--    <string name="keys1">Different types of area calculation can allow landowners, amins, server to measure any land shape accurately using standard international metrics or traditional Bangladeshi units.</string>-->
+<!--    <string name="keyss2">An integrated Local Unit Calculation provides invaluable localized utility, ensuring everyone can compute using the exact, historical regional systems native to their home districts. </string>-->
+<!--    <string name="keys2">It has Steel Rod Calculation, Gold Calculation, Timber Calculation, Soil Calculation for helping users.</string>-->
+<!--    <string name="keys3">A built-in GPS Tracker that records and stores GPX files locally offline adds massive value for field engineers, loggers, and surveyors who work in remote areas with zero cellular coverage.</string>-->
+<!--    <string name="keys4">A built-in GeoTag Image feature provides users with definitive visual proof of their survey locations by embedding precise location metadata directly into the image file.</string>-->
+<!--    <string name="keys5">A built-in Digital Compass provides users with immediate, offline orientation, which is help measuring land boundaries.</string>-->
+<!--    <string name="keys6">A built-in Audio Recorder allows surveyors and field engineers to capture hands-free verbal notes, keeping their eyes on the project while preserving critical site details for future use.</string>-->
+<!--    <string name="keys7">Integrating a Basic Calculator into the tool eliminates app-switching, allowing users to perform quick arithmetic directly alongside their specialized material and survey modules.</string>-->
+<!--    <string name="keys8">An integrated Notebook allows field workers to write down critical observations, measurements, and project details in one secure place alongside their calculations and GPS data.</string>-->
+<!--    <string name="keys9">An integrated Unit Converter completes your utility toolkit by allowing users to instantly translate measurements between different regional and international standards without leaving the app. </string>-->
+<!--    <string name="keys10">A built-in Data Collection Form acts as the central data aggregator for your application, allowing field surveyors to compile all work info, calculations, and media into a professional project report that can be shared instantly with clients.</string>-->
+<!--    <string name="keys11">Stopwatch, Counter, and Drawing Tools completes your applications field toolkit, giving Amins and server the exact utility features needed for timing equipment, counting assets, and sketching plots onsite.</string>-->
 
 
+
+    <string name="abouts1">সার্ভে ক্যালকুলেটরে (Survey Calculator) আপনাকে স্বাগতম, যা মাঠপর্যায়ের নিখুঁত, দক্ষ এবং দ্রুত হিসাব-নিকাশের জন্য আপনার নির্ভরযোগ্য মোবাইল সঙ্গী। কোটলিন (Kotlin) এবং আধুনিক অ্যান্ড্রয়েড আর্কিটেকচার ব্যবহার করে বিশেষভাবে তৈরি এই অ্যাপ্লিকেশনটি সার্ভেয়ার, সিভিল ইঞ্জিনিয়ার, ঠিকাদার এবং রিয়েল এস্টেট পেশাদারদের জন্য ডিজাইন করা হয়েছে, যাদের পথ চলতে চলতে সঠিক জ্যামিতিক এবং ভূ-স্থানিক (geospatial) তথ্যের প্রয়োজন হয়।</string>
+    <string name="abouts2">ভূমি জরিপের ক্ষেত্রে নিখুঁততাই সবকিছু। ঐতিহ্যগত মাঠপর্যায়ের হিসাব পদ্ধতিগুলো ধীরগতির এবং মানবসৃষ্ট ভুলের ঝুঁকিতে থাকে। আমাদের লক্ষ্য হলো একটি শক্তিশালী, অফলাইনে ব্যবহারোপযোগী ডিজিটাল টুলকিট প্রদানের মাধ্যমে এই অনুমানের নির্ভরতা দূর করা, যা জটিল গাণিতিক গণনাকে সহজ করে তোলে এবং আপনাকে আপনার কাজটি সঠিকভাবে সম্পন্ন করায় মনোযোগ দিতে সাহায্য করে।</string>
+    <string name="abouts3">আমরা আপনার গোপনীয়তা এবং ডেটা সুরক্ষাকে সম্মান করি।</string>
+    <string name="offline_desc">১০০% অফলাইন সুবিধা: </string>
+    <string name="offtext">সব ধরনের হিসাব-নিকাশ সরাসরি আপনার ডিভাইসেই সম্পন্ন হয়। কোনো ইন্টারনেট সংযোগের প্রয়োজন নেই, যা এটিকে দুর্গম মাঠপর্যায়ে ব্যবহারের জন্য একদম উপযোগী করে তুলেছে।</string>
+    <string name="offtext2">শুধুমাত্র ব্যাকগ্রাউন্ড টাইলস লোড করার জন্য বেসম্যাপে (Basemap) একটি সক্রিয় ইন্টারনেট সংযোগের প্রয়োজন হয়।</string>
+    <string name="datacollection">কোনো ডেটা সংগ্রহ করা হয় না:</string>
+    <string name="datacollection2">আমরা আপনার ভৌগোলিক অবস্থান সংক্রান্ত তথ্য বা হিসাব-নিকাশের ইতিহাস ট্র্যাক, সংরক্ষণ বা কারও সাথে শেয়ার করি না।</string>
+    <string name="key1">বিভিন্ন ধরণের ক্ষেত্রফল বা পরিমাপ গণনা: </string>
+    <string name="key02">বিভিন্ন ধরণের ইউনিট বা একক: </string>
+    <string name="key2">অন্যান্য হিসাব-নিকাশ: </string>
+    <string name="key3">জিপিএস ট্র্যাকার: </string>
+    <string name="key4">জিওট্যাগ ক্যামেরা: </string>
+    <string name="key5">কম্পাস : </string>
+    <string name="key6">অডিও রেকর্ডার : </string>
+    <string name="key7">ক্যালকুলেটর : </string>
+    <string name="key8">নোটবুক : </string>
+    <string name="key9">ইউনিট কনভার্টার : </string>
+    <string name="key10">ডেটা সংগ্রহের ফর্ম : </string>
+    <string name="key11">অন্যান্য ফিচারসমূহ: </string>
+    <string name="keys1">বিভিন্ন ধরণের ক্ষেত্রফল গণনার সুবিধাটি জমির মালিক, আমিন এবং সার্ভেয়ারদের আন্তর্জাতিক মানদণ্ড বা ঐতিহ্যবাহী বাংলাদেশি একক ব্যবহার করে যেকোনো আকৃতির জমি নিখুঁতভাবে পরিমাপ করার সুযোগ দেয়।</string>
+    <string name="keyss2">একটি সমন্বিত স্থানীয় একক গণনা (Local Unit Calculation) ব্যবস্থা অমূল্য আঞ্চলিক সুবিধা প্রদান করে, যা নিশ্চিত করে যে প্রত্যেকেই তাদের নিজস্ব জেলার একদম সঠিক এবং ঐতিহাসিক আঞ্চলিক পদ্ধতি ব্যবহার করে হিসাব করতে পারবেন।</string>
+    <string name="keys2">এতে ব্যবহারকারীদের সাহায্য করার জন্য রড (Steel Rod), সোনা (Gold), কাঠ (Timber) এবং মাটির (Soil) হিসাব-নিকাশের সুবিধা রয়েছে।</string>
+    <string name="keys3">একটি বিল্ট-ইন জিপিএস ট্র্যাকার, যা কোনো সেলুলার নেটওয়ার্ক বা ইন্টারনেট কভারেজ ছাড়াই দুর্গম এলাকায় কাজ করা ফিল্ড ইঞ্জিনিয়ার, লগার এবং সার্ভেয়ারদের জন্য জিপিএক্স (GPX) ফাইল স্থানীয়ভাবে অফলাইনে রেকর্ড ও সংরক্ষণ করে দারুণ সুবিধা দেয়।</string>
+    <string name="keys4">একটি বিল্ট-ইন জিওট্যাগ ইমেজ ফিচার সরাসরি ছবি ফাইলের মধ্যে নিখুঁত অবস্থানের মেটাডেটা যুক্ত করে ব্যবহারকারীদের তাদের জরিপ করা অবস্থানের সুনির্দিষ্ট দৃশ্যমান প্রমাণ সরবরাহ করে।</string>
+    <string name="keys5">একটি বিল্ট-ইন ডিজিটাল কম্পাস ব্যবহারকারীদের তাৎক্ষণিক, অফলাইন দিকনির্দেশনা প্রদান করে, যা জমির সীমানা পরিমাপ করতে সাহায্য করে।</string>
+    <string name="keys6">একটি বিল্ট-ইন অডিও রেকর্ডার সার্ভেয়ার এবং ফিল্ড ইঞ্জিনিয়ারদের হাত ব্যবহার না করেই মৌখিক নোট নেওয়ার সুবিধা দেয়, যার ফলে তারা ভবিষ্যতের জন্য প্রয়োজনীয় সাইটের গুরুত্বপূর্ণ তথ্য সংরক্ষণ করার পাশাপাশি প্রকল্পের কাজেও নজর রাখতে পারেন।</string>
+    <string name="keys7">টুলটির মধ্যে একটি বেসিক ক্যালকুলেটর যুক্ত থাকায় বারবার অ্যাপ পরিবর্তন করার ঝামেলা দূর হয়, ফলে ব্যবহারকারীরা তাদের বিশেষায়িত ম্যাটেরিয়াল এবং সার্ভে মডিউলের পাশাপাশি সরাসরি দ্রুত পাটিগণিতীয় হিসাব সম্পন্ন করতে পারেন।</string>
+    <string name="keys8">একটি সমন্বিত নোটবুক মাঠপর্যায়ের কর্মীদের তাদের হিসাব-নিকাশ এবং জিপিএস ডেটার পাশাপাশি এক নিরাপদ স্থানে গুরুত্বপূর্ণ পর্যবেক্ষণ, পরিমাপ এবং প্রকল্পের বিবরণ লিখে রাখার সুবিধা দেয়।</string>
+    <string name="keys9">একটি সমন্বিত ইউনিট কনভার্টার আপনার টুলকিটকে আরও পরিপূর্ণ করে তোলে, যা ব্যবহারকারীদের অ্যাপ থেকে বের না হয়েই তাৎক্ষণিকভাবে বিভিন্ন আঞ্চলিক এবং আন্তর্জাতিক মানদণ্ডের মধ্যে পরিমাপ রূপান্তর করতে সাহায্য করে।</string>
+    <string name="keys10">একটি বিল্ট-ইন ডেটা কালেকশন ফর্ম আপনার অ্যাপ্লিকেশনের কেন্দ্রীয় ডেটা সংগ্রহকারী হিসেবে কাজ করে, যা ফিল্ড সার্ভেয়ারদের কাজের সব তথ্য, হিসাব-নিকাশ এবং মিডিয়াকে একটি পেশাদার প্রকল্প প্রতিবেদনে রূপান্তর করার সুযোগ দেয়, যা ক্লায়েন্টদের সাথে তাৎক্ষণিকভাবে শেয়ার করা সম্ভব।</string>
+    <string name="keys11">স্টপওয়াচ, কাউন্টার এবং ড্রয়িং টুলস আপনার অ্যাপ্লিকেশনের মাঠপর্যায়ের টুলকিটকে সম্পূর্ণ করে, যা আমিন এবং সার্ভেয়ারদের অনসাইটে যন্ত্রপাতির সময় নির্ধারণ, সম্পদ গণনা এবং প্লটের খসড়া নকশা তৈরির জন্য প্রয়োজনীয় সঠিক সুবিধা প্রদান করে।</string>
 
     <string name="title_heirs">উত্তরাধিকারীর তালিকা</string>
     <string name="title_assets">সম্পদের বিবরণ</string>
@@ -324,6 +360,8 @@
     <string name="heir_mother">মাতা</string>
     <string name="heir_son">পুত্র</string>
     <string name="heir_daughter">কন্যা</string>
+
+    <string name="setting_title_res">সেটিংস</string>
 
 
 </resources>

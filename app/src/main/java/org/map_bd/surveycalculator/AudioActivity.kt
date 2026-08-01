@@ -2,6 +2,7 @@ package org.map_bd.surveycalculator
 
 import android.Manifest
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -19,6 +20,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import java.io.File
 
+@Suppress("DEPRECATION")
 class AudioActivity : ComponentActivity() {
     val recorderPlayer by lazy { RecorderPlayer(applicationContext) }
     val player by lazy { AudioPlayer(applicationContext) }
@@ -31,6 +33,11 @@ class AudioActivity : ComponentActivity() {
             this,
             arrayOf(Manifest.permission.RECORD_AUDIO),
             0
+        )
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
         val savedPaths = loadSavedFilePaths()

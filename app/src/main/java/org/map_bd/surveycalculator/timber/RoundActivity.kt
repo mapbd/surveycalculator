@@ -2,6 +2,7 @@ package org.map_bd.surveycalculator.timber
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -12,6 +13,7 @@ import org.map_bd.surveycalculator.R
 import androidx.appcompat.app.AppCompatActivity
 import org.map_bd.surveycalculator.databinding.ActivityRoundBinding
 
+@Suppress("DEPRECATION")
 class RoundActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRoundBinding
@@ -24,6 +26,11 @@ class RoundActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         var length = findViewById<EditText>(R.id.lengthId)
         var scope = findViewById<EditText>(R.id.scopeId)
@@ -43,7 +50,7 @@ class RoundActivity : AppCompatActivity() {
 
         binding.calculateId.setOnClickListener {
 
-            if (length.text.isEmpty() || scope.text.isEmpty() ||  price.text.isEmpty()) {
+            if (length.text.isEmpty() || scope.text.isEmpty()) {
                 Toast.makeText(this, "Please Fill the all field", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -51,7 +58,7 @@ class RoundActivity : AppCompatActivity() {
             var num1 = length.text.toString().toDoubleOrNull()
             var num2 = scope.text.toString().toDoubleOrNull()
 
-            var num5 = price.text.toString().toDoubleOrNull()
+            var num5 = price.text.toString().toDoubleOrNull() ?: 0.0
 
             if (num1 != null && num2 != null) {
                 var  n2 = num2 * num2

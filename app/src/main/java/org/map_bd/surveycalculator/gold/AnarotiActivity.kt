@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -19,6 +20,7 @@ import org.map_bd.surveycalculator.databinding.ActivityAnarotiBinding
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
 import org.map_bd.surveycalculator.databinding.ActivityGoldBinding
 
+@Suppress("DEPRECATION")
 class AnarotiActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAnarotiBinding
@@ -31,6 +33,11 @@ class AnarotiActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         val vori = findViewById<EditText>(R.id.et_vhori)
         val ana = findViewById<EditText>(R.id.et_ana)

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.map_bd.surveycalculator.databinding.ActivityAccurateLandCalculationBinding
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import org.map_bd.surveycalculator.EstateAssets
@@ -14,6 +15,7 @@ import org.map_bd.surveycalculator.PdfExportState
 import kotlin.getValue
 
 
+@Suppress("DEPRECATION")
 class AccurateLandCalculationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAccurateLandCalculationBinding
@@ -23,6 +25,11 @@ class AccurateLandCalculationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAccurateLandCalculationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         setupEventObservers()
         setupActionListeners()

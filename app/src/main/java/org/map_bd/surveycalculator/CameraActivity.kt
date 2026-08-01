@@ -34,10 +34,12 @@ import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import android.os.Environment
+import android.view.WindowManager
 import java.io.File
 import java.io.FileOutputStream
 import java.util.Date
 
+@Suppress("DEPRECATION")
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var viewFinder: PreviewView
@@ -50,6 +52,11 @@ class CameraActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         viewFinder = findViewById(R.id.viewFinder)
         imageCaptureButton = findViewById(R.id.imageCaptureButton)

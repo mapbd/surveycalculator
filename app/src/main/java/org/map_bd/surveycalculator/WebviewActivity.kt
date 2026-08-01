@@ -2,13 +2,14 @@ package org.map_bd.surveycalculator
 
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import org.map_bd.surveycalculator.databinding.ActivityWebviewBinding
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-
+@Suppress("DEPRECATION")
 class WebviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWebviewBinding
 
@@ -20,6 +21,11 @@ class WebviewActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
 
         val webView = findViewById<WebView>(R.id.webView)

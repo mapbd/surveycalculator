@@ -3,9 +3,11 @@ package org.map_bd.surveycalculator
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import org.map_bd.surveycalculator.databinding.ActivityStopwatchBinding
 
+@Suppress("DEPRECATION")
 class StopwatchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStopwatchBinding
@@ -37,9 +39,15 @@ class StopwatchActivity : AppCompatActivity() {
         binding = ActivityStopwatchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
 
         binding.startId.setOnClickListener {

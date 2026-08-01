@@ -18,6 +18,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -38,6 +39,7 @@ import java.util.Date
 import java.util.Locale
 
 
+@Suppress("DEPRECATION")
 class PaintActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPaintBinding
     private var mImageButtonCurrentPaint:ImageButton?=null
@@ -74,6 +76,11 @@ class PaintActivity : AppCompatActivity() {
         binding =ActivityPaintBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
         val paintColors = binding.paintColor
         mImageButtonCurrentPaint = paintColors[1] as ImageButton
         mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.pallet_pressed))

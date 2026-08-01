@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -28,6 +29,7 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 
+@Suppress("DEPRECATION")
 class InvoiceActivity : AppCompatActivity() {
 
     private val REQUESTCODE = 100
@@ -39,6 +41,11 @@ class InvoiceActivity : AppCompatActivity() {
         // enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.invoice_activity)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         val sdf = SimpleDateFormat("dd-MM-yyyy")
         val currentDateAndTime = sdf.format(Date()).toString()

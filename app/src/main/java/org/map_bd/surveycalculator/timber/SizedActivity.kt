@@ -4,6 +4,7 @@ package org.map_bd.surveycalculator.timber
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.LinearLayout
@@ -14,6 +15,7 @@ import android.widget.EditText
 import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.databinding.ActivitySizedBinding
 
+@Suppress("DEPRECATION")
 class SizedActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySizedBinding
@@ -27,7 +29,10 @@ class SizedActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
 
         var length = findViewById<EditText>(R.id.lengthId)
@@ -49,7 +54,7 @@ class SizedActivity : AppCompatActivity() {
 
         binding.calculateId.setOnClickListener {
 
-            if (length.text.isEmpty() || width.text.isEmpty() || thickness.text.isEmpty() || quntity.toString().isEmpty() || price.text.isEmpty()) {
+            if (length.text.isEmpty() || width.text.isEmpty() || thickness.text.isEmpty() || quntity.toString().isEmpty()) {
                 Toast.makeText(this, "Please Fill the all field", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -58,7 +63,7 @@ class SizedActivity : AppCompatActivity() {
             var num2 = width.text.toString().toDoubleOrNull()
             var num3 = thickness.text.toString().toDoubleOrNull()
             var num4 = quntity.text.toString().toDoubleOrNull()
-            var num5 = price.text.toString().toDoubleOrNull()
+            var num5 = price.text.toString().toDoubleOrNull() ?: 0.0
 
             if (num1 != null && num2 != null && num3 != null && num4 != null) {
                 var sum = (num1 * num2 * num3 * num4)/144

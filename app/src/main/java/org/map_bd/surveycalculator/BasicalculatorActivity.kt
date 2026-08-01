@@ -1,6 +1,7 @@
 package org.map_bd.surveycalculator
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -34,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import org.map_bd.surveycalculator.ui.theme.CalculatorAppTheme
 import org.mariuszgromada.math.mxparser.Expression
 
+@Suppress("DEPRECATION")
 class BasicalculatorActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,10 @@ class BasicalculatorActivity : ComponentActivity() {
                 }
             }
         }
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
     }
 }
 

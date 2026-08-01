@@ -2,11 +2,13 @@ package org.map_bd.surveycalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Spinner
 import org.map_bd.surveycalculator.databinding.ActivitySpeedBinding
 import java.math.BigDecimal
 
+@Suppress("DEPRECATION")
 class SpeedActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySpeedBinding
@@ -24,6 +26,11 @@ class SpeedActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         input1 = findViewById(R.id.input1_speed)
         input2 = findViewById(R.id.input2_speed)

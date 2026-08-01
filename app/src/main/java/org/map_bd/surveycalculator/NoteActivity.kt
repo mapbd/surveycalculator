@@ -15,6 +15,7 @@ import org.map_bd.surveycalculator.repository.NoteRepository
 import org.map_bd.surveycalculator.viewmodel.NoteViewModel
 import org.map_bd.surveycalculator.viewmodel.NoteViewModelFactory
 
+@Suppress("DEPRECATION")
 class NoteActivity : AppCompatActivity() {
 
     lateinit var noteViewModel: NoteViewModel
@@ -29,6 +30,11 @@ class NoteActivity : AppCompatActivity() {
         setupViewModel()
 
         changeStatusBarColor("#46449B") // Replace with your desired color code
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
     }
 
     private fun changeStatusBarColor(color: String) {

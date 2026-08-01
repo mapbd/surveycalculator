@@ -3,6 +3,25 @@
     <style name="Base.Theme.SurveyCalculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@color/background</item>
     </style>
     <style name="Theme.SurveyCalculator" parent="Base.Theme.SurveyCalculator" />
+
+    <style name="Base.Theme.SotMAsia2024" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/myperple</item>
+        <item name="colorPrimaryVariant">@color/myperple</item>
+        <item name="android:statusBarColor">@color/myperple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+    </style>
+
+    <style name="Theme.SotMAsia2024" parent="Base.Theme.SotMAsia2024" />
+
+
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
 </resources>

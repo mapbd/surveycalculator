@@ -22,6 +22,7 @@ import android.util.DisplayMetrics
 import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -90,6 +91,11 @@ class FormActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         var title =findViewById<EditText>(R.id.titleId)
         var mouza =findViewById<EditText>(R.id.mouzaId)

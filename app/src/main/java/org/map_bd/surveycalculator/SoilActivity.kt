@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.map_bd.surveycalculator.databinding.ActivityGenarelBinding
 import org.map_bd.surveycalculator.databinding.ActivitySoilBinding
+import kotlin.text.toDoubleOrNull
 
 @Suppress("DEPRECATION")
 class SoilActivity : AppCompatActivity() {
@@ -55,7 +56,7 @@ class SoilActivity : AppCompatActivity() {
 
         binding.calculateId.setOnClickListener {
 
-            if (length.text.isEmpty() || width.text.isEmpty() || hight.text.isEmpty() || price.text.isEmpty()) {
+            if (length.text.isEmpty() || width.text.isEmpty() || hight.text.isEmpty()) {
                 Toast.makeText(this, "Please Fill the all field", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -63,7 +64,7 @@ class SoilActivity : AppCompatActivity() {
             var num1 = length.text.toString().toDoubleOrNull()
             var num2 = width.text.toString().toDoubleOrNull()
             var num3 = hight.text.toString().toDoubleOrNull()
-            var num4 = price.text.toString().toDoubleOrNull()
+            var num4 = price.text.toString().toDoubleOrNull() ?: 0.0
 
             if (num1 != null && num2 != null && num3 != null) {
                 var sum = (num1 * num2 * num3)

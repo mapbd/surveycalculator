@@ -2,6 +2,7 @@ package org.map_bd.surveycalculator
 
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,7 +13,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import org.map_bd.surveycalculator.R.*
 import org.map_bd.surveycalculator.databinding.ActivityMainBinding
-
+import java.util.Locale
 
 
 @Suppress("DEPRECATION")
@@ -38,6 +39,19 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        // Force English/Saved locale check before UI drawing
+        val preferences = getSharedPreferences("Settings", MODE_PRIVATE)
+        val language = preferences.getString("App_lang", "en") ?: "en"
+
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val configuration = Configuration()
+        configuration.setLocale(locale)
+        baseContext.resources.updateConfiguration(configuration, baseContext.resources.displayMetrics)
+
+        // Now safe to inflate layout
+        // binding = ActivityMainBinding.inflate(layoutInflater) ...
 
         binding.landId.setOnClickListener{
             val land = Intent(this,LandActivity::class.java);
@@ -91,6 +105,8 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }
+
+
 
     private fun openFragment(fragment: Fragment){
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()

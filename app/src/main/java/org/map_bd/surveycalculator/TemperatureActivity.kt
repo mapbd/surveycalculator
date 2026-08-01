@@ -2,6 +2,7 @@ package org.map_bd.surveycalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Spinner
 import org.map_bd.surveycalculator.databinding.ActivityTemperatureBinding
@@ -9,6 +10,7 @@ import java.math.BigDecimal
 import java.math.MathContext
 import java.math.RoundingMode
 
+@Suppress("DEPRECATION")
 class TemperatureActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTemperatureBinding
@@ -26,6 +28,11 @@ class TemperatureActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         input1 = findViewById(R.id.input1_temperature)
         input2 = findViewById(R.id.input2_temperature)

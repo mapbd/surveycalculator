@@ -247,4 +247,9 @@
     <color name="random">#A349B1</color>
 
 
+    <color name="primary">#46449B</color>
+    <color name="background">#FFFFFF</color>
+    <color name="text_color">#000000</color>
+
+
 </resources>

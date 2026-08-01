@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.map_bd.surveycalculator.databinding.ActivityUconverterBinding
 import android.view.View
+import android.view.WindowManager
 
 
+@Suppress("DEPRECATION")
 class UconverterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUconverterBinding
@@ -23,7 +25,10 @@ class UconverterActivity : AppCompatActivity() {
     setSupportActionBar(binding.toolbar)
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         binding.buttonareaId.setOnClickListener{
             val area = Intent(this, AreaActivity::class.java);

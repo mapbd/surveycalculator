@@ -3,6 +3,7 @@ package org.map_bd.surveycalculator.gold
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.databinding.ActivityGramBinding
 
+@Suppress("DEPRECATION")
 class GramActivity : AppCompatActivity() {
 
     val gramsPerVori = 11.664
@@ -30,6 +32,11 @@ class GramActivity : AppCompatActivity() {
         //binding.toolbar.title = "Home"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         val goldwt = findViewById<EditText>(R.id.et_shonar_ojon_sub)
         val voridam = findViewById<EditText>(R.id.et_proti_vhorir_dam_sub)

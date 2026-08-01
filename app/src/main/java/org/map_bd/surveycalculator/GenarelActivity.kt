@@ -82,7 +82,7 @@ class GenarelActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_new, menu)
         return true
     }
 
@@ -92,14 +92,14 @@ class GenarelActivity : AppCompatActivity() {
                 finish()
                 return true
             }
-            R.id.settingId -> {
-                val settings = Intent(this,SettingActivity::class.java);
-                startActivity(settings)
-            }
-            R.id.aboutId -> {
-                val about = Intent(this,AboutActivity::class.java);
-                startActivity(about)
-            }
+//            R.id.settingId -> {
+//                val settings = Intent(this,SettingActivity::class.java);
+//                startActivity(settings)
+//            }
+//            R.id.aboutId -> {
+//                val about = Intent(this,AboutActivity::class.java);
+//                startActivity(about)
+//            }
             R.id.basicCal ->{
                 val calculator = Intent(this,BasicalculatorActivity::class.java);
                 startActivity(calculator)

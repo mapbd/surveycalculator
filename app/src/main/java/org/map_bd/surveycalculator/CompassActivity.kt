@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager.PERMISSION_DENIED
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ import org.map_bd.surveycalculator.preference.PreferenceStore
 
 private const val TAG = "CompassActivity"
 
+@Suppress("DEPRECATION")
 class CompassActivity : AppCompatActivity() {
     private val accessLocationPermissionRequest = registerAccessLocationPermissionRequest()
 
@@ -39,6 +41,11 @@ class CompassActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_compass)
         setSupportActionBar(binding.toolbar)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         val navController = getNavController()
         appBarConfiguration = AppBarConfiguration(navController.graph)

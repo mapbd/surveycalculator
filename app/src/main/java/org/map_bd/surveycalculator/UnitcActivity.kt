@@ -2,9 +2,11 @@ package org.map_bd.surveycalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import org.map_bd.surveycalculator.databinding.ActivityUnitcBinding
 import java.math.BigDecimal
 
+@Suppress("DEPRECATION")
 class UnitcActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUnitcBinding
@@ -20,6 +22,11 @@ class UnitcActivity : AppCompatActivity() {
         // Setup action bar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         // Populate conversion map with correct positive values (English & Bangla)
         initializeConversions()
