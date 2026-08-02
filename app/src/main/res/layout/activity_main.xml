@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/title_land"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/title_gold"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/title_rod"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/title_timber"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -187,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/title_soil"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -218,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/title_genarel"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

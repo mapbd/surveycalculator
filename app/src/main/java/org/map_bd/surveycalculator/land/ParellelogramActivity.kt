@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -18,7 +19,7 @@ import org.map_bd.surveycalculator.CompassActivity
 import org.map_bd.surveycalculator.R
 import org.map_bd.surveycalculator.databinding.ActivityParellelogramBinding
 
-
+@Suppress("DEPRECATION")
 class ParellelogramActivity : AppCompatActivity() {
     private lateinit var binding: ActivityParellelogramBinding
 
@@ -31,6 +32,11 @@ class ParellelogramActivity : AppCompatActivity() {
         //binding.toolbar.title = "Land"
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         var leanth1 =findViewById<EditText>(R.id.length1Id)
         var leanth2 =findViewById<EditText>(R.id.length2Id)
@@ -62,10 +68,11 @@ class ParellelogramActivity : AppCompatActivity() {
                 var kat = (sum / 720)
                 var lnk = (sum * 2.30)
 
-                sqrfeet.text = ("$sum")
-                decemol.text = ("$dec")
-                katha.text = ("$kat")
-                sqrlink.text = ("$lnk")
+
+                sqrfeet.text = String.format("%.2f",sum)
+                decemol.text = String.format("%.2f",dec)
+                katha.text = String.format("%.2f",kat)
+                sqrlink.text = String.format("%.2f",lnk)
             } else {
                 Toast.makeText(this, "Please add only number", Toast.LENGTH_SHORT).show()
             }
@@ -100,30 +107,30 @@ class ParellelogramActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_new, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
-                finish()
-                return true
-            }
-            R.id.aboutId -> {
-                val about = Intent(this,AboutActivity::class.java);
-                startActivity(about)
-            }
-            R.id.basicCal ->{
-                val calculator = Intent(this,BasicalculatorActivity::class.java);
-                startActivity(calculator)
-            }
-            R.id.compassId ->{
-                val compass = Intent(this,CompassActivity::class.java);
-                startActivity(compass)
-            }
-        }
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_new, menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when(item.itemId){
+//            android.R.id.home ->{
+//                finish()
+//                return true
+//            }
+//            R.id.aboutId -> {
+//                val about = Intent(this,AboutActivity::class.java);
+//                startActivity(about)
+//            }
+//            R.id.basicCal ->{
+//                val calculator = Intent(this,BasicalculatorActivity::class.java);
+//                startActivity(calculator)
+//            }
+//            R.id.compassId ->{
+//                val compass = Intent(this,CompassActivity::class.java);
+//                startActivity(compass)
+//            }
+//        }
+//        return true
+//    }
 }

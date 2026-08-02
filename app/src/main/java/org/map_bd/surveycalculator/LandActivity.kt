@@ -62,7 +62,7 @@ class LandActivity : AppCompatActivity() {
             startActivity(square)
             // onBackPressed()
         }
-        binding.parellogramId.setOnClickListener{
+        binding.rhombusId.setOnClickListener{
             val parellogram = Intent(this, ParellelogramActivity ::class.java);
             startActivity(parellogram)
             // onBackPressed()
@@ -115,36 +115,36 @@ class LandActivity : AppCompatActivity() {
             startActivity(ccircle)
             // onBackPressed()
         }
-        binding.ellipseId.setOnClickListener{
-            val ellipse = Intent(this, EllipseActivity ::class.java);
-            startActivity(ellipse)
-            // onBackPressed()
-        }
-        binding.landdisId.setOnClickListener{
-            val distribution = Intent(this, DistributionoflandActivity ::class.java);
-            startActivity(distribution)
-            // onBackPressed()
-        }
-        binding.khatianId.setOnClickListener{
-            val khatian = Intent(this, KhatianCalculatorActivity ::class.java);
-            startActivity(khatian)
-            // onBackPressed()
-        }
+//        binding.ellipseId.setOnClickListener{
+//            val ellipse = Intent(this, EllipseActivity ::class.java);
+//            startActivity(ellipse)
+//            // onBackPressed()
+//        }
+//        binding.landdisId.setOnClickListener{
+//            val distribution = Intent(this, DistributionoflandActivity ::class.java);
+//            startActivity(distribution)
+//            // onBackPressed()
+//        }
+//        binding.khatianId.setOnClickListener{
+//            val khatian = Intent(this, KhatianCalculatorActivity ::class.java);
+//            startActivity(khatian)
+//            // onBackPressed()
+//        }
         binding.unitId.setOnClickListener{
             val unit = Intent(this, UnitChangeActivity ::class.java);
             startActivity(unit)
             // onBackPressed()
         }
-        binding.multipletriId.setOnClickListener{
-            val multiple = Intent(this, MultipleTrianglesActivity ::class.java);
-            startActivity(multiple)
-            // onBackPressed()
-        }
-        binding.accurateId.setOnClickListener{
-            val accurate = Intent(this, AccurateLandCalculationActivity ::class.java);
-            startActivity(accurate)
-            // onBackPressed()
-        }
+//        binding.multipletriId.setOnClickListener{
+//            val multiple = Intent(this, MultipleTrianglesActivity ::class.java);
+//            startActivity(multiple)
+//            // onBackPressed()
+//        }
+//        binding.accurateId.setOnClickListener{
+//            val accurate = Intent(this, AccurateLandCalculationActivity ::class.java);
+//            startActivity(accurate)
+//            // onBackPressed()
+//        }
 
     }
 

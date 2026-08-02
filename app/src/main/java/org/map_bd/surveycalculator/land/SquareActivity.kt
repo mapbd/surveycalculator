@@ -16,6 +16,7 @@ import android.util.Log.d
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -59,6 +60,11 @@ class SquareActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
 
         imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.header_image)
         scaledImageBitmap = imageBitmap?.let { Bitmap.createScaledBitmap(it, 720, 257, false) }
@@ -92,10 +98,11 @@ class SquareActivity : AppCompatActivity() {
                 var kat = (sum / 720)
                 var lnk = (sum * 2.30)
 
-                sqrfeet.text = ("$sum")
-                decemol.text = ("$dec")
-                katha.text = ("$kat")
-                sqrlink.text = ("$lnk")
+
+                sqrfeet.text = String.format("%.2f",sum)
+                decemol.text = String.format("%.2f",dec)
+                katha.text = String.format("%.2f",kat)
+                sqrlink.text = String.format("%.2f",lnk)
             } else {
                 Toast.makeText(this, "Please add only number", Toast.LENGTH_SHORT).show()
             }
@@ -118,50 +125,50 @@ class SquareActivity : AppCompatActivity() {
             result.visibility = View.GONE
         }
 
-        binding.printId.setOnClickListener {
-
-            var num1 = leanth1.text.toString()
-//            var num2 = leanth1.text.toString()
-//            var num3 = leanth1.text.toString()
-//            var num4 = leanth1.text.toString()
-
-            var dece = decemol.text.toString()
-            var sqrf = sqrfeet.text.toString()
-            var kata = katha.text.toString()
-            var sqrlin = sqrlink.text.toString()
-
-
-            val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
-            val currentDateAndTime = sdf.format(Date()).toString()
-
-
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (ContextCompat.checkSelfPermission(
-                        applicationContext,
-                        permission.READ_MEDIA_IMAGES
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    createPDF(currentDateAndTime,num1,dece,sqrf,kata,sqrlin)
-                } else {
-                    requestAllPermission()
-                }
-            } else {
-                if (ContextCompat.checkSelfPermission(
-                        applicationContext,
-                        permission.READ_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(
-                        applicationContext,
-                        permission.WRITE_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    createPDF(currentDateAndTime,num1,dece,sqrf,kata,sqrlin)
-                } else {
-                    requestAllPermission()
-                }
-            }
-        }
+//        binding.printId.setOnClickListener {
+//
+//            var num1 = leanth1.text.toString()
+////            var num2 = leanth1.text.toString()
+////            var num3 = leanth1.text.toString()
+////            var num4 = leanth1.text.toString()
+//
+//            var dece = decemol.text.toString()
+//            var sqrf = sqrfeet.text.toString()
+//            var kata = katha.text.toString()
+//            var sqrlin = sqrlink.text.toString()
+//
+//
+//            val sdf = SimpleDateFormat("dd-MM-yyyy HH-mm-ss")
+//            val currentDateAndTime = sdf.format(Date()).toString()
+//
+//
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//                if (ContextCompat.checkSelfPermission(
+//                        applicationContext,
+//                        permission.READ_MEDIA_IMAGES
+//                    ) == PackageManager.PERMISSION_GRANTED
+//                ) {
+//                    createPDF(currentDateAndTime,num1,dece,sqrf,kata,sqrlin)
+//                } else {
+//                    requestAllPermission()
+//                }
+//            } else {
+//                if (ContextCompat.checkSelfPermission(
+//                        applicationContext,
+//                        permission.READ_EXTERNAL_STORAGE
+//                    ) == PackageManager.PERMISSION_GRANTED &&
+//                    ContextCompat.checkSelfPermission(
+//                        applicationContext,
+//                        permission.WRITE_EXTERNAL_STORAGE
+//                    ) == PackageManager.PERMISSION_GRANTED
+//                ) {
+//                    createPDF(currentDateAndTime,num1,dece,sqrf,kata,sqrlin)
+//                } else {
+//                    requestAllPermission()
+//                }
+//            }
+//        }
 
 
 
@@ -179,28 +186,28 @@ class SquareActivity : AppCompatActivity() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_new, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
-                finish()
-                return true
-            }
-            R.id.basicCal ->{
-                val calculator = Intent(this,BasicalculatorActivity::class.java);
-                startActivity(calculator)
-            }
-            R.id.compassId ->{
-                val compass = Intent(this,CompassActivity::class.java);
-                startActivity(compass)
-            }
-        }
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_new, menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when(item.itemId){
+//            android.R.id.home ->{
+//                finish()
+//                return true
+//            }
+//            R.id.basicCal ->{
+//                val calculator = Intent(this,BasicalculatorActivity::class.java);
+//                startActivity(calculator)
+//            }
+//            R.id.compassId ->{
+//                val compass = Intent(this,CompassActivity::class.java);
+//                startActivity(compass)
+//            }
+//        }
+//        return true
+//    }
 
 
     private fun createPDF(currentDateAndTime: String, num1:String,dece: String,sqrf:String, kata: String, sqrlin: String) {

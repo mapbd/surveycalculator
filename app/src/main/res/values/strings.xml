@@ -20,15 +20,20 @@
 
 
 
-    <string name="oblong">Oblong</string>
+    <string name="oblong">Ractangular</string>
     <string name="square">Square</string>
-    <string name="parellelogram">Parellelogram</string>
+    <string name="rhombus">Rhombus</string>
+    <string name="parellelogram">Parallelogram</string>
     <string name="trapezium">Trapezium</string>
+    <string name="equiangular">Equiangular</string>
+
+
+
     <string name="cosine">Cosine Rule</string>
-    <string name="heron">Heron"'"s Rule</string>
+    <string name="heron">Heron"'"s Formula</string>
     <string name="rtriangle">Right triangle</string>
     <string name="parabola">Parabola</string>
-    <string name="ccircle">Circle Diameter</string>
+    <string name="ccircle">SemiEllipse</string>
     <string name="circle">Circle</string>
     <string name="ellipse">Ellipse</string>
     <string name="ldistribution">Land Distribution</string>

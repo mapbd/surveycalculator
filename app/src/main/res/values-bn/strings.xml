@@ -18,15 +18,20 @@
     <string name="title_soil">মাটির হিসাব</string>
     <string name="title_genarel">জরিপ যন্ত্র</string>
 
-    <string name="oblong">আয়তাকার</string>
+    <string name="oblong">আয়তকার</string>
     <string name="square">বর্গাকার</string>
-    <string name="parellelogram">সামান্তরিক</string>
-    <string name="trapezium">ট্রাপিজিয়াম</string>
+    <string name="rhombus">রম্বস</string>
+    <string name="parellelogram">সমান্তরিক</string>
+    <string name="trapezium">ট্রাফেজিয়াম</string>
+    <string name="equiangular">সমকোণী ত্রিভূজ</string>
+
+
+
     <string name="cosine">কোসাইন ফর্মূলা</string>
     <string name="heron">হেরন্স ফর্মুলা</string>
     <string name="rtriangle">সমকোণী ত্রিভুজ</string>
     <string name="parabola">পরাবৃত্ত</string>
-    <string name="ccircle">বৃত্তাবাস</string>
+    <string name="ccircle">উপবৃত্ত</string>
     <string name="circle">বৃত্তাকার</string>
     <string name="ellipse">উপবৃত্ত</string>
     <string name="ldistribution">জমির বন্টন</string>

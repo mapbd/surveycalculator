@@ -13,7 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         app:titleTextColor="@color/white"
-        app:title="@string/parellelogram"
+        app:title="@string/rhombus"
         android:background="@color/myperple"
         tools:ignore="MissingConstraints" />
 
@@ -22,27 +22,31 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_marginTop="5dp"
-                android:text="@string/parellelogram_Input"
-                android:gravity="center"
-                android:textSize="15sp"
+<!--            <TextView-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:text="@string/parellelogram_Input"-->
+<!--                android:gravity="center"-->
+<!--                android:textSize="15sp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+<!--            <TextView-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:text="@string/instraction"-->
+<!--                android:gravity="center"-->
+<!--                android:textSize="15sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/brickRedColor"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginTop="5dp"
-                android:text="@string/instraction"
-                android:gravity="center"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/brickRedColor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="120dp"
+                android:background="@color/white"
+                android:src="@drawable/lrombo"/>
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -60,7 +64,7 @@
                         style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/parellelogram_land"
+                        android:hint="Base"
                         android:layout_margin="0dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/length1Id"
@@ -246,11 +250,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                                    <Button
-                                        android:id="@+id/printId"
-                                        android:text="PDF"
-                                        android:layout_width="150dp"
-                                        android:layout_height="wrap_content"/>
+<!--                                    <Button-->
+<!--                                        android:id="@+id/printId"-->
+<!--                                        android:text="PDF"-->
+<!--                                        android:layout_width="150dp"-->
+<!--                                        android:layout_height="wrap_content"/>-->
 
                 </LinearLayout>
 
